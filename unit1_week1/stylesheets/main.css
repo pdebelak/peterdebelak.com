@@ -63,10 +63,16 @@ footer p {
   float: right;
   padding-right: 1em;
 }
-a {
+header a {
   color: white;
 }
-a:hover {
+footer a {
+  color: white;
+}
+header a:hover {
+  color: yellow;
+}
+footer a:hover {
   color: yellow;
 }
 @media (max-width: 700px) {
