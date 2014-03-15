@@ -1,0 +1,44 @@
+div {
+  padding: 5px;
+  border: black;
+}
+#header {
+  background-color: blue;
+  width: 98%;
+  float: left;
+  height: 100px;
+  margin-bottom: 5px;
+}
+#footer {
+  background-color: blue;
+  width: 98%;
+  float: left;
+  height: 100px;
+  margin-top: 5px;
+}
+#sidebar {
+  background-color: black;
+  margin-right: auto;
+  width: 38%;
+  float: left;
+  color: white;
+  height: 300px;
+}
+#content {
+  background-color: yellow;
+  margin-left: auto;
+  width: 58%;
+  float: right;
+  height: 300px;
+}
+.yellow {
+  color: yellow;
+}
+a:link {color:green;}
+a:visited {color:blue;}
+a:hover {color:red;}
+a:active {color:black;}
+p.caption {
+  position: absolute;
+  top: 300px;
+}
