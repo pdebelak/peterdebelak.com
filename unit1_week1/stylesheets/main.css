@@ -1,0 +1,76 @@
+header {
+  background-color: black;
+  width: 100%;
+  color: white;
+  position: relative;
+  top: -0.75em;
+  border-radius: 5px;
+  font-family: Arial;
+}
+header img {
+  padding: 5px;
+}
+header a {
+  float: right;
+  padding-top: 5em;
+  padding-right: 1em;
+  padding-left: 6em;
+}
+#body {
+  width: 100%;
+  padding-bottom: 5px;
+  font-family: Arial;
+}
+#left {
+  float: left;
+  width: 67%;
+}
+#left h1, p {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#right {
+  float: right;
+  width: 33%;
+}
+#right p {
+  padding-left: 1em;
+}
+#right img {
+  padding-right: 5px;
+  min-height: 150px;
+  width: 100%;
+  height: auto;
+}
+footer {
+  background-color: black;
+  width: 100%;
+  color: white;
+  min-height: 3em;
+  font-size: 1em;
+  float: left;
+  border-radius: 5px;
+  font-family: Arial;
+}
+footer p {
+  text-align: left;
+  float: left;
+  padding: 1px;
+  padding-left: 1em;
+}
+#contact {
+  text-align: right;
+  float: right;
+  padding-right: 1em;
+}
+a {
+  color: white;
+}
+a:hover {
+  color: yellow;
+}
+@media (max-width: 700px) {
+  #right {
+    display: none;
+  }
+}
