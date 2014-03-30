@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../unit1_week1/stylesheets/blog.css">
+    <title>Peter Debelak DBC Blog</title>
+  </head>
+  <body>
+    <header>
+      <img src="../unit1_week1/images/logo.png">
+      <a href="../unit1_week1/blog.html">Blog</a>
+      <a href="../index.html">Home</a>
+    </header>
+    <div id="body">
+      <div id="left">
+        <h1>Peter Debelak Blog</h1>
+        <h2>Looping in Ruby</h2>
+          <p>When you first get into Ruby you'll keep discovering that there is more than one way to do almost anything. This can be really bewildering. When should I use .dup? When should I use .clone? Frequently it makes no difference in your code. There are sometimes reasons to choose one method over another, though. Today I'll be talking about the ways to loop and when to use them.</p>
+          <p>When it comes to looping, there are two main ways to loop. One way is for an indeterminate number of times, which is done with while and until loops. Other times, you will want to loop a specific number of times. For that you will use for, each, or times.</p>
+        <h3>While loops</h3>
+          <p>The basic syntax of while is: while *conditional* is true do *something* end. This means you want a piece of code to run as long as some condition is met. Make sure that something in your code will eventually cause that condition to no longer be true to avoid an infinite loop.</p>
+        <h3>Until loops</h3>
+          <p>Until loops are very similar to while loops. In fact, I think every until loop could just as easily be written as a while loop (and vice versa). Take a look at these two pieces of code:</p>
+          <code>&nbsp;&nbsp;while i != 5 do<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;puts i<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;i += 1<br>
+          &nbsp;&nbsp;end<br>
+          <br>
+          &nbsp;&nbsp;until i == 5 do<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;puts i<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;i += 1<br>
+          &nbsp;&nbsp;end<br></code>
+          <p>These loops do the same thing, but which would you choose? The second one is much more natural. In general, you should prefer the loop with a positive statement. So, rather than doing something while i does not equal 5, it is preferable to do something until i is equal to 5. Good Ruby code reads as much like normal English as possible so that can be our guide here.</p>
+        <h3>For loops</h3>
+          <p>Sometimes rather than doing something until a condition is met, you want to do something a specific number of times. The most general type of loop that does this is the for loop. The syntax is for *variable* in *range* do *something* end. This will execute the code once for each item in the range.</p>
+        <h3>Each loops</h3>
+          <p>Each is very similar to for but with a different syntax. The syntax is *array or hash*.each do *something* end This will run the code for each item in the array or hash. This syntax is generally preferable if you are iterating over each item in an array or hash since it is clearer than a for loop. Generally, if you are in a situation where you <em>can</em> use each you should use it instead of for.</p>
+        <h3>Times loops</h3>
+          <p>Sometimes you just want to do something exactly a certain number of times. This is what times is for. The syntax is *number*.times do *something* end.</p>
+          <p>Our guide for these types of loops is as follows: Are we saying that we want to do something a certain number of times? Use times. Are we doing some thing once to each item in a group (i.e. array or hash)? Use each. Are we iterating though something in a range? Use for.</p>
+          <p>I hope now you have a better grasp of looping in Ruby. Each time you write a loop, just look and see if you could write it in a clearer way using a different type of loop. Are you really doing something while something is true, or are you waiting until something is true? Are you doing something a certain number of times or are you doing something for each of something? Take a moment to think about this and your Ruby code will be better, clearer, and more idiomatic.</p>
+      </div>
+      <div id="right">
+        <h3>My Posts</h3>
+        <ul>
+          <li><a href="../unit1_week1/week1_favoritewebsites.html">My Favorite Websites</a></li>
+          <li><a href="../unit1_week2/week2_technical.html">Why Javascript is so Popular</a></li>
+          <li><a href="../unit1_week2/week2_cultural_blog.html">Exploring My Values</a></li>
+          <li><a href="week3_technical.html">Looping in Ruby</a></li>
+          <li><a href="week3_cultural_blog.html">Pairing and Feedback</a></li>
+        </ul>
+        <h3>Other Blogs</h3>
+        <ul>
+          <li><a href="http://bikesnobnyc.blogspot.com/">Bike Snob</a></li>
+          <li><a href="http://joshreads.com/">Comics Curmudgeon</a></li>
+          <li><a href="http://the-toast.net/">The Toast</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>copyright 2014 by Peter Debelak</p>
+      <p id="contact"><a href="mailto:pdebelak@gmail.com">Email me</a> with any questions or comments.</p>
+    </footer>
+  </body>
+</html>

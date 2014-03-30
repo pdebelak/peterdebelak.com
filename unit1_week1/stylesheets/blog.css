@@ -95,3 +95,10 @@ th {
 strong {
   background-color: yellow;
 }
+code {
+  background-color: "LightGray"
+  text-indent: 1em;
+}
+code #indented {
+  text-indent: 2em;
+}
