@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../unit1_week1/stylesheets/blog.css">
+    <title>Peter Debelak DBC Blog</title>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html"><img src="../unit1_week1/images/logo.png"></a>
+      <a href="../unit1_week1/blog.html" id="link">Blog</a>
+    </header>
+    <div id="body">
+      <div id="left">
+        <h1>Peter Debelak Blog</h1>
+        <h2>Fun with Ruby Classes</h2>
+          <p>Classes are an important part of Ruby. What is a class and how should it be used? Let's say you have a cat. A cat is not a class. But your cat is an <em>instance</em> of the class Cat. That's a good example. Let's take a look.</p>
+        <h3>Creating a new class</h3>
+          <p>The least you need to do to create a new class is this:</p>
+          <code>
+            &nbsp;&nbsp;class Cat<br>
+            &nbsp;&nbsp;end
+          </code>
+          <p>Looks great! But it doesn't really <em>do</em> anything yet.</p>
+        <h3>Initializing initialization sequence</h3>
+          <p>To add a little bit more to the class, let's set up what happens right away when an instance of the class is created. We do that with an initialize method.</p>
+          <code>
+            &nbsp;&nbsp;class Cat<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def initialize(name, color, age)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@name = name<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color = color<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@age = age<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;end
+          </code>
+          <p>Now when we create a new cat, we can assign the name, color, and age of that cat. Wondering what is with those @ symbols? Those mean that @name and the like are instance variables. They are different for each instance of that class, but each instance has those variables.</p>
+        <h3>Other methods</h3>
+          <p>Maybe we want the cat to be able to do some things. That seems appropriate. Every good cat can cuddle and shed. Let's make sure our cats can do this.</p>
+          <code>
+            &nbsp;&nbsp;class Cat<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def initialize(name, color, age)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@name = name<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color = color<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@age = age<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def cuddle<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"#{@name} cuddles with all the cuddling knowledge learned in #{@age} years."<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def shed<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"#{@name} gets #{@color} hair over everything you own."<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;end
+          </code>
+          <p>I think that about covers all the important tasks a cat must perform.</p>
+        <h3>Putting it all together</h3>
+          <p>Okay! Now let's make a couple instances of the Cat class. We'll use my cats as examples.</p>
+          <code>
+            &nbsp;&nbsp;ash = Cat.new("Ash", "gray and white", 9)<br>
+            &nbsp;&nbsp;mabbus = Cat.new("Mabbus", "black", 19)
+          </code>
+          <p>Now that they are created, we can call the above methods!</p>
+          <code>
+            &nbsp;&nbsp;ash.cuddle # returns "Ash cuddles with all the cuddling knowledge learned in 9 years."<br>
+            &nbsp;&nbsp;ash.shed # returns "Ash gets gray and white hair over everything you own."<br>
+            &nbsp;&nbsp;mabbus.cuddle # returns "Mabbus cuddles with all the cuddling knowledge learned in 19 years."<br>
+            &nbsp;&nbsp;mabbus.shed # returns "Mabbus gets black hair over everything you own."
+          </code>
+          <p>Makes sense? Great!</p>
+          <p>Classes are an important way in Ruby to avoid a lot of unnecessary repetition in your code. If you find that you have a bunch of objects that need to have similar attributes and perform similar tasks (methods) then think about creating a class for those objects.</p>
+      </div>
+      <div id="right">
+        <h3>My Posts</h3>
+        <ul>
+          <li><a href="../unit1_week1/week1_favoritewebsites.html">My Favorite Websites</a></li>
+          <li><a href="week2_technical.html">Why Javascript is so Popular</a></li>
+          <li><a href="week2_cultural_blog.html">Exploring My Values</a></li>
+          <li><a href="../unit1_week3/week3_technical.html">Looping in Ruby</a></li>
+          <li><a href="../unit1_week3/week3_cultural_blog.html">Pairing and Feedback</a></li>
+          <li><a href="week4_technical.html">Map it out in Ruby</a></li>
+          <li><a href="week4_cultural_blog.html">Conflict Resolution</a></li>
+          <li><a href="week5_technical.html">Fun with Ruby Classes</a></li>
+          <li><a href="week5_cultural_blog.html">Sexism in the Tech Industry</a></li>
+        </ul>
+        <h3>Other Blogs</h3>
+        <ul>
+          <li><a href="http://bikesnobnyc.blogspot.com/">Bike Snob</a></li>
+          <li><a href="http://joshreads.com/">Comics Curmudgeon</a></li>
+          <li><a href="http://the-toast.net/">The Toast</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>copyright 2014 by Peter Debelak</p>
+      <p id="contact"><a href="mailto:pdebelak@gmail.com">Email me</a> with any questions or comments.</p>
+    </footer>
+  </body>
+</html>

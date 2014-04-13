@@ -10,11 +10,11 @@ header {
 header img {
   padding: 5px;
 }
-header a {
+#link {
   float: right;
-  padding-top: 5em;
+  padding-top: 3em;
   padding-right: 1em;
-  padding-left: 6em;
+  font-size: 1.5em;
 }
 #body {
   width: 100%;
@@ -41,6 +41,13 @@ header a {
   min-height: 150px;
   width: 100%;
   height: auto;
+}
+#right a {
+  font-size: 1.2em;
+  color: black;
+}
+#right a:hover {
+  color: gray;
 }
 footer {
   background-color: black;
