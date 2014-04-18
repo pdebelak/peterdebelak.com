@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../unit1_week1/stylesheets/main.css">
+    <title>Peter Debelak DBC Blog</title>
+  </head>
+  <body>
+    <header>
+      <a href="../../index.html"><img src="../../unit1_week1/images/logo1.png"></a>
+      <a href="../index.html" id="link">Blog</a>
+    </header>
+    <div id="body">
+      <div id="left">
+        <h1>Peter Debelak Blog</h1>
+        <h2>Mapping it out - the map method in Ruby</h2>
+          <p>Sometimes you want to do the same thing to every item in an array or hash. As always in Ruby, there is more than one way to accomplish this. If you want your outcome to be an array, though, it is likely that map is your best bet.</p>
+        <h3>How Map works</h3>
+          <p>Let's say we are working with an array called hats:</p>
+          <code>&nbsp;&nbsp;hats = ["bowler", "top", "baseball"]</code>
+          <p>I'm already excited! If you are excited, too, maybe you want to indicate this by adding an exclamation point to each item. You could do it like this:</p>
+          <code>
+            &nbsp;&nbsp;excited_hats = []<br>
+            &nbsp;&nbsp;hats.each do |hat|<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;excited_hats << hat + "!"<br>
+            &nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;# output<br>
+            &nbsp;&nbsp;excited_hats = ["bowler!", "top!", "baseball!"]
+          </code>
+          <p>That's all well and good, but there is a better way. Let's do that same thing with map:</p>
+          <code>
+            &nbsp;&nbsp;hats.map { |hat| hat + "!" }<br>
+            &nbsp;&nbsp;# output<br>
+            &nbsp;&nbsp;["bowler!", "top!", "baseball!"]
+          </code>
+          <p>That's much better!</p>
+        <h3>Hey! How about hashes?</h3>
+          <p>I'm glad you asked. With hashes, the output is an array, just like when you map on an array. Let's see an example:</p>
+          <code>
+            &nbsp;&nbsp;best_hash_ever = { "a"=>1, "b"=>2, "c"=>3, "d"=>4 }<br>
+            &nbsp;&nbsp;best_hash_ever.map { |letter, number| letter * number }<br>
+            &nbsp;&nbsp;# output<br>
+            &nbsp;&nbsp;["a", "bb", "ccc", "dddd"]
+          </code>
+          <p>Makes sense? It looks so clean and clear!</p>
+        <h3>What's the deal with collect?</h3>
+          <p>You may occasionally see the .collect method in Ruby and it looks suspiciously like .map. What's the deal? The two are actually identical. I said that there is more than one way to do things in Ruby, and I really wasn't joking.</p>
+          <p>When you want to do something to each item in an array or hash and you want your output to be an array, map is the perfect method. Next time you are doing .each, quickly think if .map might be a bit better.</p>
+      </div>
+      <div id="right">
+        <h3>My Posts</h3>
+        <ul>
+          <li><a href="week1_favoritewebsites.html">My Favorite Websites</a></li>
+          <li><a href="week2_technical.html">Why Javascript is so Popular</a></li>
+          <li><a href="week2_cultural_blog.html">Exploring My Values</a></li>
+          <li><a href="week3_technical.html">Looping in Ruby</a></li>
+          <li><a href="week3_cultural_blog.html">Pairing and Feedback</a></li>
+          <li><a href="week4_technical.html">Map it out in Ruby</a></li>
+          <li><a href="week4_cultural_blog.html">Conflict Resolution</a></li>
+          <li><a href="week5_technical.html">Fun with Ruby Classes</a></li>
+          <li><a href="week5_cultural_blog.html">Sexism in the Tech Industry</a></li>
+        </ul>
+        <h3>Other Blogs</h3>
+        <ul>
+          <li><a href="http://bikesnobnyc.blogspot.com/">Bike Snob</a></li>
+          <li><a href="http://joshreads.com/">Comics Curmudgeon</a></li>
+          <li><a href="http://the-toast.net/">The Toast</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>copyright 2014 by Peter Debelak</p>
+      <p id="contact"><a href="mailto:pdebelak@gmail.com">Email me</a> with any questions or comments.</p>
+    </footer>
+  </body>
+</html>
