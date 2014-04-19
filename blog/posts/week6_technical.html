@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../unit1_week1/stylesheets/main.css">
+    <title>Peter Debelak DBC Blog</title>
+  </head>
+  <body>
+    <header>
+      <a href="../../index.html"><img src="../../unit1_week1/images/logo1.png"></a>
+      <a href="../index.html" id="link">Blog</a>
+    </header>
+    <div id="body">
+      <div id="left">
+        <h1>Peter Debelak Blog</h1>
+          <h2>Comparing Object-Oriented and Functional Programming</h2>
+            <p>There are many programming paradigms out there and it can be hard to understand their differences, especially if all of your programming experience falls under the same paradigm. I have only worked in object-oriented languages so I wanted to take some time to research functional programming and see how the two compare.</p>
+          <h3>Object-Oriented Programming</h3>
+            <p>In object-oriented programming you create objects that have data and behavior embedded in them. So, you might have a Circle class that stores all the behavior and types of information that all circles have. Then, if you need a circle you create one, inputting the information specific to that specific circle. Make sense? Probably not! We will have some examples in a bit.</p>
+          <h3>Functional Programming</h3>
+            <p>Functional programming separates data and behavior. The way it does this is to ensure that each function (i.e. behavior) always outputs the same thing with the same input. This means that if you want to change the output, you need to input different data. Okay, now we really need some examples.</p>
+          <h3>Okay, fine. Examples</h3>
+            <p>We will talk about circles. In Ruby (the object-oriented language I am most familiar with), if you want to make circles and find their area you might do this:</p>
+            <code>
+            &nbsp;&nbsp;class Circle<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def initialize(radius)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@radius = radius<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def area<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Math::PI * @radius * @radius<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+            &nbsp;&nbsp;end</code>
+            <p>Then we can create a circle with a given radius:</p>
+            <code>&nbsp;&nbsp;circ = Circle.new(3)</code>
+            <p>and calling <code>circ.area</code> will give us the area.</p>
+            <p>How about functional programming? We'll just stick in Ruby for this, but functional programming generally is done in a function language (Haskell is popular).</p>
+            <code>
+            &nbsp;&nbsp;def circle_area(radius)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Math:PI * radius * radius<br>
+            &nbsp;&nbsp;end</code>
+            <p>What happened here? How is this not the same as above? It is pretty much the same, except you notice that the function is not part of a class. It will always give the same output for the same input, whereas with the circle class we might do <code>circ.radius = 2</code> and all of the sudden calling <code>circ.area</code> gives us a different answer. In object-oriented programming we care about the object, whereas in functional programming we care about the function. If we want to get the area of a circle with a different radius, we just call the circle_area function again with new input. It is not important if it is the same circle shrunk down or a new circle.</p> 
+            <p>Neither of these approaches is better or worse, although there are certain programming situations for which one of these paradigms seems better suited. (Note: I just love the word paradigm! I feel like college professor.) Some people feel that functional programming is the way of the future, though, so it might be best to feel comfortable in both object-oriented and functional programming.</p>
+      </div>
+      <div id="right">
+        <h3>Blog Posts</h3>
+        <h3>Technical</h3>
+        <ul>
+          <li><a href="week1_favoritewebsites.html">My Favorite Websites</a></li>
+          <li><a href="week2_technical.html">Why Javascript is so Popular</a></li>
+          <li><a href="week3_technical.html">Looping in Ruby</a></li>
+          <li><a href="week4_technical.html">Map it out in Ruby</a></li>
+          <li><a href="week5_technical.html">Fun with Ruby Classes</a></li>
+          <li><a href="week6_technical.html">Object-Oriented and Functional Programming</a></li>
+        </ul>
+        <h3>Cultural</h3>
+        <ul>
+          <li><a href="week2_cultural_blog.html">Exploring My Values</a></li>
+          <li><a href="week3_cultural_blog.html">Pairing and Feedback</a></li>
+          <li><a href="week4_cultural_blog.html">Conflict Resolution</a></li>
+          <li><a href="week5_cultural_blog.html">Sexism in the Tech Industry</a></li>
+          <li><a href="week6_cultural_blog.html">Stereotype Threat</a></li>
+        </ul>
+        <h3>Other Blogs</h3>
+        <ul>
+          <li><a href="http://bikesnobnyc.blogspot.com/">Bike Snob</a></li>
+          <li><a href="http://joshreads.com/">Comics Curmudgeon</a></li>
+          <li><a href="http://the-toast.net/">The Toast</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>copyright 2014 by Peter Debelak</p>
+      <p id="contact"><a href="mailto:pdebelak@gmail.com">Email me</a> with any questions or comments.</p>
+    </footer>
+  </body>
+</html>
