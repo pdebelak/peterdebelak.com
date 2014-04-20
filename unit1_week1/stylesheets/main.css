@@ -27,7 +27,7 @@ header img {
 }
 #left h1, p {
   padding-left: 1em;
-  padding-right: 1em;
+  padding-right: 3em;
 }
 #right {
   float: right;
