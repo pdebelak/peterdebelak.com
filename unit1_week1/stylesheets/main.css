@@ -70,6 +70,11 @@ footer p {
   float: right;
   padding-right: 1em;
 }
+#postnav {
+  text-align: center;
+  padding-bottom: 1em;
+  font-size: 0.75em;
+}
 header a {
   color: white;
 }

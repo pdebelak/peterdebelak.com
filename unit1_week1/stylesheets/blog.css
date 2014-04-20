@@ -49,6 +49,9 @@ header img {
 #right a:hover {
   color: gray;
 }
+#postnav {
+  text-align: center;
+}
 footer {
   background-color: black;
   width: 100%;
