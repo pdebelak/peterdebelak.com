@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../unit1_week1/stylesheets/main.css">
+    <title>Peter Debelak DBC Blog</title>
+  </head>
+  <body>
+    <header>
+      <a href="../../index.html"><img src="../../unit1_week1/images/logo1.png"></a>
+      <a href="../index.html" id="link">Blog</a>
+    </header>
+    <div id="body">
+      <div id="left">
+        <h1>Peter Debelak Blog</h1>
+          <h2>SQL Injection</h2>
+            <p>Almost every website that stores any information has a database that it communicates with through SQL. When you take user input and use that to create a SQL statement on your database, though, you can open your data up to what is known as an SQL injection attack unless you take precautions.</p>
+          <h3>What is SQL injection?</h3>
+            <p>Let's say you have a blogging website and you allow a user to click on a link to see all of his posts. Seems reasonable, right? You might have that link run a query like <code>select posts from posts where username='[Whatever the user's username is]'</code> to see those posts. What if the user set his username to <code>Peter';DROP TABLE posts;</code>? That would delete the entire table containing all user's posts in the database. That is a disaster for any website. It is also possible to use a similar attack to see all the information in a table. Any table containing email addresses would be bad to allow out. Imagine having a table with social security numbers or credit card numbers!</p>
+          <h3>Prevention</h3>
+            <p>There are quite a few ways to fight against this, and it probably isn't a bad idea to use more than one. Here are a few:</p>
+            <ul>
+              <li>Store the user input in placeholder variables that can only store data of a specific type. Thus a strange username like the one listed above would be rejected.</li>
+              <li>Prevent certain symbols from appearing in the input, specifically things that have meaning in SQL.</li>
+              <li>Check if the input matches a certain pattern (especially useful for telephone nubmers or email addresses).</li>
+            </ul>
+            <p>The essential thing is to not just pass any user input directly to your database without some way of confirming that the user is not adding SQL statements of their own.</p>
+          <h3>Lessons</h3>
+            <p>SQL is a standardized language that virtually everyone uses. This is great! If only everything coding related was this standardized! This introduces the problem, though, of every hacker knowing exactly how to communicate with your database. By carefully paying attention to this problem, though, you should be able to avoid any SQL injection attacks.</p>
+            <div id="postnav"><a href="week6_technical.html">previous technical post</a> - <a href="week7_technical.html">next technical post</a></div>
+      </div>
+      <div id="right">
+        <h3>Blog Posts</h3>
+        <h3>Technical</h3>
+        <ul>
+          <li><a href="week1_favoritewebsites.html">My Favorite Websites</a></li>
+          <li><a href="week2_technical.html">Why Javascript is so Popular</a></li>
+          <li><a href="week3_technical.html">Looping in Ruby</a></li>
+          <li><a href="week4_technical.html">Map it out in Ruby</a></li>
+          <li><a href="week5_technical.html">Fun with Ruby Classes</a></li>
+          <li><a href="week6_technical.html">Object-Oriented and Functional Programming</a></li>
+          <li><a href="week7_technical.html">SQL Injection</a></li>
+        </ul>
+        <h3>Cultural</h3>
+        <ul>
+          <li><a href="week2_cultural_blog.html">Exploring My Values</a></li>
+          <li><a href="week3_cultural_blog.html">Pairing and Feedback</a></li>
+          <li><a href="week4_cultural_blog.html">Conflict Resolution</a></li>
+          <li><a href="week5_cultural_blog.html">Sexism in the Tech Industry</a></li>
+          <li><a href="week6_cultural_blog.html">Stereotype Threat</a></li>
+          <li><a href="week7_cultural_blog.html">Importance of Values</a></li>
+        </ul>
+        <h3>Other Blogs</h3>
+        <ul>
+          <li><a href="http://bikesnobnyc.blogspot.com/">Bike Snob</a></li>
+          <li><a href="http://joshreads.com/">Comics Curmudgeon</a></li>
+          <li><a href="http://the-toast.net/">The Toast</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>copyright 2014 by Peter Debelak</p>
+      <p id="contact"><a href="mailto:pdebelak@gmail.com">Email me</a> with any questions or comments.</p>
+    </footer>
+  </body>
+</html>
