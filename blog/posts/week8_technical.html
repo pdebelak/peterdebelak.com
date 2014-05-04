@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../unit1_week1/stylesheets/main.css">
+    <title>Peter Debelak DBC Blog</title>
+  </head>
+  <body>
+    <header>
+      <a href="../../index.html"><img src="../../unit1_week1/images/logo1.png"></a>
+      <a href="../index.html" id="link">Blog</a>
+    </header>
+    <div id="body">
+      <div id="left">
+        <h1>Peter Debelak Blog</h1>
+          <h2>Big O Complexity and Notation</h2>
+            <p>When you aren't sure of how big the input of a method or function (we'll just stick with the term method right now) is, you have to be aware of Big O Complexity.</p>
+          <h3>What is Big O Complexity?</h3>
+            <p>The core of Big O Complexity is looking at how quickly a method runs depending on the given input. You might have a method that works perfectly when the input is two arrays with 3 items in them each, but how does it run with 1,000,000 items in each array? That might be an extreme difference, but some methods handle that many items better than others.</p>
+          <h3>Examples</h3>
+            <p>Okay, let's look at some examples. Take a look at this method:</p>
+            <code>
+              &nbsp;&nbsp;def add(array)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;array.inject(:+)<br>
+              &nbsp;&nbsp;end
+            </code>
+            <p>This should take more time the longer the input array is. At this point we aren't too concerned about how much extra time. Let's see a slightly different example, though.</p>
+            <code>
+              &nbsp;&nbsp;def add_arrays(array1, array2)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;array1.each do |num1|<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array2.each do |num2|<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num1 += num2<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+              &nbsp;&nbsp;end
+            </code>
+            <p>This method also takes more time the longer the input arrays are. I think you see, though, that this second array can get out of hand much more quickly than the first array.</p>
+          <h3>How do we talk about this complexity?</h3>
+            <p>Luckily, notation has been developed to talk about these differences in complexity. This is known as Big O Notation. There are three types of Big O Complexity and they are notated like this:</p>
+            <ul>
+              <li>O(1)</li>
+              <li>O(N)</li>
+              <li>O(N<sup>2</sup>)</li>
+            </ul>
+            <p>O(1) refers to a method that takes the same amount of time regardless of the input. One example would be the #first method in Ruby. It doesn't matter how big the array is, it will always just look at the first item and return it.</p>
+            <p>O(N) refers to a method that scales in a linear manner with the input. The add method listed above is an example of that. Essentially, doubling the size of the input doubles the amount of time needed to run the method.</p>
+            <p>O(N<sup>2</sup>) refers to a method that scales in an exponential manner with the input. The add_arrays method above is of this type. Doubling the size of the input would quadruple the amount of time needed to run the method. These types of methods are ones that are very dangerous if the size of the input is unknown since the needed processing power can quickly get out of hand.</p>
+          <h3>Conclusion</h3>
+            <p>It is important to be aware of the Big O Complexity of your methods. Inevitably, some of your methods with scale exponentially, but it is something to keep in mind when creating a program. You don't want to write the code that makes the program run for 10 minutes with the wrong input!</p>
+            <div id="postnav"><a href="week7_technical.html">previous technical post</a> - <a href="week8_technical.html">next technical post</a></div>
+      </div>
+      <div id="right">
+        <h3>Blog Posts</h3>
+        <h3>Technical</h3>
+        <ul>
+          <li><a href="week1_favoritewebsites.html">My Favorite Websites</a></li>
+          <li><a href="week2_technical.html">Why Javascript is so Popular</a></li>
+          <li><a href="week3_technical.html">Looping in Ruby</a></li>
+          <li><a href="week4_technical.html">Map it out in Ruby</a></li>
+          <li><a href="week5_technical.html">Fun with Ruby Classes</a></li>
+          <li><a href="week6_technical.html">Object-Oriented and Functional Programming</a></li>
+          <li><a href="week7_technical.html">SQL Injection</a></li>
+          <li><a href="week8_technical.html">Big O Complexity and Notation</a></li>
+        </ul>
+        <h3>Cultural</h3>
+        <ul>
+          <li><a href="week2_cultural_blog.html">Exploring My Values</a></li>
+          <li><a href="week3_cultural_blog.html">Pairing and Feedback</a></li>
+          <li><a href="week4_cultural_blog.html">Conflict Resolution</a></li>
+          <li><a href="week5_cultural_blog.html">Sexism in the Tech Industry</a></li>
+          <li><a href="week6_cultural_blog.html">Stereotype Threat</a></li>
+          <li><a href="week7_cultural_blog.html">Importance of Values</a></li>
+          <li><a href="week8_cultural_blog.html">Mindset for DBC</a></li>
+        </ul>
+        <h3>Other Blogs</h3>
+        <ul>
+          <li><a href="http://bikesnobnyc.blogspot.com/">Bike Snob</a></li>
+          <li><a href="http://joshreads.com/">Comics Curmudgeon</a></li>
+          <li><a href="http://the-toast.net/">The Toast</a></li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>copyright 2014 by Peter Debelak</p>
+      <p id="contact"><a href="mailto:pdebelak@gmail.com">Email me</a> with any questions or comments.</p>
+    </footer>
+  </body>
+</html>
