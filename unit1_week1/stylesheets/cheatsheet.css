@@ -21,6 +21,18 @@ header img {
   padding-bottom: 5px;
   font-family: Arial;
 }
+.quarter {
+  width: 50%;
+  float: left;
+  background: linear-gradient(45deg, orange, yellow);
+  border-radius: 100%;
+  text-align: center;
+}
+code {
+  background-color: #E0E0E0;
+  padding: 2px;
+  font-size: 1.1em;
+}
 footer {
   background-color: black;
   width: 100%;

@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="unit1_week1/stylesheets/cheatsheet.css">
-    <title>Peter Debelak</title>
+    <title>Ruby Array Cheatsheet</title>
   </head>
   <body>
     <header>
@@ -10,7 +10,58 @@
       <a href="blog/index.html" id="link">Blog</a>
     </header>
     <div id="body">
-      
+      <h1>Ruby Array Cheatsheet</h1>
+      <p>Stop being a cheater and click <a href="http://www.ruby-doc.org/core-2.0/Array.html">here</a> for the real deal.</p>
+      <div class="quarter">
+        <h2>Create an array</h2>
+        <p>Literal constructor:</p>
+        <code>array = ["one", 2, [3, "four], {"five" => 6}, 7]</code>
+        <p>Call #new:</p>
+        <code>array = Array.new</code>
+        <p>With arguments:</p>
+        <code>Array.new(3) == [nil, nil, nil]</code>
+        <p>That's how you make an array!</p>
+      </div>
+      <div class="quarter">
+        <h2>Access array elements</h2>
+        <p>Let's take the array <code>array = [1, 2, 3, 4, 5]</code> and access it!</p>
+        <p>By index:</p>
+        <code>array[2] == 3</code><br>
+        <code>array[-2] == 4</code>
+        <p>Other tricks</p>
+        <code>array.first == 1</code><br>
+        <code>array.last == 5</code>
+        <p>That's how you access what is in the array!</p>
+      </code>
+      </div>
+      <div class="quarter">
+        <h2>Add to the array</h2>
+        <p>Add at the end:</p>
+        <code>array.push(6)</code><br>
+        <code>array == [1, 2, 3, 4, 5, 6]</code>
+        <p>Also, <code>array.push(6)</code> is the same as <code>array << 6</code>.</p>
+        <p>Add to the beginning:</p>
+        <code>array.unshift(0)</code><br>
+        <code>array == [0, 1, 2, 3, 4, 5, 6]</code>
+        <p>That's how you add to an array!</p>
+      </div>
+      <div class="quarter">
+        <h2>Remove from the array</h2>
+        <code>array = [1, 2, 2, 3, 4, 5]</code>
+        <p>Remove and return the last item:</p>
+        <code>array.pop #returns 5</code><br>
+        <code>array == [1, 2, 2, 3, 4]</code>
+        <p>Remove and return the first itme:</p>
+        <code>array.shift #returns 1</code><br>
+        <code>array == [2, 2, 3, 4]</code>
+        <p>Delete by index:</p>
+        <code>array.delete_at(3)</code><br>
+        <code>array == [2, 2, 3]</code>
+        <p>Delete by contents:</p>
+        <code>array.delete(2)</code><br>
+        <code>array == [3]</code>
+        <p>That's how you delete items from an array!</p>
+      </div>
     </div>
     <footer>
       <p>copyright 2014 by Peter Debelak</p>
