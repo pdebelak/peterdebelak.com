@@ -33,7 +33,7 @@
     "http://pdebelak.github.io/blog/posts/week8_technical.html"];
   var randomLink = document.getElementById("random");
   randomLink.onclick = function() {
-    window.location = allLinks[Math.floor(Math.random()*allLinks.length)]];
+    window.location = allLinks[Math.floor(Math.random()*allLinks.length)];
   }
   function nextTech() {
     if (location.href == techLinks[-1]) {
