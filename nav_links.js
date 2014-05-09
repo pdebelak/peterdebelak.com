@@ -31,7 +31,8 @@
     "http://pdebelak.github.io/blog/posts/week6_technical.html",
     "http://pdebelak.github.io/blog/posts/week7_technical.html",
     "http://pdebelak.github.io/blog/posts/week8_technical.html"];
-  function randomLink() {
+  var randomLink = document.getElementById("random");
+  randomLink.onclick = function() {
     window.location = allLinks[Math.floor(Math.random()*allLinks.length)]];
   }
   function nextTech() {
@@ -50,7 +51,8 @@
       window.location = techLinks[indexOf(location.href - 1)];
     }
   }
-  function prevCultural() {
+  var prevCultural = document.getElementById("prevCultural");
+  prevCultural.onclick = function() {
     if (location.href == culturalLinks[0]) {
       window.location = culturalLinks[0];
     }
@@ -58,7 +60,8 @@
       window.location = culturalLinks[indexOf(location.href + 1)];
     }
   }
-  function nextCultural() {
+  var nextCultural = document.getElementById("nextCultural");
+  nextCultural.onclick = function() {
     if (location.href == culturalLinks[-1]) {
       window.location = culturalLinks[-1];
     }
