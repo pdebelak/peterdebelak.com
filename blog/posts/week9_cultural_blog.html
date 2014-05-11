@@ -13,21 +13,15 @@
     <div id="body">
       <div id="left">
         <h1>Peter Debelak Blog</h1>
-          <h2>SQL Injection</h2>
-            <p>Almost every website that stores any information has a database that it communicates with through SQL. When you take user input and use that to create a SQL statement on your database, though, you can open your data up to what is known as an SQL injection attack unless you take precautions.</p>
-          <h3>What is SQL injection?</h3>
-            <p>Let's say you have a blogging website and you allow a user to click on a link to see all of his posts. Seems reasonable, right? You might have that link run a query like <code>select posts from posts where username='[Whatever the user's username is]'</code> to see those posts. What if the user set his username to <code>Peter';DROP TABLE posts;</code>? That would delete the entire table containing all user's posts in the database. That is a disaster for any website. It is also possible to use a similar attack to see all the information in a table. Any table containing email addresses would be bad to allow out. Imagine having a table with social security numbers or credit card numbers!</p>
-          <h3>Prevention</h3>
-            <p>There are quite a few ways to fight against this, and it probably isn't a bad idea to use more than one. Here are a few:</p>
-            <ul>
-              <li>Store the user input in placeholder variables that can only store data of a specific type. Thus a strange username like the one listed above would be rejected.</li>
-              <li>Prevent certain symbols from appearing in the input, specifically things that have meaning in SQL.</li>
-              <li>Check if the input matches a certain pattern (especially useful for telephone nubmers or email addresses).</li>
-            </ul>
-            <p>The essential thing is to not just pass any user input directly to your database without some way of confirming that the user is not adding SQL statements of their own.</p>
-          <h3>Lessons</h3>
-            <p>SQL is a standardized language that virtually everyone uses. This is great! If only everything coding related was this standardized! This introduces the problem, though, of every hacker knowing exactly how to communicate with your database. By carefully paying attention to this problem, though, you should be able to avoid any SQL injection attacks.</p>
-            <div id="postnav"><a href="week6_technical.html">previous technical post</a> - <a href="week8_technical.html">next technical post</a></div>
+        <h2>My Thinking Style</h2>
+          <p>I feel like there are as many thinking styles as there are people, but it is helpful to try and categorize people a bit even if it results in generalization. One way of categorizing thinking styles was created by Anthony Gregorc. He divides everyone into abstract random, abstract sequential, concrete random, and concrete sequential styles. Based on what I've read and a test I took, I fall into the abstract sequential thinking style.</p>
+        <h3>What does this mean?</h3>
+          <p><strong>The Good:</strong> Abstract sequential thinkers like applying logic in solving or finding solutions to problems. This is perfect for thinking through a programming problem and finding the best solution. Sequential thinkers think step by step, which is the same way that computers operate. Abstract thinkers are good at conceptualizing, which will help when thinking through a problem.</p>
+          <p><strong>The Bad:</strong> Abstract sequential thinkers have a hard time expressing their emotions (they generally think sentimental thinking is not worthwhile), being diplomatic when convincing others, and not monopolizing a conversation. These qualities make working with other people difficult and pairing is a big part of programming, especially at Dev Bootcamp.</p>
+        <h3>How to use this knowledge</h3>
+          <p>Luckily I'm not just a computer who has to follow my programming! I can take the good of my thinking style while being conscious of the bad to minimize it. I will do my best to use my step-by-step thinking to improve the group's coding experience while remembering that others have a lot of value to add and consciously being quiet to allow others to participate. I also think it will be good to have discussions about emotions like we will have at Dev Bootcamp.</p>
+          <p> No one's natural thinking style can be perfectly suited for all situations. I hope that keeping mine in mind will help me be aware of when to supress my natural inclinations and when to let my abstract sequential self free reign.</p>
+          <div id="postnav"><a href="week8_cultural_blog.html">previous cultural post</a> - <a href="week9_cultural_blog.html">next cultural post</a></div>
       </div>
       <div id="right">
         <h3>Blog Posts</h3>

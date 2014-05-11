@@ -52,6 +52,13 @@ header img {
 #postnav {
   text-align: center;
 }
+.postnav div {
+  text-align: center;
+  float: left;
+  background-color: gray;
+  border-radius: 33%;
+  width: 10%;
+}
 footer {
   background-color: black;
   width: 100%;
