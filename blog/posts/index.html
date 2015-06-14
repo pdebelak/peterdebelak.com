@@ -1,0 +1,30 @@
+---
+layout: default
+title: Blog
+active: blog
+---
+
+<p class="lead">Recent Posts</p>
+
+{{ posts }}
+{% for post in paginator.posts %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">{{ post.title }}<br><small><a href="{{ post.url }}">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
+      {{ post.content }}
+    </div>
+  </div>
+{% endfor %}
+<nav>
+  <ul class="pager">
+    <li class="previous{% if paginator.page == 1 %} disabled{% endif %}">
+      <a href="{{ paginator.previous_page_path }}">Newer posts</a>
+    </li>
+    <li class="next{% if paginator.page == paginator.total_pages %} disabled{% endif %}">
+      <a href="{{ paginator.next_page_path }}">Older posts</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,88 @@
+---
+---
+
+$brand-primary: #337ab7;
+
+html, body {
+  height: 100%;
+}
+
+header, footer {
+  background-color: $brand-primary;
+}
+
+div.wrapper {
+  min-height: 100%;
+  margin-bottom: -39px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+footer, .push {
+  width: 100%;
+  height: 39px;
+}
+
+.push {
+  margin-top: 30px;
+}
+
+header a, footer a, header a:focus, footer a:focus {
+  text-decoration: none;
+  color: white;
+}
+
+header a:hover, footer a:hover {
+  text-decoration: none;
+  color: lighten($brand-primary, 60%);
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+.nav-pills > li > a {
+  color: $brand-primary;
+}
+
+.login {
+  float: left;
+  color: $brand-primary;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+form a.btn.pull-right {
+  margin-right: 10px;
+}
+
+p.date-line {
+  font-size: .75em;
+  color: gray;
+}
+
+.panel-default .panel-heading {
+  background-color: #fff;
+}
+
+.panel-default .panel-heading h1 {
+  font-size: 30px;
+}
+
+.panel-default .panel-heading h1 small {
+  font-size: 14px;
+}
+
+code {
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Debelak | Switching Away from Angular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body >
+    <div class="wrapper">
+      <header class="container-fluid">
+        <h1><a href="/">Peter Debelak</a></h1>
+      </header>
+
+      <div class="container" >
+        <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-text visible-xs-block">Menu </p>
+          </div>
+          <div class="collapse navbar-collapse" id="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li class=""><a href="/resume/">Resume</a></li>
+              <li class=""><a href="/about/">About</a></li>
+              <li class="active"><a href="/blog/posts">Blog</a></li>
+              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+          <h1>Switching Away from Angular</h1>
+As I've spent more time working with Rails, I've realized that, even without
+Angular, a Rails site is capable of being fully-interactive, ajax-powered
+fun-times machine. I know what you're thinking: "Duh! That's true of everything
+from plain `html` to `php`!" Okay, yes, that's true. But with Rails you can do
+it without really having to translate between server-side and javascript. Here's
+what I mean:
+
+<p class="lead">Unobtrusive Javascript</p>
+
+Using jQuery for a ajax-heavy site is truly obtrusive to your experience to a
+developer. Every time you type `event.preventDefault()` you are saying, "Don't
+do the thing that I wrote code for, do something else that requires more code!"
+Angular makes this better with its `ng-click`s and `ng-submit`s, but you still
+have to spend time formulating a `json` response, and then translating that
+response into html in your javascript.
+
+With unobtrusive javascript, you can respond with a `js.erb` file that just
+inserts a partial you already wrote for the initial `html` response, so your
+total new code is adding `format.js` to your controller and
+`$('selector').html('<%= j render partial: "a partial" %>')`. Obviously it
+can be more complicated than that, but it usually isn't.
+
+<p class="lead">Degrading Gracefully</p>
+
+Honestly, I don't think degrading gracefully when javascript is not enabled is
+very important, but if I can do it while writing less code than Angular I see
+that as a win. It is comforting to know that if my grandma accidentally turned
+javascript off in her browser she can still use my site just fine.
+
+<p class="lead">My conclusion</p>
+
+So I removed Angular from this site. I know it doesn't really matter to users,
+but for me it's made life easier. Since there is less code to write, I'm more
+likely to add new features. For example, I've already updated the site to use
+`markdown` instead of `html`, which has made writing posts faster and more fun!
+
+I still think Angular is great and will continue to use it for projects, but I
+think when it comes to Rails, I'll keep using unobtrusive javascript until I
+have a real reason not to.
+
+
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <footer class="container-fluid">
+      <h4 class="text-right">
+        <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
+      </h4>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

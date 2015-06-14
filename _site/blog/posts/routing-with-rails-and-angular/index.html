@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Debelak | Routing with Rails and Angular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body >
+    <div class="wrapper">
+      <header class="container-fluid">
+        <h1><a href="/">Peter Debelak</a></h1>
+      </header>
+
+      <div class="container" >
+        <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-text visible-xs-block">Menu </p>
+          </div>
+          <div class="collapse navbar-collapse" id="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li class=""><a href="/resume/">Resume</a></li>
+              <li class=""><a href="/about/">About</a></li>
+              <li class="active"><a href="/blog/posts">Blog</a></li>
+              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+          <h1>Routing with Rails and Angular</h1>
+<p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.
+
+<p>If you are using <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> (and you really should be to allow deep linking on your Angular app) your server should be able to handle requests like <code>/blog/posts/1</code> and show the appropriate blog post. You can easily do this by just routing all requests to your main index page and let Angular handle the routing. But what urls should Angular use to fetch the post from the server? You could namespace all of the server responses like <code>/api/blog/posts/1</code> but that doesn't really make sense. What you really want is to respond to <code>.html</code> requests by displaying the single-page Angular html and to respond to <code>.json</code> requests with the appropriate resource as json.
+<p class="lead">Rails makes this easy!</p>
+<p>As anyone who has generated scaffolding with Rails know, it is easy to craft a different response whether it is <code>.html</code> or <code>.json</code>. Your controllers frequently look like:
+<pre>
+def show
+  @post = Post.find(params[:id])
+  respond_to do |format|
+    format.html # render the html view
+    format.json # render the json view
+  end
+end
+</pre>
+<p>So, if I have my home page at <code>static_pages#home</code> I might write:</p>
+<pre>
+respond_to do |format|
+  format.html { render 'static_pages/home' }
+  format.json # rendering the show.json.erb file
+end
+</pre>
+<p>Now you don't have to try to redirect all requests in your <code>config/routes</code> file or do anything crazy to properly respond to deep links.</p>
+<p>This works fine, but I don't usually feel it necessary to create the <code>.json.erb</code> file for simple models and it also gets quite repetitive to have the same <code>respond_to</code> block in every controller action that takes a get request. Instead, I find that declaring a custom method in your <code>ApplicationController</code> that handles it for you:</p>
+<pre>
+def ng_respond(response_for_json)
+  respond_to do |format|
+    format.html { render 'static_pages/home' }
+    format.json { render json: response_for_json.to_json }
+  end
+end
+</pre>
+<p>That way you can create controller actions like this:</p>
+<pre>
+def show
+  @post = Post.find(params[:id])
+  ng_respond(@post)
+end
+</pre>
+<p>I hope this helps you with routing in your Rails/Angular apps. Leave any tips you might have in the comments.
+
+
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <footer class="container-fluid">
+      <h4 class="text-right">
+        <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
+      </h4>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

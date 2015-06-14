@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Debelak | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body >
+    <div class="wrapper">
+      <header class="container-fluid">
+        <h1><a href="/">Peter Debelak</a></h1>
+      </header>
+
+      <div class="container" >
+        <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-text visible-xs-block">Menu </p>
+          </div>
+          <div class="collapse navbar-collapse" id="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li class=""><a href="/resume/">Resume</a></li>
+              <li class=""><a href="/about/">About</a></li>
+              <li class="active"><a href="/blog/posts">Blog</a></li>
+              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+          <p class="lead">Recent Posts</p>
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Intermediate Recursion - Fibonacci Sequence with Memoization<br><small><a href="/blog/posts/intermediate-recursion-fibonacci-sequence-with-memoization/">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated 06 November 2014</p>
+      <p>After <a href="http://www.peterdebelak.com/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>
+
+<p>You can read that article, but the basic concept of memoization is not repeating calculations if you've already found the answer. The example used there is finding factorials (<code>5! = 5 * 4 * 3 * 2 * 1</code>), but that only works if you call the function multiple times in your program. I want to talk about those rare cases where memoization comes in handy within the function itself.</p>
+<p class="lead">Fibonacci Sequence</p>
+<p>You've probably heard about this sequence before - it's the one followed by pine cones and the golden ratio. It starts <code>0, 1, 1, 2, 3, 5, 8, 13...</code> where each number is the sum of the two previous numbers.</p>
+<p>Based on that description, you can probably guess if we wanted to calculate the <code>nth</code> fibonacci number, recursion would come in handy. The first pass looks like this in JavaScript:</p>
+<pre>
+function fibonacci(positiveInteger) {
+    if (positiveInteger === 1) {
+        return 1;
+    } else if (positiveInteger === 0) {
+        return 0;
+    } else {
+        return fibonacci(positiveInteger - 2) + fibonacci(positiveInteger - 1);
+    }
+}
+</pre>
+<p>Makes sense? You build in some automatic returns for <code>0</code> and <code>1</code> and then it works as expected with the answer being the sum of the two previous fibonacci numbers.</p>
+<p class="lead">The problem</p>
+<p>It works great! The problem, though, lies in trying to calculate larger numbers. Running <a href="http://nodejs.org/">node</a> in the terminal on my Chromebook starts getting slow around <code>fibonacci(30)</code> and <code>fibonacci(100)</code> appears to completely crash my terminal. I suspect it would stop running at some point, but I don't want to wait all day.</p>
+<p class="lead">The solution - Memoization</p>
+<p>As you probably guessed, we can use memoization to improve this behavior. How? Each time we calculate a fibonacci number using the above function, we were calculating all the fibonacci numbers down to <code>0</code>. This involves a <em>lot</em> of repeated calculations. Let's try to remember all the fibonacci numbers we've calculated and pass them into the recursive calls.</p>
+<pre>
+function fibonacci(positiveInteger, foundFibonaccis) {
+    if (typeof(foundFibonaccis) === 'undefined') {
+        var found = { 0: 0, 1: 1 };
+    } else {
+        var found = foundFibonaccis;
+    }
+    if (typeof(found[positiveInteger]) !== 'undefined') {
+        return found[positiveInteger];
+    } else {
+        found[positiveInteger] = fibonacci(positiveInteger - 2, found) + fibonacci(positiveInteger - 1, found);
+    }
+    return found[positiveInteger];
+}
+</pre>
+<p>Now we are storing each calculated number in an object and passing it into future recursive calls. If nothing is passed in, I set the object to <code>{ 0: 0, 1: 1 }</code> much like I supplied the answers for <code>0</code> and <code>1</code> in the first function.</p>
+<p>Does that improve the performance? Oh yeah! On my Chromebook I now get the answer for <code>fibonacci(1000)</code> almost instantly. In fact, I get the answer up to <code>fibonacci(1476)</code> right away and the only reason I can't calculate higher fibonacci numbers is that JavaScript can't handle it and starts returning <code>Infinity</code>.</p>
+<p>I hope you found this mini introduction to memoization helpful. If you've found other areas where memoization would be helpful sound off in the comments!</p>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Recursion Basics - Adding Numbers in an Array with Javascript<br><small><a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript/">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated 31 October 2014</p>
+      <p>Recursion can be confusing, especially for people new to programming. I thought I'd post a very simple example here to help beginners.</p>
+
+<p class="lead">The problem</p>
+<p>Let's say you want to add all the numbers in an array without using a loop. (Why can't you use a loop? Because.) If you knew beforehand the number of items in the array you could write:</p>
+<pre>
+function addArray(arrayOfNums) {
+    return arrayOfNums[0] + arrayOfNums[1];
+}
+</pre>
+<p>That would work great for arrays with only 2 numbers. You could write out as many <code>arrayOfNums[x] +</code> as you wanted, but what if you needed to add an array with hundreds of numbers? Enter recursion. Try this:</p>
+<pre>
+function addArray(arrayOfNums) {
+    return arrayOfNums.shift() + addArray(arrayOfNums);
+}
+</pre>
+<p>What is happening there? <code>arrayOfNums.shift()</code> removes the first item in an array and returns that item, so you are basically asking your code to add the first number in the array to the sum (using the <code>addArray</code> function) of the remaining items in the array. The function keeps calling itself using progressively smaller arrays until it has added all the numbers together. That is the magic of recursion.</p>
+<p>So we're all set? Unfortunately, no. Give it a try and you'll get an infinite loop! You need to set a condition upon which the recursion will end and the function will exit.</p>
+<p>In this case, it makes sense to just return <code>0</code> if the array is empty because the sum of an empty array should be 0.</p>
+<pre>
+function addArray(arrayOfNums) {
+    if (arrayOfNums.length === 0) { return 0; }
+    return arrayOfNums.shift() + addArray(arrayOfNums);
+}
+</pre>
+<p>Now if you run this code you will get the expected results! I hope this can help a beginner get the hang of recursion.</p>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Complex ActiveRecord Queries with Includes<br><small><a href="/blog/posts/complex-activerecord-queries-with-includes/">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated 18 October 2014</p>
+      <p>ActiveRecord's way of separating Ruby developers from writing SQL is fantastic, but sometimes its behavior can be a little surprising. I ran into some ActiveRecord-related trouble recently and wanted to share the solution.</p>
+
+<p class="lead">The situation</p>
+<p>I had a model, let's call it <code>DateRange</code> that represents a range of dates (amazing, right?). Each date range could have many <code>TakenDate</code>s representing a range of dates that fall within its parent date range and are no longer available.</p>
+<p class="lead">The problem</p>
+<p>Let's say I'm trying to find out if a given range of dates is not taken within an existing <code>DateRange</code>. That means that it falls within a given range and has not been taken by a <code>TakenDate</code>. So I want to do a query that returns all <code>DateRange</code>s and associated <code>TakenDate</code>s if they exist. Great! ActiveRecord has an <code>includes</code> method just for this. So I wrote a query like so:</p>
+<pre>
+DateRange.includes(:taken_dates)
+  .where('date_ranges.start_date &gt;= ? AND date_ranges.end_date &lt;= ?', 
+          some_date, some_other_date)
+  .where.not('(taken_dates.start_date &gt;= :start_date AND taken_dates.start_date &lt;= :end_date) OR (taken_date.end_date &gt;= :start_date AND taken_date.end_date &lt;= :end_date)', 
+          start_date: some_date, end_date: some_other_date)
+</pre>
+<p>I know that is bewildering, but given two dates, it tries to find a <code>DateRange</code> that it falls within that doesn't have a conflicting <code>TakenDate</code>. It doesn't work, however. Why? Because it never returns any <code>DateRange</code> without any <code>TakenDate</code>s. I was surprised about that, because I assumed the <code>where.not</code> call would happily return any <code>DateRange</code>s without <code>TakenDate</code>s.</p>
+<p>For a while I was stymied at how I could do this with a single query. It would be possible to do two different queries and combine them, but that would be slower and would not leave me with an ActiveRecord collection.</p>
+<p class="lead">The solution</p>
+<pre>
+DateRange.includes(:taken_dates)
+  .where('date_ranges.start_date &gt;= ? AND date_ranges.end_date &lt;= ?', 
+          some_date, some_other_date)
+  .where('taken_dates.id IS NULL OR NOT (taken_dates.start_date &gt;= :start_date AND taken_dates.start_date &lt;= :end_date) OR (taken_date.end_date &gt;= :start_date AND taken_date.end_date &lt;= :end_date)', 
+          start_date: some_date, end_date: some_other_date)
+</pre>
+<p>That is one ugly query, but the key is specifying <code>taken_date.is IS NULL OR</code> some condition. This returns everything without an association while still allowing you to do a query based on the association if it exists!</p>
+<p>I don't doubt that there is a better way to tackle this problem (feel free to let me know in the comments!), but I think it is good to know some tricks for those corner cases where ActiveRecord doesn't make your life easy.</p>
+
+    </div>
+  </div>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="/blog/posts/index.html">Newer posts</a>
+    </li>
+    <li class="next">
+      <a href="/blog/posts/page3/">Older posts</a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <footer class="container-fluid">
+      <h4 class="text-right">
+        <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
+      </h4>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

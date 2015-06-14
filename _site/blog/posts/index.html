@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Debelak | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body >
+    <div class="wrapper">
+      <header class="container-fluid">
+        <h1><a href="/">Peter Debelak</a></h1>
+      </header>
+
+      <div class="container" >
+        <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-text visible-xs-block">Menu </p>
+          </div>
+          <div class="collapse navbar-collapse" id="sidebar">
+            <ul class="nav nav-pills nav-stacked">
+              <li class=""><a href="/resume/">Resume</a></li>
+              <li class=""><a href="/about/">About</a></li>
+              <li class="active"><a href="/blog/posts">Blog</a></li>
+              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+          <p class="lead">Recent Posts</p>
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Switching Away from Angular<br><small><a href="/blog/posts/switching-away-from-angular/">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated 27 February 2015</p>
+      <p>As I’ve spent more time working with Rails, I’ve realized that, even without
+Angular, a Rails site is capable of being fully-interactive, ajax-powered
+fun-times machine. I know what you’re thinking: “Duh! That’s true of everything
+from plain <code>html</code> to <code>php</code>!” Okay, yes, that’s true. But with Rails you can do
+it without really having to translate between server-side and javascript. Here’s
+what I mean:</p>
+
+<p class="lead">Unobtrusive Javascript</p>
+
+<p>Using jQuery for a ajax-heavy site is truly obtrusive to your experience to a
+developer. Every time you type <code>event.preventDefault()</code> you are saying, “Don’t
+do the thing that I wrote code for, do something else that requires more code!”
+Angular makes this better with its <code>ng-click</code>s and <code>ng-submit</code>s, but you still
+have to spend time formulating a <code>json</code> response, and then translating that
+response into html in your javascript.</p>
+
+<p>With unobtrusive javascript, you can respond with a <code>js.erb</code> file that just
+inserts a partial you already wrote for the initial <code>html</code> response, so your
+total new code is adding <code>format.js</code> to your controller and
+<code>$('selector').html('&lt;%= j render partial: "a partial" %&gt;')</code>. Obviously it
+can be more complicated than that, but it usually isn’t.</p>
+
+<p class="lead">Degrading Gracefully</p>
+
+<p>Honestly, I don’t think degrading gracefully when javascript is not enabled is
+very important, but if I can do it while writing less code than Angular I see
+that as a win. It is comforting to know that if my grandma accidentally turned
+javascript off in her browser she can still use my site just fine.</p>
+
+<p class="lead">My conclusion</p>
+
+<p>So I removed Angular from this site. I know it doesn’t really matter to users,
+but for me it’s made life easier. Since there is less code to write, I’m more
+likely to add new features. For example, I’ve already updated the site to use
+<code>markdown</code> instead of <code>html</code>, which has made writing posts faster and more fun!</p>
+
+<p>I still think Angular is great and will continue to use it for projects, but I
+think when it comes to Rails, I’ll keep using unobtrusive javascript until I
+have a real reason not to.</p>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Complex ActiveRecord Queries Pt. II - Greatest N Per Group<br><small><a href="/blog/posts/complex-activerecord-queries-pt-ii-greatest-n-per-group/">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated 12 February 2015</p>
+      <p>It is time again to get ridiculous with ActiveRecord. <a href="http://www.peterdebelak.com/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
+
+<p class="lead">The situation</p>
+<ul>
+<li><code>User</code>s have many <code>Subscription</code>s</li>
+<li>A <code>User</code>'s end date (when they are no longer active) is based on the <code>expiration_date</code> of the <em>last</em> <code>Subscription</code> that user has</li>
+<li>You want to order the <code>User</code>s by end date</li>
+</ul>
+<p>Okay! Great! Should be easy. You want to write this:</p>
+<pre>
+User.joins(:subscriptions).order('subscriptions.expiration_date ASC')
+</pre>
+<p class="lead">The problem</p>
+<p>It doesn't work. Of course.</p>
+<p>Why? Because if a <code>User</code> has more than one <code>Subscription</code> which one should be used for ordering? That code doesn't really make sense.</p>
+<p>After some googling around I discovered that there's a name for this problem - greatest n per group. (By the way, isn't it annoying when it would be so easy to find the answer to something if you only knew the name? It's like the old joke about not being able to look up something in the dictionary to see how it's spelled unless you know how it's spelled.) In this case we want to find the latest (instead of greatest) <code>Subscription</code> in each group of <code>Subscription</code>s owned by each <code>User</code>. I found <a href="http://spin.atomicobject.com/2012/09/21/using-activerecord-to-abstract-greatest-n-per-group-queries/">this excellent blog post</a> showing how to solve that problem in ActiveRecord.</p>
+<p>After spending time trying to grok the post (it is confusing!) I produced this:</p>
+<pre>
+User.joins(:subscriptions).joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date &lt; sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
+</pre>
+<p>So simple! <code>sp</code> is an arbitrary name representing the <code>Subscription</code> that is later than the one represented by <code>subscriptions</code>. You keep searching until <code>sp.id IS NULL</code>, meaning that <code>subscriptions</code> represents the latest <code>Subscription</code> for that <code>User</code>.</p>
+<p>As I'm sure you predicted, this doesn't work either. Postgres immediately complains that you can't order by something you aren't selecting (why didn't it complain in the first case? I don't know, ActiveRecord).</p>
+<p>Okay! We'll just select that too:</p>
+<pre>
+User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date &lt; sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
+</pre>
+<p>Another beautiful ActiveRecord query. Just as a note, I really like ActiveRecord because it makes 99% of all the queries you do beautiful and semantic. Unfortunately, that other 1% is out there to get you.</p>
+<p>I hope this helps someone trying to fight with ActiveRecord to sort by a single instance in a <code>has_many</code> relationship!</p>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">jump_back - a new gem to improve redirecting back in Rails<br><small><a href="/blog/posts/jump_back-a-new-gem-to-improve-redirecting-back-in-rails/">permalink</a></small></h1>
+    </div>
+    <div class="panel-body">
+      <p class="date-line">Last updated 10 January 2015</p>
+      <p>Have you ever encounter encountered errors when running <code>redirect_to :back</code> in Rails and had to write a work around? What about saving a user's location on your site before redirecting them to your log in form so you can return them to what they were doing?</p>
+
+<p>I've just released a gem, <code>jump_back</code>, that takes care of all of that for you with <code>redirect_back</code>, <code>save_referer</code>, and <code>return_to_referer</code> methods available in all your controllers. Check out the details in the Github README <a href="https://github.com/pdebelak/jump_back">here</a>.</p>
+<p>If you have any ideas/feedback about <code>jump_back</code> you can leave a comment in here or, even better, open an issue on Github.</p>
+<p>I hope you find it useful!</p>
+
+    </div>
+  </div>
+
+<nav>
+  <ul class="pager">
+    <li class="previous disabled">
+      <a href="">Newer posts</a>
+    </li>
+    <li class="next">
+      <a href="/blog/posts/page2/">Older posts</a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <footer class="container-fluid">
+      <h4 class="text-right">
+        <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
+      </h4>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

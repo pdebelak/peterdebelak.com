@@ -1,0 +1,12 @@
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      categories: "blog posts"
+      layout: post
+      active: blog
+permalink: /:categories/:title/
+paginate: 3
+paginate_path: /blog/posts/page:num/
