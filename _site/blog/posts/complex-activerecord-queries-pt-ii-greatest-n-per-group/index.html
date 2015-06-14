@@ -16,28 +16,29 @@
 
       <div class="container" >
         <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <p class="navbar-text visible-xs-block">Menu </p>
-          </div>
-          <div class="collapse navbar-collapse" id="sidebar">
-            <ul class="nav nav-pills nav-stacked">
-              <li class=""><a href="/resume/">Resume</a></li>
-              <li class=""><a href="/about/">About</a></li>
-              <li class="active"><a href="/blog/posts">Blog</a></li>
-              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
-            </ul>
-          </div>
-        </nav>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <p class="navbar-text visible-xs-block">Menu </p>
+  </div>
+  <div class="collapse navbar-collapse" id="sidebar">
+    <ul class="nav nav-pills nav-stacked">
+      <li class=""><a href="/resume/">Resume</a></li>
+      <li class=""><a href="/about/">About</a></li>
+      <li class="active"><a href="/blog/posts">Blog</a></li>
+      <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
-          <h1>Complex ActiveRecord Queries Pt. II - Greatest N Per Group</h1>
-<p>It is time again to get ridiculous with ActiveRecord. <a href="http://www.peterdebelak.com/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
+<div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+  <h1>Complex ActiveRecord Queries Pt. II - Greatest N Per Group</h1>
+<p class="date-line">Last updated 12 February 2015</p>
+<p>It is time again to get ridiculous with ActiveRecord. <a href="/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
 
 <p class="lead">The situation</p>
 <ul>
@@ -55,19 +56,20 @@ User.joins(:subscriptions).order('subscriptions.expiration_date ASC')
 <p>After some googling around I discovered that there's a name for this problem - greatest n per group. (By the way, isn't it annoying when it would be so easy to find the answer to something if you only knew the name? It's like the old joke about not being able to look up something in the dictionary to see how it's spelled unless you know how it's spelled.) In this case we want to find the latest (instead of greatest) <code>Subscription</code> in each group of <code>Subscription</code>s owned by each <code>User</code>. I found <a href="http://spin.atomicobject.com/2012/09/21/using-activerecord-to-abstract-greatest-n-per-group-queries/">this excellent blog post</a> showing how to solve that problem in ActiveRecord.</p>
 <p>After spending time trying to grok the post (it is confusing!) I produced this:</p>
 <pre>
-User.joins(:subscriptions).joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date < sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
+User.joins(:subscriptions).joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date &lt; sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
 </pre>
 <p>So simple! <code>sp</code> is an arbitrary name representing the <code>Subscription</code> that is later than the one represented by <code>subscriptions</code>. You keep searching until <code>sp.id IS NULL</code>, meaning that <code>subscriptions</code> represents the latest <code>Subscription</code> for that <code>User</code>.</p>
 <p>As I'm sure you predicted, this doesn't work either. Postgres immediately complains that you can't order by something you aren't selecting (why didn't it complain in the first case? I don't know, ActiveRecord).</p>
 <p>Okay! We'll just select that too:</p>
 <pre>
-User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date < sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
+User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date &lt; sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
 </pre>
 <p>Another beautiful ActiveRecord query. Just as a note, I really like ActiveRecord because it makes 99% of all the queries you do beautiful and semantic. Unfortunately, that other 1% is out there to get you.</p>
 <p>I hope this helps someone trying to fight with ActiveRecord to sort by a single instance in a <code>has_many</code> relationship!</p>
 
 
-        </div>
+</div>
+
       </div>
       <div class="push"></div>
     </div>

@@ -16,27 +16,28 @@
 
       <div class="container" >
         <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <p class="navbar-text visible-xs-block">Menu </p>
-          </div>
-          <div class="collapse navbar-collapse" id="sidebar">
-            <ul class="nav nav-pills nav-stacked">
-              <li class=""><a href="/resume/">Resume</a></li>
-              <li class=""><a href="/about/">About</a></li>
-              <li class="active"><a href="/blog/posts">Blog</a></li>
-              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
-            </ul>
-          </div>
-        </nav>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <p class="navbar-text visible-xs-block">Menu </p>
+  </div>
+  <div class="collapse navbar-collapse" id="sidebar">
+    <ul class="nav nav-pills nav-stacked">
+      <li class=""><a href="/resume/">Resume</a></li>
+      <li class=""><a href="/about/">About</a></li>
+      <li class="active"><a href="/blog/posts">Blog</a></li>
+      <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
-          <h1>jump_back - a new gem to improve redirecting back in Rails</h1>
+<div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+  <h1>jump_back - a new gem to improve redirecting back in Rails</h1>
+<p class="date-line">Last updated 10 January 2015</p>
 <p>Have you ever encounter encountered errors when running <code>redirect_to :back</code> in Rails and had to write a work around? What about saving a user's location on your site before redirecting them to your log in form so you can return them to what they were doing?</p>
 
 <p>I've just released a gem, <code>jump_back</code>, that takes care of all of that for you with <code>redirect_back</code>, <code>save_referer</code>, and <code>return_to_referer</code> methods available in all your controllers. Check out the details in the Github README <a href="https://github.com/pdebelak/jump_back">here</a>.</p>
@@ -44,7 +45,8 @@
 <p>I hope you find it useful!</p>
 
 
-        </div>
+</div>
+
       </div>
       <div class="push"></div>
     </div>

@@ -16,27 +16,28 @@
 
       <div class="container" >
         <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <p class="navbar-text visible-xs-block">Menu </p>
-          </div>
-          <div class="collapse navbar-collapse" id="sidebar">
-            <ul class="nav nav-pills nav-stacked">
-              <li class=""><a href="/resume/">Resume</a></li>
-              <li class=""><a href="/about/">About</a></li>
-              <li class="active"><a href="/blog/posts">Blog</a></li>
-              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
-            </ul>
-          </div>
-        </nav>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <p class="navbar-text visible-xs-block">Menu </p>
+  </div>
+  <div class="collapse navbar-collapse" id="sidebar">
+    <ul class="nav nav-pills nav-stacked">
+      <li class=""><a href="/resume/">Resume</a></li>
+      <li class=""><a href="/about/">About</a></li>
+      <li class="active"><a href="/blog/posts">Blog</a></li>
+      <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
-          <h1>Routing with Rails and Angular</h1>
+<div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+  <h1>Routing with Rails and Angular</h1>
+<p class="date-line">Last updated 11 October 2014</p>
 <p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.
 
 <p>If you are using <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> (and you really should be to allow deep linking on your Angular app) your server should be able to handle requests like <code>/blog/posts/1</code> and show the appropriate blog post. You can easily do this by just routing all requests to your main index page and let Angular handle the routing. But what urls should Angular use to fetch the post from the server? You could namespace all of the server responses like <code>/api/blog/posts/1</code> but that doesn't really make sense. What you really want is to respond to <code>.html</code> requests by displaying the single-page Angular html and to respond to <code>.json</code> requests with the appropriate resource as json.
@@ -76,9 +77,11 @@ def show
 end
 </pre>
 <p>I hope this helps you with routing in your Rails/Angular apps. Leave any tips you might have in the comments.
+</p></p></p></p>
 
 
-        </div>
+</div>
+
       </div>
       <div class="push"></div>
     </div>

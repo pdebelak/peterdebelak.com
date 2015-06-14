@@ -57,7 +57,13 @@ p.date-line {
 code {
   color: #333; }
 
+.recent-posts, .home-nav {
+  margin-top: 30px; }
+
 @media (min-width: 768px) {
   .navbar-default {
     background-color: #fff;
-    border-color: #fff; } }
+    border-color: #fff; }
+
+  .home-nav {
+    margin-top: 0; } }

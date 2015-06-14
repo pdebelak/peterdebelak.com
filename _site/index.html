@@ -15,105 +15,80 @@
       </header>
 
       <div class="container" >
-        <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <p class="navbar-text visible-xs-block">Menu </p>
-          </div>
-          <div class="collapse navbar-collapse" id="sidebar">
-            <ul class="nav nav-pills nav-stacked">
-              <li class="active"><a href="/resume/">Resume</a></li>
-              <li class=""><a href="/about/">About</a></li>
-              <li class=""><a href="/blog/posts">Blog</a></li>
-              <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
-            </ul>
-          </div>
-        </nav>
-
-        <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
-          <p class="lead text-center">A junior developer focused on Ruby on Rails.</p>
-<div class="row">
-  <div class="col-md-2">
-    <h4>Skills</h4>
+        <div class="row">
+  <div class="col-sm-6">
+    <p class="lead">Peter Debelak is a person with a website</p>
+    <p>He works as a junior developer focusing on Ruby on Rails.</p>
+    <p>He lives in Chicago and looks like this:</p>
+    <img src="http://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597?s=200" class="img-responsive">
   </div>
-  <div class="col-md-10">
-    <p style="margin-top:10px;">Ruby, Rails, Javascript, Angular, JQuery, HTML, CSS, Elasticsearch, TDD with Rspec, ActiveRecord, and Git.</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2">
-    <h4>Experience</h4>
-  </div>
-  <div class="col-md-10">
-    <h4>Junior Developer</h4>
-    <h5>2015 - Present</h5>
-    <p><a href="https://reverb.com/">Reverb.com</a> - Chicago, IL</p>
-    <ul>
-      <li>Full-stack development with Ruby on Rails</li>
-      <li>Practicing TDD using RSpec</li>
-      <li>Full text search using Elasticsearch</li>
+  <div class="col-sm-6 home-nav">
+    <p class="lead">What can I do here?</p>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="/resume/">See Peter's resume</a></li>
+      <li><a href="/about/">Learn more about Peter</a></li>
+      <li><a href="/blog/posts">Read Peter's blog</a></li>
+      <li><a href="https://github.com/pdebelak">Check out Peter on Github</a></li>
     </ul>
-    <h4>Junior Developer</h4>
-    <h5>2014 - 2015</h5>
-    <p>Blueye Creative - Chicago, IL</p>
-    <ul>
-      <li>Full-stack development with Ruby on Rails</li>
-      <li>Connecting with APIs like <a href="https://developers.google.com/analytics/">Google Analytics, <a href="https://developer.traxo.com/">Traxo</a>, and <a href="http://openweathermap.org/api">Open Weather Map</a></li>
-        <li>Source control with Git on <a href="https://github.com/">GitHub</a> (repos are private)</li>
-        <li>Front-end development with Angular for highly interactive sites</li>
-        <li>Javascript, JQuery, HTML, CSS, and some PHP for Wordpress sites</li>
-      </ul>
-      <h4>Web Developer in training</h4>
-      <h5>2014</h5>
-      <p>Dev Bootcamp - Chicago, IL</p>
-      <ul>
-        <li>Focusing on full-stack development with Ruby on Rails, 9-week intensive course</li>
-        <li>Focusing on full-stack development with Ruby on Rails, 9-week intensive course</li>
-      </ul>
-      <h4>Medical Programs Manager</h4>
-      <h5>2012 - 2014</h5>
-      <p>Kaplan Test Prep - Chicago, IL</p>
-      <ul>
-        <li>Managing department of 50+ employees</li>
-        <li>Developed system to evaluate the effectiveness of Kaplan’s course to predict performance on the USMLE exam</li>
-        <li>Working with MD faculty and staff to update practice test content</li>
-        <li>Running regular marketing events to bring in new leads and build relationships with current students</li>
-      </ul>
-      <h4>Designated School Official</h4>
-      <h5>2010 - 2012</h5>
-      <p>Kaplan Test Prep - Chicago, IL</p>
-      <ul>
-        <li>Maintained SEVIS (Student and Exchange Visitor Information System) records for students on student visas</li>
-      </ul>
-      <h4>Student Advisor</h4>
-      <h5>2009 - 2010</h5>
-      <p>Kaplan Test Prep - Chicago, IL</p>
-      <ul>
-        <li>Provided customer service to students in face-to-face interactions and via e-mail and phone</li>
-      </ul>
-    </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <h4>Education</h4>
-    </div>
-    <div class="col-md-10">
-      <h4>Indiana University</h4>
-      <h5>2007 - 2009</h5>
-      <p>Bloomington, IN - Master of Music, Bass Performance</p>
-      <h4>Northwestern University</h4>
-      <h5>2003 - 2007</h5>
-      <p>Evanston, IL - Bachelor of Music, Bass Performance</p>
-    </div>
+</div>
+<div class="row recent-posts">
+  <div class="col-sm-12">
+    <p class="lead">Most Recent Blog Posts</p>
+    
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Why You Run Your Tests First</h3>
+        </div>
+        <div class="panel-body">
+          <p class="date-line">Last updated 14 June 2015</p>
+          <p>When first learning test-driven-development, there are a lot of things about it
+that seem stupid and arbitrary. After working with it a while, though, you
+start to see that at least some of the rules make a lot of sense. The phrase
+most associated with TDD is “red, green, refactor”. Now, when I was first
+learning about TDD the green and refactor steps made a lot of sense, but why
+do I need to do the red step? I <em>know</em> the test will fail, because I haven’t
+written the code yet!</p>
+
+
+          <a href="/blog/posts/why-you-run-your-tests-first/">read more</a>
+        </div>
+      </div>
+    
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Switching Away from Angular</h3>
+        </div>
+        <div class="panel-body">
+          <p class="date-line">Last updated 27 February 2015</p>
+          <p>As I’ve spent more time working with Rails, I’ve realized that, even without
+Angular, a Rails site is capable of being fully-interactive, ajax-powered
+fun-times machine. I know what you’re thinking: “Duh! That’s true of everything
+from plain <code>html</code> to <code>php</code>!” Okay, yes, that’s true. But with Rails you can do
+it without really having to translate between server-side and javascript. Here’s
+what I mean:</p>
+
+
+          <a href="/blog/posts/switching-away-from-angular/">read more</a>
+        </div>
+      </div>
+    
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Complex ActiveRecord Queries Pt. II - Greatest N Per Group</h3>
+        </div>
+        <div class="panel-body">
+          <p class="date-line">Last updated 12 February 2015</p>
+          <p>It is time again to get ridiculous with ActiveRecord. <a href="/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
+
+
+          <a href="/blog/posts/complex-activerecord-queries-pt-ii-greatest-n-per-group/">read more</a>
+        </div>
+      </div>
+    
   </div>
 </div>
 
-        </div>
       </div>
       <div class="push"></div>
     </div>

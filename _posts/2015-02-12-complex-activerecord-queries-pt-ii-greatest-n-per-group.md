@@ -2,7 +2,7 @@
 title: Complex ActiveRecord Queries Pt. II - Greatest N Per Group
 ---
 
-<p>It is time again to get ridiculous with ActiveRecord. <a href="http://www.peterdebelak.com/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
+<p>It is time again to get ridiculous with ActiveRecord. <a href="/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
 
 <p class="lead">The situation</p>
 <ul>
