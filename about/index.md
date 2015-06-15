@@ -2,6 +2,7 @@
 layout: default
 title: About
 active: about
+description: Everything you always wanted to know about Peter Debelak
 ---
 
 <p class="lead">About Peter</p>

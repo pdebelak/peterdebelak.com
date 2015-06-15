@@ -1,5 +1,6 @@
 ---
 title: Recursion Basics - Adding Numbers in an Array with Javascript
+description: A basic guide to recursion in programming
 ---
 
 <p>Recursion can be confusing, especially for people new to programming. I thought I'd post a very simple example here to help beginners.</p>

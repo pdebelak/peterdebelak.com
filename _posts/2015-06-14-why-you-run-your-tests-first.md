@@ -1,5 +1,6 @@
 ---
 title: Why You Run Your Tests First
+description: Why you should always run your tests first and see them fail during test-driven development
 ---
 
 When first learning test-driven-development, there are a lot of things about it
