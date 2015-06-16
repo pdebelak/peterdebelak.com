@@ -38,13 +38,9 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Complex ActiveRecord Queries with Includes<br><small><a href="/blog/posts/complex-activerecord-queries-with-includes/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 18 October 2014</p>
-      <p>ActiveRecord's way of separating Ruby developers from writing SQL is fantastic, but sometimes its behavior can be a little surprising. I ran into some ActiveRecord-related trouble recently and wanted to share the solution.</p>
+  <h1 class="blog-index">Complex ActiveRecord Queries with Includes<br><small><a href="/blog/posts/complex-activerecord-queries-with-includes/">permalink</a></small></h1>
+  <p class="date-line">Last updated 18 October 2014</p>
+  <p>ActiveRecord's way of separating Ruby developers from writing SQL is fantastic, but sometimes its behavior can be a little surprising. I ran into some ActiveRecord-related trouble recently and wanted to share the solution.</p>
 
 <p class="lead">The situation</p>
 <p>I had a model, let's call it <code>DateRange</code> that represents a range of dates (amazing, right?). Each date range could have many <code>TakenDate</code>s representing a range of dates that fall within its parent date range and are no longer available.</p>
@@ -70,16 +66,11 @@ DateRange.includes(:taken_dates)
 <p>That is one ugly query, but the key is specifying <code>taken_date.is IS NULL OR</code> some condition. This returns everything without an association while still allowing you to do a query based on the association if it exists!</p>
 <p>I don't doubt that there is a better way to tackle this problem (feel free to let me know in the comments!), but I think it is good to know some tricks for those corner cases where ActiveRecord doesn't make your life easy.</p>
 
-    </div>
-  </div>
+  <hr>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Routing with Rails and Angular<br><small><a href="/blog/posts/routing-with-rails-and-angular/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 11 October 2014</p>
-      <p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.
+  <h1 class="blog-index">Routing with Rails and Angular<br><small><a href="/blog/posts/routing-with-rails-and-angular/">permalink</a></small></h1>
+  <p class="date-line">Last updated 11 October 2014</p>
+  <p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.
 
 <p>If you are using <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> (and you really should be to allow deep linking on your Angular app) your server should be able to handle requests like <code>/blog/posts/1</code> and show the appropriate blog post. You can easily do this by just routing all requests to your main index page and let Angular handle the routing. But what urls should Angular use to fetch the post from the server? You could namespace all of the server responses like <code>/api/blog/posts/1</code> but that doesn't really make sense. What you really want is to respond to <code>.html</code> requests by displaying the single-page Angular html and to respond to <code>.json</code> requests with the appropriate resource as json.
 <p class="lead">Rails makes this easy!</p>
@@ -120,8 +111,7 @@ end
 <p>I hope this helps you with routing in your Rails/Angular apps. Leave any tips you might have in the comments.
 </p></p></p></p>
 
-    </div>
-  </div>
+  <hr>
 
 <nav>
   <ul class="pager">

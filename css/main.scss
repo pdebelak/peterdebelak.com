@@ -63,16 +63,11 @@ p.date-line {
   color: gray;
 }
 
-.panel-default .panel-heading {
-  background-color: #fff;
-}
-
-.panel-default .panel-heading h1 {
+h1.blog-index {
   font-size: 30px;
-}
-
-.panel-default .panel-heading h1 small {
-  font-size: 14px;
+  small {
+    font-size: 14px;
+  }
 }
 
 code {

@@ -24,18 +24,14 @@ description: News, hints, and tips about Peter Debelak - a computer programmer l
 </div>
 <div class="row recent-posts">
   <div class="col-sm-12">
+    <hr>
     <p class="lead">Most Recent Blog Posts</p>
     {% for post in site.posts limit:3 %}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{ post.title }}</h3>
-        </div>
-        <div class="panel-body">
-          <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
-          {{ post.excerpt }}
-          <a href="{{ post.url }}">read more</a>
-        </div>
-      </div>
+      <h3 class="panel-title">{{ post.title }}</h3>
+      <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
+      {{ post.excerpt }}
+      <a href="{{ post.url }}">read more</a>
+      <hr>
     {% endfor %}
   </div>
 </div>

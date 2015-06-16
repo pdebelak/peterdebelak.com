@@ -38,28 +38,19 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">jump_back - a new gem to improve redirecting back in Rails<br><small><a href="/blog/posts/jump_back-a-new-gem-to-improve-redirecting-back-in-rails/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 10 January 2015</p>
-      <p>Have you ever encounter encountered errors when running <code>redirect_to :back</code> in Rails and had to write a work around? What about saving a user's location on your site before redirecting them to your log in form so you can return them to what they were doing?</p>
+  <h1 class="blog-index">jump_back - a new gem to improve redirecting back in Rails<br><small><a href="/blog/posts/jump_back-a-new-gem-to-improve-redirecting-back-in-rails/">permalink</a></small></h1>
+  <p class="date-line">Last updated 10 January 2015</p>
+  <p>Have you ever encounter encountered errors when running <code>redirect_to :back</code> in Rails and had to write a work around? What about saving a user's location on your site before redirecting them to your log in form so you can return them to what they were doing?</p>
 
 <p>I've just released a gem, <code>jump_back</code>, that takes care of all of that for you with <code>redirect_back</code>, <code>save_referer</code>, and <code>return_to_referer</code> methods available in all your controllers. Check out the details in the Github README <a href="https://github.com/pdebelak/jump_back">here</a>.</p>
 <p>If you have any ideas/feedback about <code>jump_back</code> you can leave a comment in here or, even better, open an issue on Github.</p>
 <p>I hope you find it useful!</p>
 
-    </div>
-  </div>
+  <hr>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Intermediate Recursion - Fibonacci Sequence with Memoization<br><small><a href="/blog/posts/intermediate-recursion-fibonacci-sequence-with-memoization/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 06 November 2014</p>
-      <p>After <a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>
+  <h1 class="blog-index">Intermediate Recursion - Fibonacci Sequence with Memoization<br><small><a href="/blog/posts/intermediate-recursion-fibonacci-sequence-with-memoization/">permalink</a></small></h1>
+  <p class="date-line">Last updated 06 November 2014</p>
+  <p>After <a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>
 
 <p>You can read that article, but the basic concept of memoization is not repeating calculations if you've already found the answer. The example used there is finding factorials (<code>5! = 5 * 4 * 3 * 2 * 1</code>), but that only works if you call the function multiple times in your program. I want to talk about those rare cases where memoization comes in handy within the function itself.</p>
 <p class="lead">Fibonacci Sequence</p>
@@ -100,16 +91,11 @@ function fibonacci(positiveInteger, foundFibonaccis) {
 <p>Does that improve the performance? Oh yeah! On my Chromebook I now get the answer for <code>fibonacci(1000)</code> almost instantly. In fact, I get the answer up to <code>fibonacci(1476)</code> right away and the only reason I can't calculate higher fibonacci numbers is that JavaScript can't handle it and starts returning <code>Infinity</code>.</p>
 <p>I hope you found this mini introduction to memoization helpful. If you've found other areas where memoization would be helpful sound off in the comments!</p>
 
-    </div>
-  </div>
+  <hr>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Recursion Basics - Adding Numbers in an Array with Javascript<br><small><a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 31 October 2014</p>
-      <p>Recursion can be confusing, especially for people new to programming. I thought I'd post a very simple example here to help beginners.</p>
+  <h1 class="blog-index">Recursion Basics - Adding Numbers in an Array with Javascript<br><small><a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript/">permalink</a></small></h1>
+  <p class="date-line">Last updated 31 October 2014</p>
+  <p>Recursion can be confusing, especially for people new to programming. I thought I'd post a very simple example here to help beginners.</p>
 
 <p class="lead">The problem</p>
 <p>Let's say you want to add all the numbers in an array without using a loop. (Why can't you use a loop? Because.) If you knew beforehand the number of items in the array you could write:</p>
@@ -135,8 +121,7 @@ function addArray(arrayOfNums) {
 </pre>
 <p>Now if you run this code you will get the expected results! I hope this can help a beginner get the hang of recursion.</p>
 
-    </div>
-  </div>
+  <hr>
 
 <nav>
   <ul class="pager">

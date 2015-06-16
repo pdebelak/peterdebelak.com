@@ -38,13 +38,9 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Why You Run Your Tests First<br><small><a href="/blog/posts/why-you-run-your-tests-first/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 14 June 2015</p>
-      <p>When first learning test-driven-development, there are a lot of things about it
+  <h1 class="blog-index">Why You Run Your Tests First<br><small><a href="/blog/posts/why-you-run-your-tests-first/">permalink</a></small></h1>
+  <p class="date-line">Last updated 14 June 2015</p>
+  <p>When first learning test-driven-development, there are a lot of things about it
 that seem stupid and arbitrary. After working with it a while, though, you
 start to see that at least some of the rules make a lot of sense. The phrase
 most associated with TDD is “red, green, refactor”. Now, when I was first
@@ -94,16 +90,11 @@ understand your code.</p>
 <p>I hope that helps explain why the seemingly stupid step of running a test you
 know will fail is actually helpful.</p>
 
-    </div>
-  </div>
+  <hr>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Switching Away from Angular<br><small><a href="/blog/posts/switching-away-from-angular/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 27 February 2015</p>
-      <p>As I’ve spent more time working with Rails, I’ve realized that, even without
+  <h1 class="blog-index">Switching Away from Angular<br><small><a href="/blog/posts/switching-away-from-angular/">permalink</a></small></h1>
+  <p class="date-line">Last updated 27 February 2015</p>
+  <p>As I’ve spent more time working with Rails, I’ve realized that, even without
 Angular, a Rails site is capable of being fully-interactive, ajax-powered
 fun-times machine. I know what you’re thinking: “Duh! That’s true of everything
 from plain <code>html</code> to <code>php</code>!” Okay, yes, that’s true. But with Rails you can do
@@ -143,16 +134,11 @@ likely to add new features. For example, I’ve already updated the site to use
 think when it comes to Rails, I’ll keep using unobtrusive javascript until I
 have a real reason not to.</p>
 
-    </div>
-  </div>
+  <hr>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">Complex ActiveRecord Queries Pt. II - Greatest N Per Group<br><small><a href="/blog/posts/complex-activerecord-queries-pt-ii-greatest-n-per-group/">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated 12 February 2015</p>
-      <p>It is time again to get ridiculous with ActiveRecord. <a href="/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
+  <h1 class="blog-index">Complex ActiveRecord Queries Pt. II - Greatest N Per Group<br><small><a href="/blog/posts/complex-activerecord-queries-pt-ii-greatest-n-per-group/">permalink</a></small></h1>
+  <p class="date-line">Last updated 12 February 2015</p>
+  <p>It is time again to get ridiculous with ActiveRecord. <a href="/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
 
 <p class="lead">The situation</p>
 <ul>
@@ -181,8 +167,7 @@ User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').join
 <p>Another beautiful ActiveRecord query. Just as a note, I really like ActiveRecord because it makes 99% of all the queries you do beautiful and semantic. Unfortunately, that other 1% is out there to get you.</p>
 <p>I hope this helps someone trying to fight with ActiveRecord to sort by a single instance in a <code>has_many</code> relationship!</p>
 
-    </div>
-  </div>
+  <hr>
 
 <nav>
   <ul class="pager">

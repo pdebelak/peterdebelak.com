@@ -6,15 +6,10 @@ description: Posts about Ruby, Rails, and other technical topics from Peter Debe
 ---
 
 {% for post in paginator.posts %}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">{{ post.title }}<br><small><a href="{{ post.url }}">permalink</a></small></h1>
-    </div>
-    <div class="panel-body">
-      <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
-      {{ post.content }}
-    </div>
-  </div>
+  <h1 class="blog-index">{{ post.title }}<br><small><a href="{{ post.url }}">permalink</a></small></h1>
+  <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
+  {{ post.content }}
+  <hr>
 {% endfor %}
 <nav>
   <ul class="pager">
