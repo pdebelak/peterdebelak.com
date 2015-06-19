@@ -14,10 +14,10 @@ description: Posts about Ruby, Rails, and other technical topics from Peter Debe
 <nav>
   <ul class="pager">
     <li class="previous{% if paginator.page == 1 %} disabled{% endif %}">
-      <a href="{{ paginator.previous_page_path }}">Newer posts</a>
+      <a href="{{ paginator.previous_page_path }}">&larr; Newer posts</a>
     </li>
     <li class="next{% if paginator.page == paginator.total_pages %} disabled{% endif %}">
-      <a href="{{ paginator.next_page_path }}">Older posts</a>
+      <a href="{{ paginator.next_page_path }}">Older posts &rarr;</a>
     </li>
   </ul>
 </nav>
