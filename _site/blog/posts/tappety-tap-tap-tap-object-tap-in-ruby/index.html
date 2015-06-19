@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Debelak | Tappety Tap Tap Tap Tap - Object#tap in Ruby</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An explanation of the Object#tap method in Ruby and why you should use it">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-64190606-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body >
+    <div class="wrapper">
+      <header class="container-fluid">
+        <h1><a href="/">Peter Debelak</a></h1>
+      </header>
+
+      <div class="container" >
+        <nav class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <p class="navbar-text visible-xs-block">Menu </p>
+  </div>
+  <div class="collapse navbar-collapse" id="sidebar">
+    <ul class="nav nav-pills nav-stacked">
+      <li class=""><a href="/resume/">Resume</a></li>
+      <li class=""><a href="/about/">About</a></li>
+      <li class="active"><a href="/blog/posts">Blog</a></li>
+      <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
+  <h1>Tappety Tap Tap Tap Tap - Object#tap in Ruby</h1>
+<p class="date-line">Last updated 18 June 2015</p>
+<p>There are a number of features that were added to Ruby in versions 1.9 or later
+that don’t seem to be in wide use for some reason. One that I have a fondness
+for is the <code>tap</code> method.</p>
+
+<p>The <code>tap</code> method was added to the <code>Object</code> class in Ruby 1.9. All it does is
+yield <code>self</code> to a block and then return <code>self</code>.</p>
+
+<p>Here’s a simple example:</p>
+
+<pre><code>Object.new.tap do |object|
+  puts object
+end
+# returns the object
+</code></pre>
+
+<p>Doesn’t that seem useful? Not really? Okay. Well, according to <a href="http://ruby-doc.org/core-1.9.3/Object.html#method-i-tap">the docs</a>
+the method is meant to “tap into” a method chain, in the same way you’d tap
+into a rich vein of silver. Let’s see if we can find the silver here.</p>
+
+<p>Imagine you need to create an object, call one of its methods, and then return
+it.</p>
+
+<pre><code>Hat.new(type: :bowler).tap do |hat|
+  hat.tip
+end
+</code></pre>
+
+<p>We’re getting closer.</p>
+
+<p>What if you need to construct a string in a complicated way?</p>
+
+<pre><code>"".tap do |string|
+  string &lt;&lt; "Hello " if hello
+  string &lt;&lt; "Sir " if should_sir?
+  string &lt;&lt; "I'm writing to you"
+  string &lt;&lt; " about #{about}" if about
+  string &lt;&lt; "."
+end
+</code></pre>
+
+<p>That’s so much better than the <code>string = ""; string &lt;&lt; "X" if something</code> alternative
+that ends with <code>string</code> at the end to make sure you return it. <code>tap</code> takes care
+of that for you.</p>
+
+<p>The biggest benefit I’ve found of using <code>tap</code> is that it makes it easy to create
+a variable with limited scope. This can be very useful in Rails views, especially
+if you use decorators to add view-related methods to an object.</p>
+
+<p>Take this haml:</p>
+
+<pre><code>- decorated_post = PostDecorator.new(@post)
+%h1= decorated_post.decorated_title
+%p= decorated_post.decorated_body
+</code></pre>
+
+<p>That’s all fine, but if you are in a situation where you want to use two different
+decorators in the same view, you might have something like this:</p>
+
+<pre><code>- readably_decorated_post = ReadablePostDecorator.new(@post)
+%h1= readably_decorated_post.decorated_title
+%p= readably_decorated_post.decorated_body
+
+- sortably_decorated_post = SortablePostDecorator.new(@post)
+= link_to sortably_decorated_post.next_post
+</code></pre>
+
+<p>It can be hard to keep track of where a variable might be used and how. Also,
+those variable names are long to differentiate from themselves from each
+other. Try this instead:</p>
+
+<pre><code>- ReadablePostDecorator.new(@post).tap do |decorated_post|
+  %h1= decorated_post.decorated_title
+  %p= decorated_post.decorated_body
+
+- SortablePostDecorator.new(@post).tap do |decorated_post|
+  = link_to decorated_post.next_post
+</code></pre>
+
+<p>I find that more readable and you have a good idea of the start and end of the
+scope of the variables.</p>
+
+<p>I hope this encourages you to bring out <code>Object#tap</code> for a little spin the next
+chance you get.</p>
+
+
+</div>
+
+      </div>
+      <div class="push"></div>
+    </div>
+    <footer class="container-fluid">
+      <h4 class="text-right">
+        <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
+      </h4>
+    </footer>
+    <script src="/js/bootstrap-without-jquery.min.js"></script>
+  </body>
+</html>
