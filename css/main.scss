@@ -1,7 +1,8 @@
 ---
 ---
 
-$brand-primary: #337ab7;
+$brand-primary: #017890;
+@import "./_bootstrap";
 
 html, body {
   height: 100%;
@@ -36,7 +37,7 @@ header a, footer a, header a:focus, footer a:focus {
 
 header a:hover, footer a:hover {
   text-decoration: none;
-  color: lighten($brand-primary, 60%);
+  color: lighten($brand-primary, 70%);
 }
 
 nav {
@@ -45,17 +46,6 @@ nav {
 
 .nav-pills > li > a {
   color: $brand-primary;
-}
-
-.login {
-  float: left;
-  color: $brand-primary;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-form a.btn.pull-right {
-  margin-right: 10px;
 }
 
 p.date-line {

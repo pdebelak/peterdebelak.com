@@ -10,3 +10,5 @@ defaults:
 permalink: /:categories/:title/
 paginate: 3
 paginate_path: /blog/posts/page:num/
+sass:
+  sass_dir: css
