@@ -47,6 +47,51 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
+  <h1 class="blog-index">Intermediate Recursion - Fibonacci Sequence with Memoization<br><small><a href="/blog/posts/intermediate-recursion-fibonacci-sequence-with-memoization/">permalink</a></small></h1>
+  <p class="date-line">Last updated 06 November 2014</p>
+  <p>After <a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>
+
+<p>You can read that article, but the basic concept of memoization is not repeating calculations if you've already found the answer. The example used there is finding factorials (<code>5! = 5 * 4 * 3 * 2 * 1</code>), but that only works if you call the function multiple times in your program. I want to talk about those rare cases where memoization comes in handy within the function itself.</p>
+<p class="lead">Fibonacci Sequence</p>
+<p>You've probably heard about this sequence before - it's the one followed by pine cones and the golden ratio. It starts <code>0, 1, 1, 2, 3, 5, 8, 13...</code> where each number is the sum of the two previous numbers.</p>
+<p>Based on that description, you can probably guess if we wanted to calculate the <code>nth</code> fibonacci number, recursion would come in handy. The first pass looks like this in JavaScript:</p>
+<pre>
+function fibonacci(positiveInteger) {
+    if (positiveInteger === 1) {
+        return 1;
+    } else if (positiveInteger === 0) {
+        return 0;
+    } else {
+        return fibonacci(positiveInteger - 2) + fibonacci(positiveInteger - 1);
+    }
+}
+</pre>
+<p>Makes sense? You build in some automatic returns for <code>0</code> and <code>1</code> and then it works as expected with the answer being the sum of the two previous fibonacci numbers.</p>
+<p class="lead">The problem</p>
+<p>It works great! The problem, though, lies in trying to calculate larger numbers. Running <a href="http://nodejs.org/">node</a> in the terminal on my Chromebook starts getting slow around <code>fibonacci(30)</code> and <code>fibonacci(100)</code> appears to completely crash my terminal. I suspect it would stop running at some point, but I don't want to wait all day.</p>
+<p class="lead">The solution - Memoization</p>
+<p>As you probably guessed, we can use memoization to improve this behavior. How? Each time we calculate a fibonacci number using the above function, we were calculating all the fibonacci numbers down to <code>0</code>. This involves a <em>lot</em> of repeated calculations. Let's try to remember all the fibonacci numbers we've calculated and pass them into the recursive calls.</p>
+<pre>
+function fibonacci(positiveInteger, foundFibonaccis) {
+    if (typeof(foundFibonaccis) === 'undefined') {
+        var found = { 0: 0, 1: 1 };
+    } else {
+        var found = foundFibonaccis;
+    }
+    if (typeof(found[positiveInteger]) !== 'undefined') {
+        return found[positiveInteger];
+    } else {
+        found[positiveInteger] = fibonacci(positiveInteger - 2, found) + fibonacci(positiveInteger - 1, found);
+    }
+    return found[positiveInteger];
+}
+</pre>
+<p>Now we are storing each calculated number in an object and passing it into future recursive calls. If nothing is passed in, I set the object to <code>{ 0: 0, 1: 1 }</code> much like I supplied the answers for <code>0</code> and <code>1</code> in the first function.</p>
+<p>Does that improve the performance? Oh yeah! On my Chromebook I now get the answer for <code>fibonacci(1000)</code> almost instantly. In fact, I get the answer up to <code>fibonacci(1476)</code> right away and the only reason I can't calculate higher fibonacci numbers is that JavaScript can't handle it and starts returning <code>Infinity</code>.</p>
+<p>I hope you found this mini introduction to memoization helpful. If you've found other areas where memoization would be helpful sound off in the comments!</p>
+
+  <hr>
+
   <h1 class="blog-index">Recursion Basics - Adding Numbers in an Array with Javascript<br><small><a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript/">permalink</a></small></h1>
   <p class="date-line">Last updated 31 October 2014</p>
   <p>Recursion can be confusing, especially for people new to programming. I thought I'd post a very simple example here to help beginners.</p>
@@ -107,58 +152,13 @@ DateRange.includes(:taken_dates)
 
   <hr>
 
-  <h1 class="blog-index">Routing with Rails and Angular<br><small><a href="/blog/posts/routing-with-rails-and-angular/">permalink</a></small></h1>
-  <p class="date-line">Last updated 11 October 2014</p>
-  <p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.
-
-<p>If you are using <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> (and you really should be to allow deep linking on your Angular app) your server should be able to handle requests like <code>/blog/posts/1</code> and show the appropriate blog post. You can easily do this by just routing all requests to your main index page and let Angular handle the routing. But what urls should Angular use to fetch the post from the server? You could namespace all of the server responses like <code>/api/blog/posts/1</code> but that doesn't really make sense. What you really want is to respond to <code>.html</code> requests by displaying the single-page Angular html and to respond to <code>.json</code> requests with the appropriate resource as json.
-<p class="lead">Rails makes this easy!</p>
-<p>As anyone who has generated scaffolding with Rails know, it is easy to craft a different response whether it is <code>.html</code> or <code>.json</code>. Your controllers frequently look like:
-<pre>
-def show
-  @post = Post.find(params[:id])
-  respond_to do |format|
-    format.html # render the html view
-    format.json # render the json view
-  end
-end
-</pre>
-<p>So, if I have my home page at <code>static_pages#home</code> I might write:</p>
-<pre>
-respond_to do |format|
-  format.html { render 'static_pages/home' }
-  format.json # rendering the show.json.erb file
-end
-</pre>
-<p>Now you don't have to try to redirect all requests in your <code>config/routes</code> file or do anything crazy to properly respond to deep links.</p>
-<p>This works fine, but I don't usually feel it necessary to create the <code>.json.erb</code> file for simple models and it also gets quite repetitive to have the same <code>respond_to</code> block in every controller action that takes a get request. Instead, I find that declaring a custom method in your <code>ApplicationController</code> that handles it for you:</p>
-<pre>
-def ng_respond(response_for_json)
-  respond_to do |format|
-    format.html { render 'static_pages/home' }
-    format.json { render json: response_for_json.to_json }
-  end
-end
-</pre>
-<p>That way you can create controller actions like this:</p>
-<pre>
-def show
-  @post = Post.find(params[:id])
-  ng_respond(@post)
-end
-</pre>
-<p>I hope this helps you with routing in your Rails/Angular apps. Leave any tips you might have in the comments.
-</p></p></p></p>
-
-  <hr>
-
 <nav>
   <ul class="pager">
     <li class="previous">
       <a href="/blog/posts/page2/">&larr; Newer posts</a>
     </li>
-    <li class="next disabled">
-      <a href="">Older posts &rarr;</a>
+    <li class="next">
+      <a href="/blog/posts/page4/">Older posts &rarr;</a>
     </li>
   </ul>
 </nav>
