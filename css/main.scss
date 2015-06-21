@@ -32,7 +32,16 @@ footer, .push {
 
 header a, footer a, header a:focus, footer a:focus {
   text-decoration: none;
-  color: white;
+  color: #fff;
+}
+
+footer .pull-left {
+  color: #fff;
+  margin-top: 10px;
+  display: none;
+  @media (min-width: 768px) {
+    display: inline;
+  }
 }
 
 header a:hover, footer a:hover {

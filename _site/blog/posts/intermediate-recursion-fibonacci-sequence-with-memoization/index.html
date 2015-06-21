@@ -22,7 +22,7 @@
   <body >
     <div class="wrapper">
       <header class="container-fluid">
-        <h1><a href="/">Peter Debelak</a></h1>
+        <h1><a id="home" href="/">Peter Debelak</a></h1>
       </header>
 
       <div class="container" >
@@ -38,10 +38,10 @@
   </div>
   <div class="collapse navbar-collapse" id="sidebar">
     <ul class="nav nav-pills nav-stacked">
-      <li class=""><a href="/resume/">Resume</a></li>
-      <li class=""><a href="/about/">About</a></li>
-      <li class="active"><a href="/blog/posts">Blog</a></li>
-      <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+      <li class=""><a id="about" href="/about/">About</a></li>
+      <li class=""><a id="resume" href="/resume/">Resume</a></li>
+      <li class="active"><a id="blog" href="/blog/posts">Blog</a></li>
+      <li><a id="github" href="https://github.com/pdebelak">Peter on Github</a></li>
     </ul>
   </div>
 </nav>
@@ -95,12 +95,12 @@ function fibonacci(positiveInteger, foundFibonaccis) {
   <ul class="pager">
     
       <li class="previous">
-        <a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript/">&larr; Older post</a>
+        <a id="previous" href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript/">&larr; Older post</a>
       </li>
     
     
       <li class="next">
-        <a href="/blog/posts/jump_back-a-new-gem-to-improve-redirecting-back-in-rails/">Newer post &rarr;</a>
+        <a id="next" href="/blog/posts/jump_back-a-new-gem-to-improve-redirecting-back-in-rails/">Newer post &rarr;</a>
       </li>
     
   </ul>
@@ -112,11 +112,13 @@ function fibonacci(positiveInteger, foundFibonaccis) {
       <div class="push"></div>
     </div>
     <footer class="container-fluid">
+      <span class="pull-left">Press <code>?</code> for help</span>
       <h4 class="text-right">
         <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
       </h4>
     </footer>
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/shortcuts.js"></script>
     <script src="/js/bootstrap-without-jquery.min.js"></script>
   </body>
 </html>

@@ -22,7 +22,7 @@
   <body >
     <div class="wrapper">
       <header class="container-fluid">
-        <h1><a href="/">Peter Debelak</a></h1>
+        <h1><a id="home" href="/">Peter Debelak</a></h1>
       </header>
 
       <div class="container" >
@@ -36,10 +36,10 @@
   <div class="col-sm-6 home-nav">
     <p class="lead">What can I do here?</p>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="/resume/">See Peter's resume</a></li>
-      <li><a href="/about/">Learn more about Peter</a></li>
-      <li><a href="/blog/posts">Read Peter's blog</a></li>
-      <li><a href="https://github.com/pdebelak">Check out Peter on Github</a></li>
+      <li><a id="about" href="/about/">Learn more about Peter</a></li>
+      <li><a id="resume" href="/resume/">See Peter's resume</a></li>
+      <li><a id="blog" href="/blog/posts">Read Peter's blog</a></li>
+      <li><a id="github" href="https://github.com/pdebelak">Check out Peter on Github</a></li>
     </ul>
   </div>
 </div>
@@ -89,11 +89,13 @@ written the code yet!</p>
       <div class="push"></div>
     </div>
     <footer class="container-fluid">
+      <span class="pull-left">Press <code>?</code> for help</span>
       <h4 class="text-right">
         <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
       </h4>
     </footer>
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/shortcuts.js"></script>
     <script src="/js/bootstrap-without-jquery.min.js"></script>
   </body>
 </html>

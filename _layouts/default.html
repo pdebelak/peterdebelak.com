@@ -14,10 +14,10 @@ layout: home
   </div>
   <div class="collapse navbar-collapse" id="sidebar">
     <ul class="nav nav-pills nav-stacked">
-      <li class="{% if page.active == "resume" %}active{% endif %}"><a href="/resume/">Resume</a></li>
-      <li class="{% if page.active == "about" %}active{% endif %}"><a href="/about/">About</a></li>
-      <li class="{% if page.active == "blog" %}active{% endif %}"><a href="/blog/posts">Blog</a></li>
-      <li><a href="https://github.com/pdebelak">Peter on Github</a></li>
+      <li class="{% if page.active == "about" %}active{% endif %}"><a id="about" href="/about/">About</a></li>
+      <li class="{% if page.active == "resume" %}active{% endif %}"><a id="resume" href="/resume/">Resume</a></li>
+      <li class="{% if page.active == "blog" %}active{% endif %}"><a id="blog" href="/blog/posts">Blog</a></li>
+      <li><a id="github" href="https://github.com/pdebelak">Peter on Github</a></li>
     </ul>
   </div>
 </nav>
