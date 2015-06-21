@@ -1,0 +1,53 @@
+---
+---
+
+// This file is used to generate the top of page, inline css that google
+// recommends to speed up above the fold content loading. The workflow is:
+// 1. Edit this file. 2. Add a link to it in the html. 3. Remove the inline
+// css between the style tags. 4. Once you are happy with the results, copy
+// the generated css from this file into a css minifier and put that css
+// inline between the style tags. 5. Remove the link to this file in the
+// html. 6. Profit?
+
+$brand-primary: #017890;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+header {
+  background-color: $brand-primary;
+  overflow: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: 750px) {
+    width: 750px;
+  }
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
