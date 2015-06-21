@@ -5795,6 +5795,30 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+html, body {
+  height: 100%; }
+
+header, footer {
+  background-color: #017890; }
+
+div.wrapper {
+  min-height: 100%;
+  margin-bottom: -39px; }
+
+header {
+  margin-bottom: 30px; }
+
+footer, .push {
+  width: 100%;
+  height: 39px; }
+
+.push {
+  margin-top: 30px; }
+
+header a, footer a, header a:focus, footer a:focus {
+  text-decoration: none;
+  color: white; }
+
 header a:hover, footer a:hover {
   text-decoration: none;
   color: #f7feff; }
