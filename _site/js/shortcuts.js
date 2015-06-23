@@ -45,9 +45,9 @@
     }
   }
 
-  var ESCAPE_KEY = 27;
-  function escapePressed(e) {
-    return keyDown(e) === ESCAPE_KEY;
+  var I_KEY = 73;
+  function shortcutKeyPressed(e) {
+    return keyDown(e) === I_KEY && e.ctrlKey;
   }
 
   var SLASH_KEY = 191;
@@ -62,7 +62,7 @@
   document.addEventListener('keydown', function(e){
     if (questionMarkPressed(e)) {
       window.location = "/help/"
-    } else if (escapePressed(e)) {
+    } else if (shortcutKeyPressed(e)) {
       toggleShortcutMode();
     } else if (shortcutMode) {
       linkShortcut(e);

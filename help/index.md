@@ -10,7 +10,7 @@ Since I am a nerd, this site has some keyboard shortcuts.
 
 At any time while on the site you can press `?` to get to this page.
 
-Otherwise, pressing `esc` will cause you to enter "shortcut mode" where the
+Otherwise, pressing `ctrl+i` will cause you to enter "shortcut mode" where the
 following keyboard shortcuts are available:
 
 * press `j` to scroll down
