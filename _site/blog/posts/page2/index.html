@@ -57,6 +57,60 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
+  <h1 class="blog-index">Why You Run Your Tests First<br><small><a href="/blog/posts/why-you-run-your-tests-first/">permalink</a></small></h1>
+  <p class="date-line">Last updated 14 June 2015</p>
+  <p>When first learning test-driven-development, there are a lot of things about it
+that seem stupid and arbitrary. After working with it a while, though, you
+start to see that at least some of the rules make a lot of sense. The phrase
+most associated with TDD is “red, green, refactor”. Now, when I was first
+learning about TDD the green and refactor steps made a lot of sense, but why
+do I need to do the red step? I <em>know</em> the test will fail, because I haven’t
+written the code yet!</p>
+
+<p>Now I understand, though, so I wanted to share what I learned with future
+doubters.</p>
+
+<p class="lead">You only <em>think</em> you know what the bug is</p>
+
+<p>When fixing bugs in a large project at work, I usually have an exception that
+occurred in production with details in <a href="https://github.com/honeybadger-io/honeybadger-ruby">honeybadger</a>.
+I usually read the trace from the exception and think through where the problem
+might be. I then tend to have a very good idea of how to solve the issue.</p>
+
+<p>The only way I <em>know</em> I’m fixing the issue, though, is to write a test that
+replicates the problem. Frequently I’ll write the test and, by running it, discover that it
+doesn’t actually cause the same exception I expected it to, or that it doesn’t cause
+any exception at all! If I wrote the test, changed the code, and then ran the
+test I’d think that the bug was fixed. By running the test first I verify that
+I’m fixing the thing I think I am.</p>
+
+<p>The same idea applies to writing new features. If you run your tests first,
+you can verify that you are getting the error you expect to get. When you write
+a test like this:</p>
+
+<pre><code>specify { Thing.new.do_thing.should == "hello" }
+</code></pre>
+
+<p>And your current code is:</p>
+
+<pre><code>class Thing
+  def do_thing
+  end
+end
+</code></pre>
+
+<p>You run the test to see <code>expected "doing a thing", got nil</code>. This means that
+the rest of your code is working as you expect, and your planned code will make
+the test pass. Without running the test, you might write your code, then
+discover that you mistyped the method name, or that your method is returning
+something unexpected. Until you get the failure you want, you don’t really
+understand your code.</p>
+
+<p>I hope that helps explain why the seemingly stupid step of running a test you
+know will fail is actually helpful.</p>
+
+  <hr>
+
   <h1 class="blog-index">Switching Away from Angular<br><small><a href="/blog/posts/switching-away-from-angular/">permalink</a></small></h1>
   <p class="date-line">Last updated 27 February 2015</p>
   <p>As I’ve spent more time working with Rails, I’ve realized that, even without
@@ -131,16 +185,6 @@ User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').join
 </pre>
 <p>Another beautiful ActiveRecord query. Just as a note, I really like ActiveRecord because it makes 99% of all the queries you do beautiful and semantic. Unfortunately, that other 1% is out there to get you.</p>
 <p>I hope this helps someone trying to fight with ActiveRecord to sort by a single instance in a <code>has_many</code> relationship!</p>
-
-  <hr>
-
-  <h1 class="blog-index">jump_back - a new gem to improve redirecting back in Rails<br><small><a href="/blog/posts/jump_back-a-new-gem-to-improve-redirecting-back-in-rails/">permalink</a></small></h1>
-  <p class="date-line">Last updated 10 January 2015</p>
-  <p>Have you ever encounter encountered errors when running <code>redirect_to :back</code> in Rails and had to write a work around? What about saving a user's location on your site before redirecting them to your log in form so you can return them to what they were doing?</p>
-
-<p>I've just released a gem, <code>jump_back</code>, that takes care of all of that for you with <code>redirect_back</code>, <code>save_referer</code>, and <code>return_to_referer</code> methods available in all your controllers. Check out the details in the Github README <a href="https://github.com/pdebelak/jump_back">here</a>.</p>
-<p>If you have any ideas/feedback about <code>jump_back</code> you can leave a comment in here or, even better, open an issue on Github.</p>
-<p>I hope you find it useful!</p>
 
   <hr>
 

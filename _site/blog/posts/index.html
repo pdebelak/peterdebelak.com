@@ -57,6 +57,42 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
+  <h1 class="blog-index">New Heroku Pricing<br><small><a href="/blog/posts/new-heroku-pricing/">permalink</a></small></h1>
+  <p class="date-line">Last updated 27 June 2015</p>
+  <p><a href="https://blog.heroku.com/archives/2015/5/7/new-dyno-types-public-beta">Heroku’s new pricing</a>
+introduces much better pricing for anyone who has been paying for Heroku’s
+services, but introduces a huge change for people wanting to host their apps
+for free — required downtime. Now all free apps have to sleep for 6 hours in
+every 24 hour period.</p>
+
+<p>What they are actually doing is making their free tier better for people who
+use it in the way that they want — to get an app up and running in a
+production environment for testing. They now give you a free web and worker
+dyno so you can set up <a href="http://sidekiq.org/">sidekiq</a> at no cost while you are developing the app.
+Previously, if you wanted to use a second dyno at all you almost certainly
+had to pay some money.</p>
+
+<p>Once users like this are ready to go into prime time they can either go through the
+hassle of switching to a different hosting service like Amazon, or they can
+just pay Heroku some money every month for more dynos that are always live.
+Clearly, this is what Heroku wants.</p>
+
+<p>Unfortunately, I wasn’t using the free tier of Heroku to test out an app in
+development. I just wanted a single web dyno that, if pinged once an hour, was
+up all the time to host my personal website. I had no plans of ever giving
+Heroku any money, so it really makes no sense to give me free hosting. My
+best option with Heroku would be to pay $7 a month to get a site that is always
+up, and that is more than I’m willing to spend at the moment.</p>
+
+<p>So, Heroku did very well. They are now giving free hosting to the people using
+the service in the way that they want and stopping giving free hosting to
+people who, like me, have no intention of ever paying.</p>
+
+<p>As a result, I’ve switched this site’s technology (again). Now I’m using <a href="http://jekyllrb.com/">jekyll</a>
+and hosting for free on <a href="https://pages.github.com/">github</a>. Which is great!</p>
+
+  <hr>
+
   <h1 class="blog-index">Name Thy Args - Named Arguments in Ruby<br><small><a href="/blog/posts/name-thy-args-named-arguments-in-ruby/">permalink</a></small></h1>
   <p class="date-line">Last updated 21 June 2015</p>
   <p>Just like <a href="/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/">last time</a>,
@@ -201,60 +237,6 @@ scope of the variables.</p>
 
 <p>I hope this encourages you to bring out <code>Object#tap</code> for a little spin the next
 chance you get.</p>
-
-  <hr>
-
-  <h1 class="blog-index">Why You Run Your Tests First<br><small><a href="/blog/posts/why-you-run-your-tests-first/">permalink</a></small></h1>
-  <p class="date-line">Last updated 14 June 2015</p>
-  <p>When first learning test-driven-development, there are a lot of things about it
-that seem stupid and arbitrary. After working with it a while, though, you
-start to see that at least some of the rules make a lot of sense. The phrase
-most associated with TDD is “red, green, refactor”. Now, when I was first
-learning about TDD the green and refactor steps made a lot of sense, but why
-do I need to do the red step? I <em>know</em> the test will fail, because I haven’t
-written the code yet!</p>
-
-<p>Now I understand, though, so I wanted to share what I learned with future
-doubters.</p>
-
-<p class="lead">You only <em>think</em> you know what the bug is</p>
-
-<p>When fixing bugs in a large project at work, I usually have an exception that
-occurred in production with details in <a href="https://github.com/honeybadger-io/honeybadger-ruby">honeybadger</a>.
-I usually read the trace from the exception and think through where the problem
-might be. I then tend to have a very good idea of how to solve the issue.</p>
-
-<p>The only way I <em>know</em> I’m fixing the issue, though, is to write a test that
-replicates the problem. Frequently I’ll write the test and, by running it, discover that it
-doesn’t actually cause the same exception I expected it to, or that it doesn’t cause
-any exception at all! If I wrote the test, changed the code, and then ran the
-test I’d think that the bug was fixed. By running the test first I verify that
-I’m fixing the thing I think I am.</p>
-
-<p>The same idea applies to writing new features. If you run your tests first,
-you can verify that you are getting the error you expect to get. When you write
-a test like this:</p>
-
-<pre><code>specify { Thing.new.do_thing.should == "hello" }
-</code></pre>
-
-<p>And your current code is:</p>
-
-<pre><code>class Thing
-  def do_thing
-  end
-end
-</code></pre>
-
-<p>You run the test to see <code>expected "doing a thing", got nil</code>. This means that
-the rest of your code is working as you expect, and your planned code will make
-the test pass. Without running the test, you might write your code, then
-discover that you mistyped the method name, or that your method is returning
-something unexpected. Until you get the failure you want, you don’t really
-understand your code.</p>
-
-<p>I hope that helps explain why the seemingly stupid step of running a test you
-know will fail is actually helpful.</p>
 
   <hr>
 
