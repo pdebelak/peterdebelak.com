@@ -87,6 +87,8 @@ User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').join
 <p>Another beautiful ActiveRecord query. Just as a note, I really like ActiveRecord because it makes 99% of all the queries you do beautiful and semantic. Unfortunately, that other 1% is out there to get you.</p>
 <p>I hope this helps someone trying to fight with ActiveRecord to sort by a single instance in a <code>has_many</code> relationship!</p>
 
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 <nav>
   <ul class="pager">
@@ -102,6 +104,14 @@ User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').join
     
   </ul>
 </nav>
+<script type="text/javascript">
+  var disqus_shortname = 'peterdebelak';
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
 </div>
 
