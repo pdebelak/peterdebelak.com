@@ -5,23 +5,25 @@ layout: default
 <h1>{{ page.title }}</h1>
 <p class="date-line">Last updated {{ page.date | date_to_long_string }}</p>
 {{ content }}
-<div id="disqus_thread"></div>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 <nav>
   <ul class="pager">
     {% if page.previous %}
       <li class="previous">
-        <a id="previous" href="{{ page.previous.url }}">&larr; Older post</a>
+        <a id="next" href="{{ page.previous.url }}">&larr; Older post</a>
       </li>
     {% endif %}
     {% if page.next %}
       <li class="next">
-        <a id="next" href="{{ page.next.url }}">Newer post &rarr;</a>
+        <a id="previous" href="{{ page.next.url }}">Newer post &rarr;</a>
       </li>
     {% endif %}
   </ul>
 </nav>
+
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
 <script type="text/javascript">
   var disqus_shortname = 'peterdebelak';
   (function() {
