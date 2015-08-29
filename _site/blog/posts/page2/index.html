@@ -57,6 +57,65 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
+  <h1 class="blog-index">Name Thy Args - Named Arguments in Ruby<br><small><a href="/blog/posts/name-thy-args-named-arguments-in-ruby/#disqus_thread">comments</a></small></h1>
+  <p class="date-line">Last updated 21 June 2015</p>
+  <p>Just like <a href="/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/">last time</a>,
+where I wrote about the underused <code>Object#tap</code> method, I want to talk about
+a relatively new and underutilized feature in Ruby. Today it is named arguments.</p>
+
+<p>Starting in Ruby 2.0, you could give your arguments names like so:</p>
+
+<pre><code>def method(argument: "default")
+  argument.length
+end
+</code></pre>
+
+<p>This was nice, but since you were forced to provide a default value it wasn’t
+always super useful. Starting in Ruby 2.1, though, the requirement for a default
+was dropped so now you can write:</p>
+
+<pre><code>def method(argument:)
+  argument.length
+end
+</code></pre>
+
+<p>Why is this so great? It provides documentation when a method is called. Have
+you ever run across a method call like <code>do_thing(user, false)</code> in
+an existing codebase? Don’t you immediately have to look up the <code>do_thing</code>
+method to figure out what that <code>false</code> means? What if, instead, you saw
+<code>do_thing(user: user, async: false)</code>? Now you don’t need to lookup
+the code for that method since it is clear what the <code>false</code> means.</p>
+
+<p>Another benefit is that the order doesn’t matter. <code>do_thing(async: false, user: user)</code>
+works just as well. Just last week I spent almost an hour figuring out why a
+test wasn’t passing before I realized I had some positional arguments in the
+wrong order. Named arguments avoid that.</p>
+
+<p>The name of the arguments can also give reminders about what type the arguments
+should be. If you are supposed to pass a user id to the method, <code>do_thing(user, false)</code>
+is a much easier mistake to make than <code>do_thing(user_id: user, async: false)</code>.
+It is immediately obvious that it should be <code>do_thing(user_id: user.id, async: false)</code>.</p>
+
+<p>Finally, Ruby is much more helpful about what is wrong when you forget a named
+argument than positional arguments. If you try <code>do_thing(user)</code> you
+get an error like <code>ArgumentError: wrong number of arguments (1 for 2)</code>. Then
+you have to look at the method definition to see what you forgot. With named
+arguments if you try <code>do_thing(user: user)</code>, you get an error like
+<code>ArgumentError: missing keyword: async</code>, which is much more informative.</p>
+
+<p>The only downsides to named arguments are that they make your method calls a
+little more verbose, and that it makes any gems or libraries you create not as
+backwards compatible. I think the verbosity is worth it, though, and I think
+once Rails 5 comes out and people have to switch to Ruby 2.2 to use it, backwards
+compatibility won’t be such a big issue. In a private codebase, of course, you
+don’t have to worry about compatibility with old Rubies, so there is no downside
+there.</p>
+
+<p>I encourage you to use named arguments as much as possible. I think you’ll see
+the benefits right away!</p>
+
+  <hr>
+
   <h1 class="blog-index">Tappety Tap Tap Tap Tap - Object#tap in Ruby<br><small><a href="/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/#disqus_thread">comments</a></small></h1>
   <p class="date-line">Last updated 18 June 2015</p>
   <p>There are a number of features that were added to Ruby in versions 1.9 or later
@@ -196,50 +255,6 @@ understand your code.</p>
 
 <p>I hope that helps explain why the seemingly stupid step of running a test you
 know will fail is actually helpful.</p>
-
-  <hr>
-
-  <h1 class="blog-index">Switching Away from Angular<br><small><a href="/blog/posts/switching-away-from-angular/#disqus_thread">comments</a></small></h1>
-  <p class="date-line">Last updated 27 February 2015</p>
-  <p>As I’ve spent more time working with Rails, I’ve realized that, even without
-Angular, a Rails site is capable of being fully-interactive, ajax-powered
-fun-times machine. I know what you’re thinking: “Duh! That’s true of everything
-from plain <code>html</code> to <code>php</code>!” Okay, yes, that’s true. But with Rails you can do
-it without really having to translate between server-side and javascript. Here’s
-what I mean:</p>
-
-<p class="lead">Unobtrusive Javascript</p>
-
-<p>Using jQuery for a ajax-heavy site is truly obtrusive to your experience to a
-developer. Every time you type <code>event.preventDefault()</code> you are saying, “Don’t
-do the thing that I wrote code for, do something else that requires more code!”
-Angular makes this better with its <code>ng-click</code>s and <code>ng-submit</code>s, but you still
-have to spend time formulating a <code>json</code> response, and then translating that
-response into html in your javascript.</p>
-
-<p>With unobtrusive javascript, you can respond with a <code>js.erb</code> file that just
-inserts a partial you already wrote for the initial <code>html</code> response, so your
-total new code is adding <code>format.js</code> to your controller and
-<code>$('selector').html('&lt;%= j render partial: "a partial" %&gt;')</code>. Obviously it
-can be more complicated than that, but it usually isn’t.</p>
-
-<p class="lead">Degrading Gracefully</p>
-
-<p>Honestly, I don’t think degrading gracefully when javascript is not enabled is
-very important, but if I can do it while writing less code than Angular I see
-that as a win. It is comforting to know that if my grandma accidentally turned
-javascript off in her browser she can still use my site just fine.</p>
-
-<p class="lead">My conclusion</p>
-
-<p>So I removed Angular from this site. I know it doesn’t really matter to users,
-but for me it’s made life easier. Since there is less code to write, I’m more
-likely to add new features. For example, I’ve already updated the site to use
-<code>markdown</code> instead of <code>html</code>, which has made writing posts faster and more fun!</p>
-
-<p>I still think Angular is great and will continue to use it for projects, but I
-think when it comes to Rails, I’ll keep using unobtrusive javascript until I
-have a real reason not to.</p>
 
   <hr>
 

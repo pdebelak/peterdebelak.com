@@ -57,6 +57,20 @@
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
   
+  <h1 class="blog-index">Managing Configuration on Multiple Machines<br><small><a href="/blog/posts/managing-configuration-on-multiple-machines/#disqus_thread">comments</a></small></h1>
+  <p class="date-line">Last updated 29 August 2015</p>
+  <p>Well, my experiment with emacs ended when I realized that getting the shell to work properly wasn’t going to happen unless I was willing to put some serious work in. It just didn’t seem worth it. So, I’m back to vim.</p>
+
+<p>As I said <a href="/blog/posts/trying-out-emacs">before</a>, I use <a href="https://github.com/skwp/dotfiles">yadr</a> for my vim and zsh configuration. Lately, though, I’ve been trying to add some tmux excitement to my normal workflows and so I needed to add some additional tmux-based keybindings. Yadr has a way to do this without needing to fork it - by using a <code>~/.zsh.after</code> directory with additional configuration. The problem with this, though, is that I needed to remember to update my config on both my personal and work computers whenever I made a change.</p>
+
+<p>Clearly this was not exceptable. I needed to DRY up my life!</p>
+
+<p>So, what I created a repo on github with my configuration files. The issue with this, of course, is that you need a way to clone the repo, but then put the files in the correct place (I also have a <code>~/.gitconfig.user</code> file in there, for instance, so I can’t just clone everything into <code>~/.zsh.after</code>) without having to remember where to put what. So I made a basic bash script that I run whenever I pull that symlinks the files into the correct place. Then, to keep my configuration files in sync, all I need to do is commit any changes, push it up to github, and then pull those changes down onto my other computer.</p>
+
+<p>You can see the repo <a href="https://github.com/pdebelak/env">here</a> if you want to get an idea of what is involved. I hope you find this technique helpful!</p>
+
+  <hr>
+
   <h1 class="blog-index">Trying Out Emacs<br><small><a href="/blog/posts/trying-out-emacs/#disqus_thread">comments</a></small></h1>
   <p class="date-line">Last updated 11 July 2015</p>
   <p>When I started working at <a href="https://reverb.com">Reverb</a> I had a medium amount of vim experience, mostly from programming on a chromebook. At Reverb, though, the expectation is that all programmers use vim (specifically mvim) using our CTO’s excellent vim configuration (which you can see here: <a href="https://github.com/skwp/dotfiles">https://github.com/skwp/dotfiles</a>) to foster easy pairing.</p>
@@ -114,65 +128,6 @@ people who, like me, have no intention of ever paying.</p>
 
 <p>As a result, I’ve switched this site’s technology (again). Now I’m using <a href="http://jekyllrb.com/">jekyll</a>
 and hosting for free on <a href="https://pages.github.com/">github</a>. Which is great!</p>
-
-  <hr>
-
-  <h1 class="blog-index">Name Thy Args - Named Arguments in Ruby<br><small><a href="/blog/posts/name-thy-args-named-arguments-in-ruby/#disqus_thread">comments</a></small></h1>
-  <p class="date-line">Last updated 21 June 2015</p>
-  <p>Just like <a href="/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/">last time</a>,
-where I wrote about the underused <code>Object#tap</code> method, I want to talk about
-a relatively new and underutilized feature in Ruby. Today it is named arguments.</p>
-
-<p>Starting in Ruby 2.0, you could give your arguments names like so:</p>
-
-<pre><code>def method(argument: "default")
-  argument.length
-end
-</code></pre>
-
-<p>This was nice, but since you were forced to provide a default value it wasn’t
-always super useful. Starting in Ruby 2.1, though, the requirement for a default
-was dropped so now you can write:</p>
-
-<pre><code>def method(argument:)
-  argument.length
-end
-</code></pre>
-
-<p>Why is this so great? It provides documentation when a method is called. Have
-you ever run across a method call like <code>do_thing(user, false)</code> in
-an existing codebase? Don’t you immediately have to look up the <code>do_thing</code>
-method to figure out what that <code>false</code> means? What if, instead, you saw
-<code>do_thing(user: user, async: false)</code>? Now you don’t need to lookup
-the code for that method since it is clear what the <code>false</code> means.</p>
-
-<p>Another benefit is that the order doesn’t matter. <code>do_thing(async: false, user: user)</code>
-works just as well. Just last week I spent almost an hour figuring out why a
-test wasn’t passing before I realized I had some positional arguments in the
-wrong order. Named arguments avoid that.</p>
-
-<p>The name of the arguments can also give reminders about what type the arguments
-should be. If you are supposed to pass a user id to the method, <code>do_thing(user, false)</code>
-is a much easier mistake to make than <code>do_thing(user_id: user, async: false)</code>.
-It is immediately obvious that it should be <code>do_thing(user_id: user.id, async: false)</code>.</p>
-
-<p>Finally, Ruby is much more helpful about what is wrong when you forget a named
-argument than positional arguments. If you try <code>do_thing(user)</code> you
-get an error like <code>ArgumentError: wrong number of arguments (1 for 2)</code>. Then
-you have to look at the method definition to see what you forgot. With named
-arguments if you try <code>do_thing(user: user)</code>, you get an error like
-<code>ArgumentError: missing keyword: async</code>, which is much more informative.</p>
-
-<p>The only downsides to named arguments are that they make your method calls a
-little more verbose, and that it makes any gems or libraries you create not as
-backwards compatible. I think the verbosity is worth it, though, and I think
-once Rails 5 comes out and people have to switch to Ruby 2.2 to use it, backwards
-compatibility won’t be such a big issue. In a private codebase, of course, you
-don’t have to worry about compatibility with old Rubies, so there is no downside
-there.</p>
-
-<p>I encourage you to use named arguments as much as possible. I think you’ll see
-the benefits right away!</p>
 
   <hr>
 

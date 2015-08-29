@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Trying Out Emacs | Peter Debelak</title>
-    <meta name="description" content="Is emacs worth exploring for a vim user? Peter finds that there is a lot to like">
+    <title>Blog | Peter Debelak</title>
+    <meta name="description" content="Posts about Ruby, Rails, and other technical topics from Peter Debelak">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,56 +56,62 @@
 </nav>
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
-  <h1>Trying Out Emacs</h1>
-<p class="date-line">Last updated 11 July 2015</p>
-<p>When I started working at <a href="https://reverb.com">Reverb</a> I had a medium amount of vim experience, mostly from programming on a chromebook. At Reverb, though, the expectation is that all programmers use vim (specifically mvim) using our CTO’s excellent vim configuration (which you can see here: <a href="https://github.com/skwp/dotfiles">https://github.com/skwp/dotfiles</a>) to foster easy pairing.</p>
+  
+  <h1 class="blog-index">Routing with Rails and Angular<br><small><a href="/blog/posts/routing-with-rails-and-angular/#disqus_thread">comments</a></small></h1>
+  <p class="date-line">Last updated 11 October 2014</p>
+  <p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.
 
-<p>I felt instantly pretty much as productive as I was in <a href="http://thomaswilburn.net/caret/">Caret</a> or <a href="http://www.sublimetext.com/">Sublime Text</a>, which honestly wasn’t that productive. After a little bit, though, I was navigating both around the current file and through the very large Reverb codebase with ease, never touching the mouse, and doing all the things that make people love vim so much.</p>
+<p>If you are using <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> (and you really should be to allow deep linking on your Angular app) your server should be able to handle requests like <code>/blog/posts/1</code> and show the appropriate blog post. You can easily do this by just routing all requests to your main index page and let Angular handle the routing. But what urls should Angular use to fetch the post from the server? You could namespace all of the server responses like <code>/api/blog/posts/1</code> but that doesn't really make sense. What you really want is to respond to <code>.html</code> requests by displaying the single-page Angular html and to respond to <code>.json</code> requests with the appropriate resource as json.
+<p class="lead">Rails makes this easy!</p>
+<p>As anyone who has generated scaffolding with Rails know, it is easy to craft a different response whether it is <code>.html</code> or <code>.json</code>. Your controllers frequently look like:
+<pre>
+def show
+  @post = Post.find(params[:id])
+  respond_to do |format|
+    format.html # render the html view
+    format.json # render the json view
+  end
+end
+</pre>
+<p>So, if I have my home page at <code>static_pages#home</code> I might write:</p>
+<pre>
+respond_to do |format|
+  format.html { render 'static_pages/home' }
+  format.json # rendering the show.json.erb file
+end
+</pre>
+<p>Now you don't have to try to redirect all requests in your <code>config/routes</code> file or do anything crazy to properly respond to deep links.</p>
+<p>This works fine, but I don't usually feel it necessary to create the <code>.json.erb</code> file for simple models and it also gets quite repetitive to have the same <code>respond_to</code> block in every controller action that takes a get request. Instead, I find that declaring a custom method in your <code>ApplicationController</code> that handles it for you:</p>
+<pre>
+def ng_respond(response_for_json)
+  respond_to do |format|
+    format.html { render 'static_pages/home' }
+    format.json { render json: response_for_json.to_json }
+  end
+end
+</pre>
+<p>That way you can create controller actions like this:</p>
+<pre>
+def show
+  @post = Post.find(params[:id])
+  ng_respond(@post)
+end
+</pre>
+<p>I hope this helps you with routing in your Rails/Angular apps. Leave any tips you might have in the comments.
+</p></p></p></p>
 
-<p>Naturally, this made me curious about emacs.</p>
-
-<p>I had tried to go through the basic emacs tutor around the same time I was learning vim basics and quit almost immediately once I learned the incredibly perverse navigation commands. Not only did you have to hit control constantly, the keys to move the cursor were all over the place!</p>
-
-<p>But, people still really love emacs so I was curious about why. I decided to give it a try, but using <a href="http://www.emacswiki.org/emacs/Evil">evil mode</a> to use vim bindings within emacs. You might wonder what the point of using emacs at all is, if I’m just going to make it as much like vim as possible. Well, turns out it’s all the other stuff that emacs gives you.</p>
-
-<p>Take a look at this screenshot:</p>
-
-<p><img src="/images/editing-in-emacs.png" alt="Editing and using the internet in emacs" /></p>
-
-<p>If you can’t tell, I’m editing a markdown file for the blog on the left while looking at the post in the brower on the right. In fact, the ability to browse the internet in a text only mode while having all my vim keybindings is the main reason I’m enjoying emacs so much.</p>
-
-<p>I’m still pretty new at using emacs and am learning a lot, but so far I’m really glad I decided to give it a try. If I don’t give up soon, I’ll probably have more updates on my progress and configuration</p>
-
-<p>Just imagine a world where you can use vim all the time: whether it’s for editing text, browsing the internet, or reading pdf files. The way to do it is to use emacs.</p>
-
+  <hr>
 
 <nav>
   <ul class="pager">
     
       <li class="previous">
-        <a id="next" href="/blog/posts/new-heroku-pricing/">&larr; Older post</a>
+        <a id="previous" href="/blog/posts/page4/">&larr; Newer posts</a>
       </li>
     
-    
-      <li class="next">
-        <a id="previous" href="/blog/posts/managing-configuration-on-multiple-machines/">Newer post &rarr;</a>
-      </li>
     
   </ul>
 </nav>
-
-<div id="disqus_thread"></div>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<script type="text/javascript">
-  var disqus_shortname = 'peterdebelak';
-  (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
 
 </div>
 
