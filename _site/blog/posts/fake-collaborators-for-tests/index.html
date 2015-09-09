@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog | Peter Debelak</title>
-    <meta name="description" content="Posts about Ruby, Rails, and other technical topics from Peter Debelak">
+    <title>Fake Collaborators for Tests | Peter Debelak</title>
+    <meta name="description" content="Use dependency injection to only test the things you care about">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,10 +56,9 @@
 </nav>
 
 <div class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4" id="main-content">
-  
-  <h1 class="blog-index">Fake Collaborators for Tests<br><small><a href="/blog/posts/fake-collaborators-for-tests/#disqus_thread">comments</a></small></h1>
-  <p class="date-line">Last updated 08 September 2015</p>
-  <p>When I was first learning about testing I thought changing your code to make it easier to test was stupid. Since you are only supposed to test the public interface of a class, it seemed like cheating to fake out anything internal to a class. Over time, though, I realized that testing in this way lead to a bunch of unnecessary setup (usually creating a bunch of objects in the database) that I didn’t need. Take this typical (if extremely simple) use case class:</p>
+  <h1>Fake Collaborators for Tests</h1>
+<p class="date-line">Last updated 08 September 2015</p>
+<p>When I was first learning about testing I thought changing your code to make it easier to test was stupid. Since you are only supposed to test the public interface of a class, it seemed like cheating to fake out anything internal to a class. Over time, though, I realized that testing in this way lead to a bunch of unnecessary setup (usually creating a bunch of objects in the database) that I didn’t need. Take this typical (if extremely simple) use case class:</p>
 
 <pre><code>class PublishArticle
   def initialize(article:)
@@ -172,56 +171,30 @@ end
 
 <p>I hope this encourages people new to testing to change their code just for test purposes. Inject those dependencies!</p>
 
-  <hr>
-
-  <h1 class="blog-index">Managing Configuration on Multiple Machines<br><small><a href="/blog/posts/managing-configuration-on-multiple-machines/#disqus_thread">comments</a></small></h1>
-  <p class="date-line">Last updated 29 August 2015</p>
-  <p>Well, my experiment with emacs ended when I realized that getting the shell to work properly wasn’t going to happen unless I was willing to put some serious work in. It just didn’t seem worth it. So, I’m back to vim.</p>
-
-<p>As I said <a href="/blog/posts/trying-out-emacs">before</a>, I use <a href="https://github.com/skwp/dotfiles">yadr</a> for my vim and zsh configuration. Lately, though, I’ve been trying to add some tmux excitement to my normal workflows and so I needed to add some additional tmux-based keybindings. Yadr has a way to do this without needing to fork it - by using a <code>~/.zsh.after</code> directory with additional configuration. The problem with this, though, is that I needed to remember to update my config on both my personal and work computers whenever I made a change.</p>
-
-<p>Clearly this was not exceptable. I needed to DRY up my life!</p>
-
-<p>So, what I created a repo on github with my configuration files. The issue with this, of course, is that you need a way to clone the repo, but then put the files in the correct place (I also have a <code>~/.gitconfig.user</code> file in there, for instance, so I can’t just clone everything into <code>~/.zsh.after</code>) without having to remember where to put what. So I made a basic bash script that I run whenever I pull that symlinks the files into the correct place. Then, to keep my configuration files in sync, all I need to do is commit any changes, push it up to github, and then pull those changes down onto my other computer.</p>
-
-<p>You can see the repo <a href="https://github.com/pdebelak/env">here</a> if you want to get an idea of what is involved. I hope you find this technique helpful!</p>
-
-  <hr>
-
-  <h1 class="blog-index">Trying Out Emacs<br><small><a href="/blog/posts/trying-out-emacs/#disqus_thread">comments</a></small></h1>
-  <p class="date-line">Last updated 11 July 2015</p>
-  <p>When I started working at <a href="https://reverb.com">Reverb</a> I had a medium amount of vim experience, mostly from programming on a chromebook. At Reverb, though, the expectation is that all programmers use vim (specifically mvim) using our CTO’s excellent vim configuration (which you can see here: <a href="https://github.com/skwp/dotfiles">https://github.com/skwp/dotfiles</a>) to foster easy pairing.</p>
-
-<p>I felt instantly pretty much as productive as I was in <a href="http://thomaswilburn.net/caret/">Caret</a> or <a href="http://www.sublimetext.com/">Sublime Text</a>, which honestly wasn’t that productive. After a little bit, though, I was navigating both around the current file and through the very large Reverb codebase with ease, never touching the mouse, and doing all the things that make people love vim so much.</p>
-
-<p>Naturally, this made me curious about emacs.</p>
-
-<p>I had tried to go through the basic emacs tutor around the same time I was learning vim basics and quit almost immediately once I learned the incredibly perverse navigation commands. Not only did you have to hit control constantly, the keys to move the cursor were all over the place!</p>
-
-<p>But, people still really love emacs so I was curious about why. I decided to give it a try, but using <a href="http://www.emacswiki.org/emacs/Evil">evil mode</a> to use vim bindings within emacs. You might wonder what the point of using emacs at all is, if I’m just going to make it as much like vim as possible. Well, turns out it’s all the other stuff that emacs gives you.</p>
-
-<p>Take a look at this screenshot:</p>
-
-<p><img src="/images/editing-in-emacs.png" alt="Editing and using the internet in emacs" /></p>
-
-<p>If you can’t tell, I’m editing a markdown file for the blog on the left while looking at the post in the brower on the right. In fact, the ability to browse the internet in a text only mode while having all my vim keybindings is the main reason I’m enjoying emacs so much.</p>
-
-<p>I’m still pretty new at using emacs and am learning a lot, but so far I’m really glad I decided to give it a try. If I don’t give up soon, I’ll probably have more updates on my progress and configuration</p>
-
-<p>Just imagine a world where you can use vim all the time: whether it’s for editing text, browsing the internet, or reading pdf files. The way to do it is to use emacs.</p>
-
-  <hr>
 
 <nav>
   <ul class="pager">
     
-    
-      <li class="next">
-        <a id="next" href="/blog/posts/page2/">Older posts &rarr;</a>
+      <li class="previous">
+        <a id="next" href="/blog/posts/managing-configuration-on-multiple-machines/">&larr; Older post</a>
       </li>
+    
     
   </ul>
 </nav>
+
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script type="text/javascript">
+  var disqus_shortname = 'peterdebelak';
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
 </div>
 
