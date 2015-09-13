@@ -129,3 +129,16 @@ header a:hover, footer a:hover {
   text-decoration: none;
   color: lighten($brand-primary, 70%);
 }
+
+.lead {
+  margin: 0 0 10px;
+  @include lead();
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
