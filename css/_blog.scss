@@ -1,0 +1,31 @@
+.pager {
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+  text-align: center;
+  overflow: auto;
+  li {
+    display: inline;
+    a {
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      @include pill-hover();
+    }
+  }
+  .next {
+    float: right;
+  }
+  .previous {
+    float: left;
+  }
+}
+
+h1.blog-index {
+  font-size: $font-size-h2;
+  small {
+    font-size: $font-size-base;
+  }
+}

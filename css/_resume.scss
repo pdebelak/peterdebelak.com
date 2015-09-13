@@ -1,0 +1,13 @@
+.resume-title {
+  text-align: center;
+}
+
+.resume-section {
+  @include row();
+  .section-title {
+    @include col(17%, $small-computer-size);
+  }
+  .section-body {
+    @include col(83%, $small-computer-size);
+  }
+}

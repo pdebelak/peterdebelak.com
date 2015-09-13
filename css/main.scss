@@ -1,91 +1,22 @@
 ---
 ---
 
-$brand-primary: #017890;
-@import "./_bootstrap";
+// Most of this css is taken from bootstrap getbootstrap.com
+@import "_variables";
+@import "_mixins";
+@import "_typography";
+@import "_layout";
+@import "_home";
+@import "_resume";
+@import "_blog";
 
-html, body {
-  height: 100%;
-}
-
-header, footer {
-  background-color: $brand-primary;
-}
-
-div.wrapper {
-  min-height: 100%;
-  margin-bottom: -39px;
-}
-
-header {
-  margin-bottom: 30px;
-}
-
-footer, .push {
-  width: 100%;
-  height: 39px;
-}
-
-.push {
-  margin-top: 30px;
-}
-
-header a, footer a, header a:focus, footer a:focus {
-  text-decoration: none;
-  color: #fff;
-}
-
-footer .pull-left {
-  color: #fff;
-  margin-top: 10px;
-  display: none;
-  @media (min-width: 768px) {
-    display: inline;
-  }
-}
-
-header a:hover, footer a:hover {
-  text-decoration: none;
-  color: lighten($brand-primary, 70%);
-}
-
-nav {
-  margin-bottom: 20px;
-}
-
-.nav-pills > li > a {
-  color: $brand-primary;
-}
-
-p.date-line {
-  font-size: .75em;
-  color: gray;
-}
-
-h1.blog-index {
-  font-size: 30px;
-  small {
-    font-size: 14px;
-  }
-}
-
-code {
-  color: #333;
+.lead {
+  margin: 0 0 10px;
+  @include lead();
 }
 
 .recent-posts, .home-nav {
   margin-top: 30px;
-}
-
-@media (min-width: 768px) {
-  .navbar-default {
-    background-color: #fff;
-    border-color: #fff;
-  }
-
-  .home-nav {
-    margin-top: 0;
-  }
 }
 
 img {

@@ -5,33 +5,33 @@ active: ""
 description: News, hints, and tips about Peter Debelak - a computer programmer living in Chicago
 ---
 
-<div class="row">
-  <div class="col-sm-6">
-    <p class="lead">Peter Debelak is a person with a website</p>
+<section class="welcome">
+  <section class="explanation">
+    <h1 class="lead">Peter Debelak is a person with a website</h1>
     <p>He works as a junior developer focusing on Ruby on Rails.</p>
     <p>He lives in Chicago and looks like this:</p>
     <img src="http://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597?s=200" class="img-responsive">
-  </div>
-  <div class="col-sm-6 home-nav">
-    <p class="lead">What can I do here?</p>
-    <ul class="nav nav-pills nav-stacked">
+  </section>
+  <nav class="home-nav">
+    <h1 class="lead">What can I do here?</h1>
+    <ul>
       <li><a id="about" href="/about/">Learn more about Peter</a></li>
       <li><a id="resume" href="/resume/">See Peter's resume</a></li>
       <li><a id="blog" href="/blog/posts">Read Peter's blog</a></li>
       <li><a id="github" href="https://github.com/pdebelak">Check out Peter on Github</a></li>
     </ul>
-  </div>
-</div>
-<div class="row recent-posts">
-  <div class="col-sm-12">
+  </nav>
+</section>
+<section class="recent-posts">
+  <div class="posts">
     <hr>
-    <p class="lead">Most Recent Blog Posts</p>
+    <h1 class="lead">Most Recent Blog Posts</h1>
     {% for post in site.posts limit:3 %}
-      <h3 class="panel-title">{{ post.title }}</h3>
+      <h3 class="post-title">{{ post.title }}</h3>
       <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
       {{ post.excerpt }}
       <a href="{{ post.url }}">read more</a>
       <hr>
     {% endfor %}
   </div>
-</div>
+</section>

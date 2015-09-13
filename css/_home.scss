@@ -1,0 +1,36 @@
+.welcome, .recent-posts {
+  @include row();
+}
+
+.recent-posts .posts {
+  @include col(100%);
+}
+
+.home-nav, .explanation {
+  @include col(50%);
+}
+
+.post-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil($font-size-base * 1.125);
+  color: inherit;
+}
+
+.home-nav {
+  @include nav-pills();
+}
+
+.nav-pills > li > a {
+  color: $brand-primary;
+}
+
+.nav-pills {
+
+}
+
+p.date-line {
+  font-size: .75em;
+  color: gray;
+}
+
