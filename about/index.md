@@ -5,7 +5,7 @@ active: about
 description: Everything you always wanted to know about Peter Debelak
 ---
 
-<p class="lead">About Peter</p>
+<h1 class="lead">About Peter</h1>
 
 Peter is a web developer who mostly concentrates on Ruby on Rails.
 

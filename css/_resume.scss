@@ -6,6 +6,9 @@
   @include row();
   .section-title {
     @include col(17%, $small-computer-size);
+    h1 {
+      @extend .h4;
+    }
   }
   .section-body {
     @include col(83%, $small-computer-size);

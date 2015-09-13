@@ -4,7 +4,7 @@ title: Help
 description: Help using keyboard shortcuts on PeterDebelak.com
 ---
 
-<p class="lead">Keyboard Shortcuts</p>
+<h1 class="lead">Keyboard Shortcuts</h1>
 
 Since I am a nerd, this site has some keyboard shortcuts.
 

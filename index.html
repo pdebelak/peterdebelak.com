@@ -27,11 +27,13 @@ description: News, hints, and tips about Peter Debelak - a computer programmer l
     <hr>
     <h1 class="lead">Most Recent Blog Posts</h1>
     {% for post in site.posts limit:3 %}
-      <h3 class="post-title">{{ post.title }}</h3>
-      <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
-      {{ post.excerpt }}
-      <a href="{{ post.url }}">read more</a>
-      <hr>
+      <article class="post">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
+        {{ post.excerpt }}
+        <a href="{{ post.url }}">read more</a>
+        <hr>
+      </article>
     {% endfor %}
   </div>
 </section>
