@@ -2,15 +2,17 @@
 layout: home
 ---
 
-<nav class="main-nav" id="sidebar" role="navigation">
-  <ul>
-    <li class="{% if page.active == "about" %}active{% endif %}"><a id="about" href="/about/">About</a></li>
-    <li class="{% if page.active == "resume" %}active{% endif %}"><a id="resume" href="/resume/">Resume</a></li>
-    <li class="{% if page.active == "blog" %}active{% endif %}"><a id="blog" href="/blog/posts">Blog</a></li>
-    <li><a id="github" href="https://github.com/pdebelak">Peter on Github</a></li>
-  </ul>
-</nav>
+<div class="content-wrap">
+  <nav class="main-nav" role="navigation">
+    <ul>
+      <li class="{% if page.active == "about" %}active{% endif %}"><a id="about" href="/about/">About</a></li>
+      <li class="{% if page.active == "resume" %}active{% endif %}"><a id="resume" href="/resume/">Resume</a></li>
+      <li class="{% if page.active == "blog" %}active{% endif %}"><a id="blog" href="/blog/posts">Blog</a></li>
+      <li><a id="github" href="https://github.com/pdebelak">Peter on Github</a></li>
+    </ul>
+  </nav>
 
-<div class="main-content" id="main-content">
-  {{ content }}
+  <section class="main-content">
+    {{ content }}
+  </section>
 </div>

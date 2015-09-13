@@ -7,9 +7,6 @@
   box-sizing: border-box;
 }
 
-
-// Body reset
-
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -35,7 +32,6 @@ a {
 
   &:focus {
     outline: thin dotted;
-    // WebKit
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
   }
@@ -47,7 +43,7 @@ img {
 }
 
 hr {
-  margin-top:    $line-height-computed;
+  margin-top: $line-height-computed;
   margin-bottom: $line-height-computed;
   border: 0;
   border-top: 1px solid $gray-lighter;
@@ -60,11 +56,6 @@ html, body {
 
 code, pre {
   font-family: $font-family-monospace;
-}
-
-header, footer {
-  @include container();
-  background-color: $brand-primary;
 }
 
 div.wrapper {
@@ -85,7 +76,6 @@ main {
   }
   ul > li > a {
     @media(max-width: $tablet-size - 1) {
-      // font-size: $font-size-base * 0.9;
       padding: 5px 10px;
     }
   }
@@ -96,14 +86,23 @@ main {
   @include col(75%, $small-computer-size);
 }
 
-header {
+.content-wrap {
+  @include row();
+}
+
+.main-header {
   margin-bottom: 10px;
   @media(min-width: $tablet-size) {
     margin-bottom: 30px;
   }
 }
 
-footer, .push {
+.main-header, .main-footer {
+  @include container();
+  background-color: $brand-primary;
+}
+
+.main-footer, .push {
   width: 100%;
   height: 39px;
 }
@@ -112,12 +111,12 @@ footer, .push {
   margin-top: 30px;
 }
 
-header a, footer a, header a:focus, footer a:focus {
+.main-header a, .main-footer a, .main-header a:focus, .main-footer a:focus {
   text-decoration: none;
   color: #fff;
 }
 
-footer .pull-left {
+.main-footer .pull-left {
   color: #fff;
   margin-top: 10px;
   display: none;

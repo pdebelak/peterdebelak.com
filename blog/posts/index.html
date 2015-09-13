@@ -7,8 +7,10 @@ description: Posts about Ruby, Rails, and other technical topics from Peter Debe
 
 {% for post in paginator.posts %}
   <article class="post">
-    <h1 class="blog-index">{{ post.title }}<br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
-    <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
+    <header>
+      <h1 class="blog-index">{{ post.title }}<br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
+      <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
+    </header>
     {{ post.content }}
     <hr>
   </article>
