@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <style>
       {% capture include_to_scssify %}
-        {% include main.scss %}
+        {% include inline.scss %}
       {% endcapture %}
       {{ include_to_scssify | scssify }}
     </style>
@@ -44,10 +44,11 @@
     </div>
     <footer class="main-footer">
       <span class="pull-left">Press <code>?</code> for help</span>
-      <h4 class="text-right">
+      <p class="mail-link">
         <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
-      </h4>
+      </p>
     </footer>
+    <link rel="stylesheet" href="/css/main.css">
     <script src="/js/shortcuts.min.js"></script>
     <script type="text/javascript">
       var disqus_shortname = 'peterdebelak';

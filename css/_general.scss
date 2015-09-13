@@ -1,0 +1,52 @@
+.main-footer {
+  .pull-left {
+    color: #fff;
+    margin-top: 10px;
+    display: none;
+    float: left !important;
+    @media (min-width: $tablet-size) {
+      display: inline;
+    }
+  }
+  .mail-link {
+    text-align: right;
+    @extend .h4;
+  }
+}
+
+header a:hover, footer a:hover {
+  text-decoration: none;
+  color: lighten($brand-primary, 70%);
+}
+
+.hide {
+  display: none;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}
+
+hr {
+  margin-top: $line-height-computed;
+  margin-bottom: $line-height-computed;
+  border: 0;
+  border-top: 1px solid $gray-lighter;
+}
+
+code, pre {
+  font-family: $font-family-monospace;
+}

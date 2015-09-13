@@ -20,33 +20,9 @@ body {
   background-color: $body-bg;
 }
 
-a {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-  }
-
-  &:focus {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
-  }
-}
-
 img {
   vertical-align: middle;
   max-width: 100%
-}
-
-hr {
-  margin-top: $line-height-computed;
-  margin-bottom: $line-height-computed;
-  border: 0;
-  border-top: 1px solid $gray-lighter;
 }
 
 html, body {
@@ -54,13 +30,35 @@ html, body {
   margin: 0;
 }
 
-code, pre {
-  font-family: $font-family-monospace;
-}
-
 div.wrapper {
   min-height: 100%;
   margin-bottom: -39px;
+}
+
+.main-header {
+  margin-bottom: 10px;
+  @media(min-width: $tablet-size) {
+    margin-bottom: 30px;
+  }
+}
+
+.main-header, .main-footer {
+  @include container();
+  background-color: $brand-primary;
+}
+
+.main-footer, .push {
+  width: 100%;
+  height: 39px;
+}
+
+.push {
+  margin-top: 30px;
+}
+
+.main-header a, .main-footer a, .main-header a:focus, .main-footer a:focus {
+  text-decoration: none;
+  color: #fff;
 }
 
 main {
@@ -90,55 +88,7 @@ main {
   @include row();
 }
 
-.main-header {
-  margin-bottom: 10px;
-  @media(min-width: $tablet-size) {
-    margin-bottom: 30px;
-  }
-}
-
-.main-header, .main-footer {
-  @include container();
-  background-color: $brand-primary;
-}
-
-.main-footer, .push {
-  width: 100%;
-  height: 39px;
-}
-
-.push {
-  margin-top: 30px;
-}
-
-.main-header a, .main-footer a, .main-header a:focus, .main-footer a:focus {
-  text-decoration: none;
-  color: #fff;
-}
-
-.main-footer .pull-left {
-  color: #fff;
-  margin-top: 10px;
-  display: none;
-  @media (min-width: $tablet-size) {
-    display: inline;
-  }
-}
-
-header a:hover, footer a:hover {
-  text-decoration: none;
-  color: lighten($brand-primary, 70%);
-}
-
 .lead {
   margin: 0 0 10px;
   @include lead();
-}
-
-.hide {
-  display: none;
-}
-
-img {
-  max-width: 100%;
 }
