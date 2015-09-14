@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home | Peter Debelak</title>
-    <meta name="description" content="News, hints, and tips about Peter Debelak - a computer programmer living in Chicago">
+    <title>Private Attr Readers in Ruby - The Best Thing Ever | Peter Debelak</title>
+    <meta name="description" content="Keep your instance variables hidden, but changeable, with private attr_readers">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,60 +37,86 @@
       </header>
 
       <main>
-        <section class="welcome">
-  <section class="explanation">
-    <h1 class="lead">Peter Debelak is a person with a website</h1>
-    <p>He works as a junior developer focusing on Ruby on Rails.</p>
-    <p>He lives in Chicago and looks like this:</p>
-    <img src="http://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597?s=200">
-  </section>
-  <nav class="home-nav">
-    <h1 class="lead">What can I do here?</h1>
+        <div class="content-wrap">
+  <nav class="main-nav" role="navigation">
     <ul>
-      <li><a id="about" href="/about/">Learn more about Peter</a></li>
-      <li><a id="resume" href="/resume/">See Peter's resume</a></li>
-      <li><a id="blog" href="/blog/posts">Read Peter's blog</a></li>
-      <li><a id="github" href="https://github.com/pdebelak">Check out Peter on Github</a></li>
+      <li class=""><a id="about" href="/about/">About</a></li>
+      <li class=""><a id="resume" href="/resume/">Resume</a></li>
+      <li class="active"><a id="blog" href="/blog/posts">Blog</a></li>
+      <li><a id="github" href="https://github.com/pdebelak">Peter on Github</a></li>
     </ul>
   </nav>
-</section>
-<section class="recent-posts">
-  <div class="posts">
-    <hr>
-    <h1 class="lead">Most Recent Blog Posts</h1>
+
+  <section class="main-content">
+    <article class="post">
+  <header>
+    <h1>Private Attr Readers in Ruby - The Best Thing Ever</h1>
+    <p class="date-line">Last updated 13 September 2015</p>
+  </header>
+  <p>Private <code>attr_reader</code>s are great and you should use them. When I start writing a class my skeleton usually looks like this:</p>
+
+<pre><code>class AwesomeClass
+  def initialize(sweet:, keyword:, arguments:)
+    @sweet = sweet
+    @keyword = keyword
+    @arguments = arguments
+  end
+
+  private
+
+  attr_reader :sweet, :keyword, :arguments
+end
+</code></pre>
+
+<p>If I need to make something public I always can, but by immediately starting with private <code>attr_reader</code>s I start by hiding my instance variables behind a method. This hiding is not only from other classes (because they are private), but also from the rest of the class since the other methods aren’t directly accessing the instance variables. This way, if I need to add some more logic to a instance-variable related method, the code change is very easy.</p>
+
+<pre><code>class AwesomeClass
+  def initialize(sweet:, keyword:, arguments:)
+    @sweet = sweet
+    @keyword = keyword
+    @arguments = arguments
+  end
+
+  private
+
+  attr_reader :sweet, :arguments
+
+  def keyword
+    KeywordManager.new(@keyword)
+  end
+end
+</code></pre>
+
+<p>Give this approach a try and I think you’ll find yourself doing it automatically from now on.</p>
+
+</article>
+
+<nav>
+  <ul class="pager">
     
-      <article class="post">
-        <h1 class="post-title">Private Attr Readers in Ruby - The Best Thing Ever</h1>
-        <p class="date-line">Last updated 13 September 2015</p>
-        <p>Private <code>attr_reader</code>s are great and you should use them. When I start writing a class my skeleton usually looks like this:</p>
-
-
-        <a href="/blog/posts/private-attr-readers/">read more</a>
-        <hr>
-      </article>
+      <li class="previous">
+        <a id="next" href="/blog/posts/fake-collaborators-for-tests/">&larr; Older post</a>
+      </li>
     
-      <article class="post">
-        <h1 class="post-title">Fake Collaborators for Tests</h1>
-        <p class="date-line">Last updated 08 September 2015</p>
-        <p>When I was first learning about testing I thought changing your code to make it easier to test was stupid. Since you are only supposed to test the public interface of a class, it seemed like cheating to fake out anything internal to a class. Over time, though, I realized that testing in this way lead to a bunch of unnecessary setup (usually creating a bunch of objects in the database) that I didn’t need. Take this typical (if extremely simple) use case class:</p>
-
-
-        <a href="/blog/posts/fake-collaborators-for-tests/">read more</a>
-        <hr>
-      </article>
     
-      <article class="post">
-        <h1 class="post-title">Managing Configuration on Multiple Machines</h1>
-        <p class="date-line">Last updated 29 August 2015</p>
-        <p>Well, my experiment with emacs ended when I realized that getting the shell to work properly wasn’t going to happen unless I was willing to put some serious work in. It just didn’t seem worth it. So, I’m back to vim.</p>
+  </ul>
+</nav>
 
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-        <a href="/blog/posts/managing-configuration-on-multiple-machines/">read more</a>
-        <hr>
-      </article>
-    
-  </div>
-</section>
+<script type="text/javascript">
+  var disqus_shortname = 'peterdebelak';
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+  </section>
+</div>
 
       </main>
       <div class="push"></div>

@@ -51,6 +51,98 @@
     
   <article class="post">
     <header>
+      <h1 class="blog-index">Tappety Tap Tap Tap Tap - Object#tap in Ruby<br><small><a href="/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/#disqus_thread">comments</a></small></h1>
+      <p class="date-line">Last updated 18 June 2015</p>
+    </header>
+    <p>There are a number of features that were added to Ruby in versions 1.9 or later
+that don’t seem to be in wide use for some reason. One that I have a fondness
+for is the <code>tap</code> method.</p>
+
+<p>The <code>tap</code> method was added to the <code>Object</code> class in Ruby 1.9. All it does is
+yield <code>self</code> to a block and then return <code>self</code>.</p>
+
+<p>Here’s a simple example:</p>
+
+<pre><code>Object.new.tap do |object|
+  puts object
+end
+# returns the object
+</code></pre>
+
+<p>Doesn’t that seem useful? Not really? Okay. Well, according to <a href="http://ruby-doc.org/core-1.9.3/Object.html#method-i-tap">the docs</a>
+the method is meant to “tap into” a method chain, in the same way you’d tap
+into a rich vein of silver. Let’s see if we can find the silver here.</p>
+
+<p>Imagine you need to create an object, call one of its methods, and then return
+it.</p>
+
+<pre><code>Hat.new(type: :bowler).tap do |hat|
+  hat.tip
+end
+</code></pre>
+
+<p>We’re getting closer.</p>
+
+<p>What if you need to construct a string in a complicated way?</p>
+
+<pre><code>"".tap do |string|
+  string &lt;&lt; "Hello " if hello
+  string &lt;&lt; "Sir " if should_sir?
+  string &lt;&lt; "I'm writing to you"
+  string &lt;&lt; " about #{about}" if about
+  string &lt;&lt; "."
+end
+</code></pre>
+
+<p>That’s so much better than the <code>string = ""; string &lt;&lt; "X" if something</code> alternative
+that ends with <code>string</code> at the end to make sure you return it. <code>tap</code> takes care
+of that for you.</p>
+
+<p>The biggest benefit I’ve found of using <code>tap</code> is that it makes it easy to create
+a variable with limited scope. This can be very useful in Rails views, especially
+if you use decorators to add view-related methods to an object.</p>
+
+<p>Take this haml:</p>
+
+<pre><code>- decorated_post = PostDecorator.new(@post)
+%h1= decorated_post.decorated_title
+%p= decorated_post.decorated_body
+</code></pre>
+
+<p>That’s all fine, but if you are in a situation where you want to use two different
+decorators in the same view, you might have something like this:</p>
+
+<pre><code>- readably_decorated_post = ReadablePostDecorator.new(@post)
+%h1= readably_decorated_post.decorated_title
+%p= readably_decorated_post.decorated_body
+
+- sortably_decorated_post = SortablePostDecorator.new(@post)
+= link_to sortably_decorated_post.next_post
+</code></pre>
+
+<p>It can be hard to keep track of where a variable might be used and how. Also,
+those variable names are long to differentiate from themselves from each
+other. Try this instead:</p>
+
+<pre><code>- ReadablePostDecorator.new(@post).tap do |decorated_post|
+  %h1= decorated_post.decorated_title
+  %p= decorated_post.decorated_body
+
+- SortablePostDecorator.new(@post).tap do |decorated_post|
+  = link_to decorated_post.next_post
+</code></pre>
+
+<p>I find that more readable and you have a good idea of the start and end of the
+scope of the variables.</p>
+
+<p>I hope this encourages you to bring out <code>Object#tap</code> for a little spin the next
+chance you get.</p>
+
+    <hr>
+  </article>
+
+  <article class="post">
+    <header>
       <h1 class="blog-index">Why You Run Your Tests First<br><small><a href="/blog/posts/why-you-run-your-tests-first/#disqus_thread">comments</a></small></h1>
       <p class="date-line">Last updated 14 June 2015</p>
     </header>
@@ -151,43 +243,6 @@ likely to add new features. For example, I’ve already updated the site to use
 <p>I still think Angular is great and will continue to use it for projects, but I
 think when it comes to Rails, I’ll keep using unobtrusive javascript until I
 have a real reason not to.</p>
-
-    <hr>
-  </article>
-
-  <article class="post">
-    <header>
-      <h1 class="blog-index">Complex ActiveRecord Queries Pt. II - Greatest N Per Group<br><small><a href="/blog/posts/complex-activerecord-queries-pt-ii-greatest-n-per-group/#disqus_thread">comments</a></small></h1>
-      <p class="date-line">Last updated 12 February 2015</p>
-    </header>
-    <p>It is time again to get ridiculous with ActiveRecord. <a href="/blog/posts/complex-activerecord-queries-with-includes">Last time</a> I talked about dealing with <code>includes</code> and sorting. Today I'll talk about an issue I had with sorting by a <code>one-to-many</code> relationship.</p>
-
-<p class="lead">The situation</p>
-<ul>
-<li><code>User</code>s have many <code>Subscription</code>s</li>
-<li>A <code>User</code>'s end date (when they are no longer active) is based on the <code>expiration_date</code> of the <em>last</em> <code>Subscription</code> that user has</li>
-<li>You want to order the <code>User</code>s by end date</li>
-</ul>
-<p>Okay! Great! Should be easy. You want to write this:</p>
-<pre>
-User.joins(:subscriptions).order('subscriptions.expiration_date ASC')
-</pre>
-<p class="lead">The problem</p>
-<p>It doesn't work. Of course.</p>
-<p>Why? Because if a <code>User</code> has more than one <code>Subscription</code> which one should be used for ordering? That code doesn't really make sense.</p>
-<p>After some googling around I discovered that there's a name for this problem - greatest n per group. (By the way, isn't it annoying when it would be so easy to find the answer to something if you only knew the name? It's like the old joke about not being able to look up something in the dictionary to see how it's spelled unless you know how it's spelled.) In this case we want to find the latest (instead of greatest) <code>Subscription</code> in each group of <code>Subscription</code>s owned by each <code>User</code>. I found <a href="http://spin.atomicobject.com/2012/09/21/using-activerecord-to-abstract-greatest-n-per-group-queries/">this excellent blog post</a> showing how to solve that problem in ActiveRecord.</p>
-<p>After spending time trying to grok the post (it is confusing!) I produced this:</p>
-<pre>
-User.joins(:subscriptions).joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date &lt; sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
-</pre>
-<p>So simple! <code>sp</code> is an arbitrary name representing the <code>Subscription</code> that is later than the one represented by <code>subscriptions</code>. You keep searching until <code>sp.id IS NULL</code>, meaning that <code>subscriptions</code> represents the latest <code>Subscription</code> for that <code>User</code>.</p>
-<p>As I'm sure you predicted, this doesn't work either. Postgres immediately complains that you can't order by something you aren't selecting (why didn't it complain in the first case? I don't know, ActiveRecord).</p>
-<p>Okay! We'll just select that too:</p>
-<pre>
-User.joins(:subscriptions).select('users.*, subscriptions.expiration_date').joins('LEFT OUTER JOIN subscriptions sp ON (subscriptions.expiration_date &lt; sp.expiration_date and subscriptions.user_id = sp.user_id)').where('sp.id IS NULL').order('subscriptions.expiration_date ASC')
-</pre>
-<p>Another beautiful ActiveRecord query. Just as a note, I really like ActiveRecord because it makes 99% of all the queries you do beautiful and semantic. Unfortunately, that other 1% is out there to get you.</p>
-<p>I hope this helps someone trying to fight with ActiveRecord to sort by a single instance in a <code>has_many</code> relationship!</p>
 
     <hr>
   </article>

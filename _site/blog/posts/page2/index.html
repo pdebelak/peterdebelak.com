@@ -51,6 +51,34 @@
     
   <article class="post">
     <header>
+      <h1 class="blog-index">Trying Out Emacs<br><small><a href="/blog/posts/trying-out-emacs/#disqus_thread">comments</a></small></h1>
+      <p class="date-line">Last updated 11 July 2015</p>
+    </header>
+    <p>When I started working at <a href="https://reverb.com">Reverb</a> I had a medium amount of vim experience, mostly from programming on a chromebook. At Reverb, though, the expectation is that all programmers use vim (specifically mvim) using our CTO’s excellent vim configuration (which you can see here: <a href="https://github.com/skwp/dotfiles">https://github.com/skwp/dotfiles</a>) to foster easy pairing.</p>
+
+<p>I felt instantly pretty much as productive as I was in <a href="http://thomaswilburn.net/caret/">Caret</a> or <a href="http://www.sublimetext.com/">Sublime Text</a>, which honestly wasn’t that productive. After a little bit, though, I was navigating both around the current file and through the very large Reverb codebase with ease, never touching the mouse, and doing all the things that make people love vim so much.</p>
+
+<p>Naturally, this made me curious about emacs.</p>
+
+<p>I had tried to go through the basic emacs tutor around the same time I was learning vim basics and quit almost immediately once I learned the incredibly perverse navigation commands. Not only did you have to hit control constantly, the keys to move the cursor were all over the place!</p>
+
+<p>But, people still really love emacs so I was curious about why. I decided to give it a try, but using <a href="http://www.emacswiki.org/emacs/Evil">evil mode</a> to use vim bindings within emacs. You might wonder what the point of using emacs at all is, if I’m just going to make it as much like vim as possible. Well, turns out it’s all the other stuff that emacs gives you.</p>
+
+<p>Take a look at this screenshot:</p>
+
+<p><img src="/images/editing-in-emacs.png" alt="Editing and using the internet in emacs" /></p>
+
+<p>If you can’t tell, I’m editing a markdown file for the blog on the left while looking at the post in the brower on the right. In fact, the ability to browse the internet in a text only mode while having all my vim keybindings is the main reason I’m enjoying emacs so much.</p>
+
+<p>I’m still pretty new at using emacs and am learning a lot, but so far I’m really glad I decided to give it a try. If I don’t give up soon, I’ll probably have more updates on my progress and configuration</p>
+
+<p>Just imagine a world where you can use vim all the time: whether it’s for editing text, browsing the internet, or reading pdf files. The way to do it is to use emacs.</p>
+
+    <hr>
+  </article>
+
+  <article class="post">
+    <header>
       <h1 class="blog-index">New Heroku Pricing<br><small><a href="/blog/posts/new-heroku-pricing/#disqus_thread">comments</a></small></h1>
       <p class="date-line">Last updated 27 June 2015</p>
     </header>
@@ -148,98 +176,6 @@ there.</p>
 
 <p>I encourage you to use named arguments as much as possible. I think you’ll see
 the benefits right away!</p>
-
-    <hr>
-  </article>
-
-  <article class="post">
-    <header>
-      <h1 class="blog-index">Tappety Tap Tap Tap Tap - Object#tap in Ruby<br><small><a href="/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/#disqus_thread">comments</a></small></h1>
-      <p class="date-line">Last updated 18 June 2015</p>
-    </header>
-    <p>There are a number of features that were added to Ruby in versions 1.9 or later
-that don’t seem to be in wide use for some reason. One that I have a fondness
-for is the <code>tap</code> method.</p>
-
-<p>The <code>tap</code> method was added to the <code>Object</code> class in Ruby 1.9. All it does is
-yield <code>self</code> to a block and then return <code>self</code>.</p>
-
-<p>Here’s a simple example:</p>
-
-<pre><code>Object.new.tap do |object|
-  puts object
-end
-# returns the object
-</code></pre>
-
-<p>Doesn’t that seem useful? Not really? Okay. Well, according to <a href="http://ruby-doc.org/core-1.9.3/Object.html#method-i-tap">the docs</a>
-the method is meant to “tap into” a method chain, in the same way you’d tap
-into a rich vein of silver. Let’s see if we can find the silver here.</p>
-
-<p>Imagine you need to create an object, call one of its methods, and then return
-it.</p>
-
-<pre><code>Hat.new(type: :bowler).tap do |hat|
-  hat.tip
-end
-</code></pre>
-
-<p>We’re getting closer.</p>
-
-<p>What if you need to construct a string in a complicated way?</p>
-
-<pre><code>"".tap do |string|
-  string &lt;&lt; "Hello " if hello
-  string &lt;&lt; "Sir " if should_sir?
-  string &lt;&lt; "I'm writing to you"
-  string &lt;&lt; " about #{about}" if about
-  string &lt;&lt; "."
-end
-</code></pre>
-
-<p>That’s so much better than the <code>string = ""; string &lt;&lt; "X" if something</code> alternative
-that ends with <code>string</code> at the end to make sure you return it. <code>tap</code> takes care
-of that for you.</p>
-
-<p>The biggest benefit I’ve found of using <code>tap</code> is that it makes it easy to create
-a variable with limited scope. This can be very useful in Rails views, especially
-if you use decorators to add view-related methods to an object.</p>
-
-<p>Take this haml:</p>
-
-<pre><code>- decorated_post = PostDecorator.new(@post)
-%h1= decorated_post.decorated_title
-%p= decorated_post.decorated_body
-</code></pre>
-
-<p>That’s all fine, but if you are in a situation where you want to use two different
-decorators in the same view, you might have something like this:</p>
-
-<pre><code>- readably_decorated_post = ReadablePostDecorator.new(@post)
-%h1= readably_decorated_post.decorated_title
-%p= readably_decorated_post.decorated_body
-
-- sortably_decorated_post = SortablePostDecorator.new(@post)
-= link_to sortably_decorated_post.next_post
-</code></pre>
-
-<p>It can be hard to keep track of where a variable might be used and how. Also,
-those variable names are long to differentiate from themselves from each
-other. Try this instead:</p>
-
-<pre><code>- ReadablePostDecorator.new(@post).tap do |decorated_post|
-  %h1= decorated_post.decorated_title
-  %p= decorated_post.decorated_body
-
-- SortablePostDecorator.new(@post).tap do |decorated_post|
-  = link_to decorated_post.next_post
-</code></pre>
-
-<p>I find that more readable and you have a good idea of the start and end of the
-scope of the variables.</p>
-
-<p>I hope this encourages you to bring out <code>Object#tap</code> for a little spin the next
-chance you get.</p>
 
     <hr>
   </article>
