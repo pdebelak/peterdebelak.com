@@ -1,0 +1,40 @@
+@mixin lead() {
+  font-size: floor($font-size-base * 1.15);
+  margin-bottom: $line-height-computed;
+  font-weight: 300;
+  line-height: 1.4;
+  @media (min-width: $tablet-size) {
+    font-size: $font-size-base * 1.5;
+  }
+}
+@mixin nav-pills() {
+  margin-bottom: 20px;
+  ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    li {
+      a {
+        color: $brand-primary;
+        padding: 10px 15px;
+        border-radius: 4px;
+        display: block;
+        text-decoration: none;
+        @include pill-hover();
+      }
+      &.active {
+        a, a:hover, a:focus {
+          color: #fff;
+          background-color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+@mixin pill-hover() {
+  &:hover, &:focus {
+    text-decoration: none;
+    background-color: $gray-lighter;
+  }
+}

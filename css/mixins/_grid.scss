@@ -1,0 +1,58 @@
+// grid stuff
+$gutter-width: 15px;
+
+// media query sizes
+$tablet-size: 768px;
+$small-computer-size: 992px;
+$large-computer-size: 1200px;
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin col($percent, $min-width: $tablet-size) {
+  padding-right: $gutter-width;
+  padding-left: $gutter-width;
+  @media(min-width: $min-width) {
+    float: left;
+    width: $percent;
+  }
+}
+
+@mixin row() {
+  @include clearfix();
+  margin-left: $gutter-width * -1;
+  margin-right: $gutter-width * -1;
+}
+
+@mixin container() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+  @include clearfix();
+}
+
+@mixin main() {
+  padding-right: $gutter-width;
+  padding-left: $gutter-width;
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix();
+  @media (min-width: $tablet-size) {
+    width: 750px;
+  }
+  @media (min-width: $small-computer-size) {
+    width: 970px;
+  }
+  @media (min-width: $large-computer-size) {
+    width: 1170px;
+  }
+}
