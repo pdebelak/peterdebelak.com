@@ -34,19 +34,23 @@
   <body >
     <div class="wrapper">
       <header class="main-header">
-        <h1><a id="home" href="/">Peter Debelak</a></h1>
+        <div class="main">
+          <h1><a id="home" href="/">Peter Debelak</a></h1>
+        </div>
       </header>
 
-      <main>
+      <main class="main">
         {{ content }}
       </main>
       <div class="push"></div>
     </div>
     <footer class="main-footer">
-      <span class="pull-left">Press <code>?</code> for help</span>
-      <p class="mail-link">
-        <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
-      </p>
+      <div class="main">
+        <span class="pull-left">Press <code>?</code> for help</span>
+        <p class="mail-link">
+          <a href="mailto:pdebelak@gmail.com">Contact Peter</a>
+        </p>
+      </div>
     </footer>
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/shortcuts.min.js"></script>

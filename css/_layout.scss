@@ -36,7 +36,7 @@ div.wrapper {
 }
 
 .main-header {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   @media(min-width: $tablet-size) {
     margin-bottom: 30px;
   }
@@ -58,29 +58,28 @@ div.wrapper {
 
 .main-header a, .main-footer a, .main-header a:focus, .main-footer a:focus {
   text-decoration: none;
-  color: #fff;
+  color: $body-bg;
 }
 
-main {
+.main {
   @include main();
 }
 
 .main-nav {
   @include nav-pills();
-  @include col(34%, $tablet-size);
   @include col(25%, $small-computer-size);
-  @media(min-width: $tablet-size) {
+  @media(min-width: $small-computer-size) {
     float: right;
   }
   ul > li > a {
     @media(max-width: $tablet-size - 1) {
-      padding: 5px 10px;
+      padding-right: 10px;
+      padding-left: 10px;
     }
   }
 }
 
 .main-content {
-  @include col(66%, $tablet-size);
   @include col(75%, $small-computer-size);
 }
 
@@ -91,4 +90,14 @@ main {
 .lead {
   margin: 0 0 10px;
   @include lead();
+}
+.small-size {
+  @media(min-width: $tablet-size) {
+    display: none;
+  }
+}
+.large-size {
+  @media(max-width: $tablet-size) {
+    display: none;
+  }
 }

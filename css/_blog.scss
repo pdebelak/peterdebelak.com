@@ -9,7 +9,7 @@
     a {
       display: inline-block;
       padding: 5px 14px;
-      background-color: #fff;
+      background-color: $body-bg;
       border: 1px solid #ddd;
       border-radius: 15px;
       @include pill-hover();
@@ -23,8 +23,11 @@
   }
 }
 
-h1.blog-index {
-  font-size: $font-size-h2;
+.blog-title {
+  font-size: $font-size-h3;
+  @media(min-width: $tablet-size) {
+    font-size: $font-size-h2;
+  }
   small {
     font-size: $font-size-base;
   }
