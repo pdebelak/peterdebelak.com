@@ -13,7 +13,15 @@
     padding: 0;
     list-style: none;
     margin: 0;
+    text-align: center;
+    @media (min-width: $small-computer-size) {
+      text-align: left;
+    }
     li {
+      display: inline-block;
+      @media (min-width: $small-computer-size) {
+        display: block;
+      }
       a {
         color: $brand-primary;
         padding: 10px 15px;
@@ -24,7 +32,7 @@
       }
       &.active {
         a, a:hover, a:focus {
-          color: #fff;
+          color: $body-bg;
           background-color: $brand-primary;
         }
       }
