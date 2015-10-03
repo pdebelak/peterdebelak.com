@@ -71,10 +71,22 @@ div.wrapper {
   @media(min-width: $small-computer-size) {
     float: right;
   }
-  ul > li > a {
-    @media(max-width: $tablet-size - 1) {
-      padding-right: 10px;
-      padding-left: 10px;
+  ul {
+    text-align: center;
+    @media (min-width: $small-computer-size) {
+      text-align: left;
+    }
+    li {
+      display: inline-block;
+      @media (min-width: $small-computer-size) {
+        display: block;
+      }
+      a {
+        @media(max-width: $tablet-size - 1) {
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+      }
     }
   }
 }
