@@ -3,7 +3,7 @@ title: Intermediate Recursion - Fibonacci Sequence with Memoization
 description: An intermediate guide to recursion in programming, using memoization
 ---
 
-<p>After <a href="/blog/posts/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>
+<p>After <a href="/blog/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>
 
 <p>You can read that article, but the basic concept of memoization is not repeating calculations if you've already found the answer. The example used there is finding factorials (<code>5! = 5 * 4 * 3 * 2 * 1</code>), but that only works if you call the function multiple times in your program. I want to talk about those rare cases where memoization comes in handy within the function itself.</p>
 <p class="lead">Fibonacci Sequence</p>

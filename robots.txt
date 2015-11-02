@@ -1,0 +1,1 @@
+sitemap: http://www.peterdebelak.com/sitemap.xml

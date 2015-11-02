@@ -31,6 +31,6 @@ press any button on your keyboard without following links.
 <div class="hide">
   <a id="about" href="/about/">About</a>
   <a id="resume" href="/resume/">Resume</a>
-  <a id="blog" href="/blog/posts">Blog</a>
+  <a id="blog" href="/blog">Blog</a>
   <a id="github" href="https://github.com/pdebelak">Peter on Github</a>
 </div>

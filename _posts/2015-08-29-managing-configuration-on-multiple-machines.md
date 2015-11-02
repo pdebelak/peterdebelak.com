@@ -5,7 +5,7 @@ description: Some tips on keeping configuration the same across multiple compute
 
 Well, my experiment with emacs ended when I realized that getting the shell to work properly wasn't going to happen unless I was willing to put some serious work in. It just didn't seem worth it. So, I'm back to vim.
 
-As I said [before](/blog/posts/trying-out-emacs), I use [yadr](https://github.com/skwp/dotfiles) for my vim and zsh configuration. Lately, though, I've been trying to add some tmux excitement to my normal workflows and so I needed to add some additional tmux-based keybindings. Yadr has a way to do this without needing to fork it - by using a `~/.zsh.after` directory with additional configuration. The problem with this, though, is that I needed to remember to update my config on both my personal and work computers whenever I made a change.
+As I said [before](/blog/trying-out-emacs), I use [yadr](https://github.com/skwp/dotfiles) for my vim and zsh configuration. Lately, though, I've been trying to add some tmux excitement to my normal workflows and so I needed to add some additional tmux-based keybindings. Yadr has a way to do this without needing to fork it - by using a `~/.zsh.after` directory with additional configuration. The problem with this, though, is that I needed to remember to update my config on both my personal and work computers whenever I made a change.
 
 Clearly this was not exceptable. I needed to DRY up my life!
 

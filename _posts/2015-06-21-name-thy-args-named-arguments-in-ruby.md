@@ -3,7 +3,7 @@ title: Name Thy Args - Named Arguments in Ruby
 description: There are many benefits of using named arguments in Ruby
 ---
 
-Just like [last time](/blog/posts/tappety-tap-tap-tap-object-tap-in-ruby/),
+Just like [last time](/blog/tappety-tap-tap-tap-object-tap-in-ruby/),
 where I wrote about the underused `Object#tap` method, I want to talk about
 a relatively new and underutilized feature in Ruby. Today it is named arguments.
 

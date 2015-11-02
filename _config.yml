@@ -4,12 +4,15 @@ defaults:
       path: ""
       type: "posts"
     values:
-      categories: "blog posts"
+      categories: "blog"
       layout: post
       active: blog
 permalink: /:categories/:title/
 paginate: 3
-paginate_path: /blog/posts/page:num/
+paginate_path: /blog/page:num/
+url: "http://www.peterdebelak.com"
 sass:
   sass_dir: css
   style: :compressed
+gems:
+  - jekyll-sitemap
