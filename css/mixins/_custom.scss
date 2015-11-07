@@ -17,15 +17,18 @@
       a {
         color: $brand-primary;
         padding: 10px 15px;
-        border-radius: 4px;
         display: block;
         text-decoration: none;
         @include pill-hover();
       }
       &.active {
         a, a:hover, a:focus {
-          color: $body-bg;
-          background-color: $brand-primary;
+          font-weight: 700;
+          border-bottom: 3px solid $brand-secondary;
+          @media(min-width: $small-computer-size) {
+            border-left: 3px solid $brand-secondary;
+            border-bottom: 0;
+          }
         }
       }
     }

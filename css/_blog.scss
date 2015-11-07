@@ -3,14 +3,9 @@
   margin: 20px 0;
   list-style: none;
   text-align: center;
-  overflow: auto;
   li {
-    display: inline;
     a {
-      display: inline-block;
-      padding: 5px 14px;
-      background-color: $body-bg;
-      border: 1px solid #ddd;
+      padding: 10px 15px;
       border-radius: 15px;
       @include pill-hover();
     }

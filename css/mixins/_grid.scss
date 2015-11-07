@@ -18,6 +18,7 @@ $large-computer-size: 1200px;
 }
 
 @mixin col($percent, $min-width: $tablet-size) {
+  box-sizing: border-box;
   padding-right: $gutter-width;
   padding-left: $gutter-width;
   @media(min-width: $min-width) {
@@ -33,19 +34,16 @@ $large-computer-size: 1200px;
 }
 
 @mixin container() {
-  margin-right: auto;
+  box-sizing: border-box;
   margin-left: auto;
-  padding-left: $gutter-width;
+  margin-right: auto;
   padding-right: $gutter-width;
+  padding-left: $gutter-width;
   @include clearfix();
 }
 
 @mixin main() {
-  padding-right: $gutter-width;
-  padding-left: $gutter-width;
-  margin-right: auto;
-  margin-left: auto;
-  @include clearfix();
+  @include container();
   @media (min-width: $tablet-size) {
     width: 750px;
   }
