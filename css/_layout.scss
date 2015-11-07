@@ -1,18 +1,11 @@
-// * {
-//   box-sizing: border-box;
-// }
-//
-// *:before,
-// *:after {
-//   box-sizing: border-box;
-// }
-//
 html {
+  @extend %base;
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
+  @extend %base;
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -25,38 +18,51 @@ img {
   max-width: 100%
 }
 
-html, body {
+%base {
   height: 100%;
   margin: 0;
 }
 
-div.wrapper {
+.wrapper {
   min-height: 100%;
   margin-bottom: -39px;
 }
 
+%wrapper-bars {
+  @include container();
+  background-color: $brand-primary;
+  a {
+    @extend %wrapper-bar-links;
+    &:hover, &:focus, &:visited {
+      @extend %wrapper-bar-links;
+    }
+  }
+}
+
 .main-header {
+  @extend %wrapper-bars;
   margin-bottom: 20px;
   @media(min-width: $tablet-size) {
     margin-bottom: 30px;
   }
 }
 
-.main-header, .main-footer {
-  @include container();
-  background-color: $brand-primary;
-}
-
-.main-footer, .push {
+%footer {
   width: 100%;
   height: 39px;
 }
 
+.main-footer {
+  @extend %wrapper-bars;
+  @extend %footer;
+}
+
 .push {
+  @extend %footer;
   margin-top: 30px;
 }
 
-.main-header a, .main-footer a, .main-header a:focus, .main-footer a:focus {
+%wrapper-bar-links {
   text-decoration: none;
   color: $body-bg;
 }
