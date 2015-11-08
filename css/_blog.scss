@@ -7,7 +7,7 @@
     a {
       padding: 10px 15px;
       border-radius: 15px;
-      @include pill-hover();
+      @extend %pill-hover;
     }
   }
   .next {

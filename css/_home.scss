@@ -1,5 +1,5 @@
 .welcome, .recent-posts {
-  @include row();
+  @extend %row;
 }
 
 .recent-posts .posts {
@@ -23,7 +23,7 @@
 }
 
 .verbose-nav {
-  @include nav-pills();
+  @extend %nav-pills;
 }
 
 .nav-pills > li > a {

@@ -17,6 +17,10 @@ $large-computer-size: 1200px;
   }
 }
 
+%clearfix {
+  @include clearfix();
+}
+
 @mixin col($percent, $min-width: $tablet-size) {
   box-sizing: border-box;
   padding-right: $gutter-width;
@@ -28,22 +32,30 @@ $large-computer-size: 1200px;
 }
 
 @mixin row() {
-  @include clearfix();
+  @extend %clearfix;
   margin-left: $gutter-width * -1;
   margin-right: $gutter-width * -1;
 }
 
+%row {
+  @include row();
+}
+
 @mixin container() {
+  @extend %clearfix;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   padding-right: $gutter-width;
   padding-left: $gutter-width;
-  @include clearfix();
+}
+
+%container {
+  @include container();
 }
 
 @mixin main() {
-  @include container();
+  @extend %container;
   @media (min-width: $tablet-size) {
     width: 750px;
   }
@@ -53,4 +65,8 @@ $large-computer-size: 1200px;
   @media (min-width: $large-computer-size) {
     width: 1170px;
   }
+}
+
+%main {
+  @include main();
 }

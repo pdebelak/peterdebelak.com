@@ -29,7 +29,7 @@ img {
 }
 
 %wrapper-bars {
-  @include container();
+  @extend %container;
   background-color: $brand-primary;
   a {
     @extend %wrapper-bar-links;
@@ -68,11 +68,11 @@ img {
 }
 
 .main {
-  @include main();
+  @extend %main;
 }
 
 .main-nav {
-  @include nav-pills();
+  @extend %nav-pills;
   @include col(25%, $small-computer-size);
   @media(min-width: $small-computer-size) {
     float: right;
@@ -102,12 +102,12 @@ img {
 }
 
 .content-wrap {
-  @include row();
+  @extend %row;
 }
 
 .lead {
   margin: 0 0 10px;
-  @include lead();
+  @extend %lead;
 }
 .small-size {
   @media(min-width: $tablet-size) {

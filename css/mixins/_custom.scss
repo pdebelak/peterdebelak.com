@@ -7,6 +7,11 @@
     font-size: $font-size-base * 1.5;
   }
 }
+
+%lead {
+  @include lead();
+}
+
 @mixin nav-pills() {
   margin-bottom: 20px;
   ul {
@@ -19,7 +24,7 @@
         padding: 10px 15px;
         display: block;
         text-decoration: none;
-        @include pill-hover();
+        @extend %pill-hover;
       }
       &.active {
         a, a:hover, a:focus {
@@ -35,9 +40,17 @@
   }
 }
 
+%nav-pills {
+  @include nav-pills();
+}
+
 @mixin pill-hover() {
   &:hover, &:focus {
     text-decoration: none;
     background-color: $gray-lighter;
   }
+}
+
+%pill-hover {
+  @include pill-hover();
 }
