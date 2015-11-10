@@ -37,7 +37,7 @@ Compiles to:
       color: blue;
     }
 
-Now we're starting to see the use.
+*Now* we're starting to see the use.
 
 You can even have multiple selectors using the same placeholder.
 
@@ -54,6 +54,10 @@ You can even have multiple selectors using the same placeholder.
       @extend %blue;
     }
 
+    p.text-blue {
+      @extend %blue;
+    }
+
 Compiles to:
 
     div.blue {
@@ -61,7 +65,7 @@ Compiles to:
       background-color:blue;
     }
 
-    p.blue {
+    p.blue, p.text-blue {
       color:blue;
     }
 
