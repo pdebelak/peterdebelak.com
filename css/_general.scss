@@ -8,9 +8,10 @@
       display: inline;
     }
   }
-  .mail-link {
+  .pull-right {
     text-align: right;
-    @extend .h4;
+    margin-top: 10px;
+    color: $body-bg;
   }
 }
 

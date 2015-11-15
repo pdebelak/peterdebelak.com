@@ -45,6 +45,44 @@ img {
   @media(min-width: $tablet-size) {
     margin-bottom: 30px;
   }
+  h1 {
+    display: inline-block;
+  }
+}
+
+.header-nav {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 12px;
+  @media(min-width: $tablet-size) {
+    display: inline-block;
+  }
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    text-align: center;
+    padding-left: 0;
+    @media(min-width: $tablet-size) {
+      padding-left: 40px;
+      text-align: left;
+    }
+  }
+  li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    a {
+      padding: 10px 15px 13px 15px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    &.active, &:hover, &:focus {
+      a {
+        background: $body-bg;
+        color: $brand-primary;
+      }
+    }
+  }
 }
 
 %footer {
@@ -71,32 +109,6 @@ img {
   @extend %main;
 }
 
-.main-nav {
-  @extend %nav-pills;
-  @include col(25%, $small-computer-size);
-  @media(min-width: $small-computer-size) {
-    float: right;
-  }
-  ul {
-    text-align: center;
-    @media (min-width: $small-computer-size) {
-      text-align: left;
-    }
-    li {
-      display: inline-block;
-      @media (min-width: $small-computer-size) {
-        display: block;
-      }
-      a {
-        @media(max-width: $tablet-size - 1) {
-          padding-right: 10px;
-          padding-left: 10px;
-        }
-      }
-    }
-  }
-}
-
 .main-content {
   @include col(75%, $small-computer-size);
 }
@@ -109,13 +121,8 @@ img {
   margin: 0 0 10px;
   @extend %lead;
 }
-.small-size {
-  @media(min-width: $tablet-size) {
-    display: none;
-  }
+
+.verbose-nav {
+  @extend %nav-pills;
 }
-.large-size {
-  @media(max-width: $tablet-size) {
-    display: none;
-  }
-}
+

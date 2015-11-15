@@ -13,7 +13,6 @@
 }
 
 @mixin nav-pills() {
-  margin-bottom: 20px;
   ul {
     padding: 0;
     list-style: none;
@@ -25,16 +24,6 @@
         display: block;
         text-decoration: none;
         @extend %pill-hover;
-      }
-      &.active {
-        a, a:hover, a:focus {
-          font-weight: 700;
-          border-bottom: 3px solid $brand-secondary;
-          @media(min-width: $small-computer-size) {
-            border-left: 3px solid $brand-secondary;
-            border-bottom: 0;
-          }
-        }
       }
     }
   }

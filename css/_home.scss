@@ -22,14 +22,6 @@
   @extend .h3;
 }
 
-.verbose-nav {
-  @extend %nav-pills;
-}
-
-.nav-pills > li > a {
-  color: $brand-primary;
-}
-
 p.date-line {
   font-size: .75em;
   color: gray;
