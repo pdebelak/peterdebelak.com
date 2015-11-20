@@ -75,6 +75,7 @@ img {
       padding: 10px 15px 13px 15px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      background: darken($brand-primary, 5%);
     }
     &.active, &:hover, &:focus {
       a {
@@ -123,6 +124,12 @@ img {
 }
 
 .verbose-nav {
-  @extend %nav-pills;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 10px 15px;
+    }
+  }
 }
 

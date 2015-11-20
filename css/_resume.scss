@@ -3,7 +3,7 @@
 }
 
 .resume-section {
-  @include row();
+  @extend %row;
   .section-title {
     @include col(17%, $tablet-size);
     h1 {

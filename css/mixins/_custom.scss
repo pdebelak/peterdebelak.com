@@ -12,27 +12,6 @@
   @include lead();
 }
 
-@mixin nav-pills() {
-  ul {
-    padding: 0;
-    list-style: none;
-    margin: 0;
-    li {
-      a {
-        color: $brand-primary;
-        padding: 10px 15px;
-        display: block;
-        text-decoration: none;
-        @extend %pill-hover;
-      }
-    }
-  }
-}
-
-%nav-pills {
-  @include nav-pills();
-}
-
 @mixin pill-hover() {
   &:hover, &:focus {
     text-decoration: none;
