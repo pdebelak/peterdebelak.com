@@ -92,3 +92,10 @@ pre {
     border-radius: 0;
   }
 }
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: ($font-size-base * 1.25);
+  border-left: 5px solid $gray-light;
+}
