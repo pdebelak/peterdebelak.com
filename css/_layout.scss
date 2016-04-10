@@ -80,6 +80,9 @@ img {
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       background: rgba($body-bg, 0.8);
+      &:visited {
+        color: $brand-primary;
+      }
     }
     &.active {
       a {
