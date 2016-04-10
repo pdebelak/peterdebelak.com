@@ -15,4 +15,4 @@ Whoops, I didn't know how to read that either. `man` is an excellent command tha
 
 1. A tutorial
 
-Don't expect the man page to give you a minimal example of how to use the tool.
+Don't expect the man page to give you a minimal example of how to use the tool. A best

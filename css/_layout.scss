@@ -31,11 +31,12 @@ img {
 %wrapper-bars {
   @extend %container;
   background-color: rgba($brand-primary, 0.80);
-  a {
+}
+
+%wrapper-link {
+  @extend %wrapper-bar-links;
+  &:hover, &:focus, &:visited {
     @extend %wrapper-bar-links;
-    &:hover, &:focus, &:visited {
-      @extend %wrapper-bar-links;
-    }
   }
 }
 
@@ -47,6 +48,9 @@ img {
   }
   h1 {
     display: inline-block;
+    a {
+      @extend %wrapper-link;
+    }
   }
 }
 
@@ -72,21 +76,26 @@ img {
     padding-right: 5px;
     padding-left: 5px;
     a {
-      padding: 10px 15px 13px 15px;
+      padding: 10px 15px 14px 15px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
-      background: rgba($brand-primary, 0.5);
+      background: rgba($body-bg, 0.8);
     }
     &.active {
       a {
         background: $body-bg;
-        color: $brand-primary;
       }
     }
     &:hover, &:focus {
       a {
-        background: rgba($body-bg, 0.7);
         color: $brand-primary;
+        text-decoration: underline;
+      }
+    }
+    #home {
+      display: none;
+      @media(min-width: $tablet-size) {
+        display: inline;
       }
     }
   }
@@ -100,6 +109,9 @@ img {
 .main-footer {
   @extend %wrapper-bars;
   @extend %footer;
+  a {
+    @extend %wrapper-link;
+  }
 }
 
 .push {
