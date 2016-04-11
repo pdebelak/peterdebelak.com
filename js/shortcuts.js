@@ -7,7 +7,6 @@
   var A_KEY = 65;
   var B_KEY = 66;
   var G_KEY = 71;
-  var H_KEY = 72;
   var J_KEY = 74;
   var K_KEY = 75;
   var N_KEY = 78;
@@ -23,9 +22,6 @@
       break;
       case G_KEY:
         document.getElementById("github").click();
-      break;
-      case H_KEY:
-        document.getElementById("home").click();
       break;
       case J_KEY:
         window.scrollBy(0,75);

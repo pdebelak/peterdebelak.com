@@ -31,6 +31,13 @@ $large-computer-size: 1200px;
   }
 }
 
+@mixin right-col($percent, $min-width: $tablet-size) {
+  @include col($percent, $min-width);
+  @media(min-width: $min-width) {
+    float: right;
+  }
+}
+
 @mixin row() {
   @extend %clearfix;
   margin-left: $gutter-width * -1;

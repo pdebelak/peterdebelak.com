@@ -94,12 +94,6 @@ img {
         text-decoration: underline;
       }
     }
-    #home {
-      display: none;
-      @media(min-width: $tablet-size) {
-        display: inline;
-      }
-    }
   }
 }
 

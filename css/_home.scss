@@ -1,25 +1,19 @@
-.welcome, .recent-posts {
-  @extend %row;
+.explanation {
+  @include right-col(30%);
 }
 
-.recent-posts .posts {
-  @include col(100%);
-}
-
-.recent-posts, .home-nav {
-  margin-top: 30px;
-}
-
-.home-nav, .explanation {
-  @include col(50%);
+.home-content {
+  @include col(70%);
 }
 
 .post-title {
+  margin-bottom: 3px;
   margin-top: 0;
-  margin-bottom: 0;
-  font-size: ceil($font-size-base * 1.125);
   color: inherit;
   @extend .h3;
+  a {
+    color: $text-color;
+  }
 }
 
 p.date-line {
