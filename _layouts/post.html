@@ -2,12 +2,31 @@
 layout: default
 ---
 
-<article class="post">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
-    <h1 class="blog-title">{{ page.title }}</h1>
+    <h1 class="blog-title" itemprop="mainEntityOfPage"><span itemprop="headline">{{ page.title }}</span></h1>
     <p class="date-line">Last updated {{ page.date | date_to_long_string }}</p>
   </header>
-  {{ content }}
+  <link href="{{ page.url }}" itemprop="url">
+  <time itemprop="dateModified" datetime="{{ page.date }}">
+  <time itemprop="datePublished" datetime="{{ page.date }}">
+  <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="hide">
+    <img src="https://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597" itemprop="url">
+    <meta itemprop="width" content="80">
+    <meta itemprop="height" content="80">
+  </div>
+  <meta itemprop="author" itemtype="http://schema.org/Person" content="Peter Debelak">
+  <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Peter Debelak">
+    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject" class="hide">
+      <img src="https://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597" itemprop="url">
+      <meta itemprop="width" content="80">
+      <meta itemprop="height" content="80">
+    </div>
+  </div>
+  <div itemprop="articleBody">
+    {{ content }}
+  </div>
 </article>
 
 <nav>

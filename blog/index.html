@@ -6,12 +6,22 @@ description: Posts about Ruby, Rails, and other technical topics from Peter Debe
 ---
 
 {% for post in paginator.posts %}
-  <article class="post">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
-      <h1 class="blog-title">{{ post.title }}<br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
+      <h1 class="blog-title"><span itemprop="headline">{{ post.title }}</span><br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
       <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
     </header>
-    {{ post.content }}
+    <link href="{{ post.url }}" itemprop="url">
+    <time itemprop="dateModified" datetime="{{ post.date }}">
+    <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="hide">
+      <img src="https://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597" itemprop="url">
+      <meta itemprop="width" content="80">
+      <meta itemprop="height" content="80">
+    </div>
+    <meta itemprop="author" itemtype="http://schema.org/Person" content="Peter Debelak">
+    <div itemprop="articleBody">
+      {{ post.content }}
+    </div>
     <hr>
   </article>
 {% endfor %}
