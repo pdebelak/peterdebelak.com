@@ -26,4 +26,11 @@
   small {
     font-size: $font-size-base;
   }
+  a {
+    color: $headings-color;
+    &:hover {
+      color: $headings-color;
+      text-decoration: underline;
+    }
+  }
 }

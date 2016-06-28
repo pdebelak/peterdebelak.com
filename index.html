@@ -14,7 +14,7 @@ description: News, hints, and tips about Peter Debelak - a computer programmer l
     {% for post in site.posts %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <header>
-          <h1 class="blog-title" itemprop="mainEntityOfPage"><span itemprop="headline">{{ post.title }}</span><br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
+          <h1 class="blog-title" itemprop="mainEntityOfPage"><a href="{{ post.url }}"><span itemprop="headline">{{ post.title }}</span></a><br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
           <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
         </header>
         <link href="{{ post.url }}" itemprop="url">
