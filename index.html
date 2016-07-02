@@ -12,33 +12,8 @@ description: News, hints, and tips about Peter Debelak - a computer programmer l
   </section>
   <section class="home-content">
     {% for post in site.posts %}
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <header>
-          <h1 class="blog-title" itemprop="mainEntityOfPage"><a href="{{ post.url }}"><span itemprop="headline">{{ post.title }}</span></a><br><small><a href="{{ post.url }}#disqus_thread">comments</a></small></h1>
-          <p class="date-line">Last updated {{ post.date | date_to_long_string }}</p>
-        </header>
-        <link href="{{ post.url }}" itemprop="url">
-        <time itemprop="dateModified" datetime="{{ post.date }}">
-        <time itemprop="datePublished" datetime="{{ post.date }}">
-        <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="hide">
-          <img src="https://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597" itemprop="url">
-          <meta itemprop="width" content="80">
-          <meta itemprop="height" content="80">
-        </div>
-        <meta itemprop="author" itemtype="http://schema.org/Person" content="Peter Debelak">
-        <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-          <meta itemprop="name" content="Peter Debelak">
-          <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject" class="hide">
-            <img src="https://www.gravatar.com/avatar/a1794745acd9e572c24558b78b48d597" itemprop="url">
-            <meta itemprop="width" content="80">
-            <meta itemprop="height" content="80">
-          </div>
-        </div>
-        <div itemprop="articleBody">
-          {{ post.content }}
-        </div>
-        <hr>
-      </article>
+      {% include post.html post=post content=post.content %}
+      <hr>
     {% endfor %}
   </section>
 </div>
