@@ -4,20 +4,7 @@ layout: default
 
 {% include post.html post=page content=content %}
 
-<nav>
-  <ul class="pager">
-    {% if page.previous %}
-      <li class="previous">
-        <a id="next" href="{{ page.previous.url }}">&larr; Older post</a>
-      </li>
-    {% endif %}
-    {% if page.next %}
-      <li class="next">
-        <a id="previous" href="{{ page.next.url }}">Newer post &rarr;</a>
-      </li>
-    {% endif %}
-  </ul>
-</nav>
+{% include pagination.html older_page=page.previous older_page_path=page.previous.url newer_page=page.next newer_page_path=page.next.url %}
 
 <div id="disqus_thread"></div>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

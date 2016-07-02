@@ -12,7 +12,7 @@ defaults:
       layout: post
       active: blog
 permalink: /:categories/:title/
-paginate: 3
+paginate: 10
 paginate_path: /blog/page:num/
 url: "http://www.peterdebelak.com"
 sass:

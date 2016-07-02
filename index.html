@@ -11,9 +11,12 @@ description: News, hints, and tips about Peter Debelak - a computer programmer l
     <p>Articles about the internet, on the internet.</p>
   </section>
   <section class="home-content">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       {% include post.html post=post content=post.content %}
       <hr>
     {% endfor %}
+
+    {% include pagination.html older_page=paginator.next_page older_page_path=paginator.next_page_path newer_page=paginator.previous_page newer_page_path=paginator.previous_page_path %}
+
   </section>
 </div>

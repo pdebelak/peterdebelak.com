@@ -1,0 +1,14 @@
+<nav>
+  <ul class="pager">
+    {% if include.older_page %}
+      <li class="previous">
+        <a href="{{ include.older_page_path }}">&larr; Older</a>
+      </li>
+    {% endif %}
+    {% if include.newer_page %}
+      <li class="next">
+        <a href="{{ include.newer_page_path }}">Newer &rarr;</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
