@@ -1,18 +1,16 @@
 .explanation {
   @include right-col(30%);
+  h1 {
+    @extend %heading;
+    font-size: $font-size-h2;
+    @media(min-width: $tablet-size) {
+      font-size: $font-size-h3;
+    }
+  }
 }
 
 .home-content {
   @include col(70%);
-}
-
-.post-title {
-  margin-bottom: 3px;
-  color: inherit;
-  @extend .h3;
-  a {
-    color: $text-color;
-  }
 }
 
 p.date-line {

@@ -1,13 +1,4 @@
 .main-footer {
-  .pull-left {
-    color: $body-bg;
-    margin-top: 10px;
-    display: none;
-    float: left !important;
-    @media (min-width: $tablet-size) {
-      display: inline;
-    }
-  }
   .pull-right {
     text-align: right;
     margin-top: 10px;
@@ -18,10 +9,6 @@
 header a:hover, footer a:hover {
   text-decoration: none;
   color: lighten($brand-primary, 70%);
-}
-
-.hide {
-  display: none;
 }
 
 a {
@@ -49,6 +36,6 @@ hr {
   border-top: 1px solid $gray-lighter;
 }
 
-code, pre {
-  font-family: $font-family-monospace;
+.hide {
+  display: none;
 }

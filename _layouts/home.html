@@ -34,37 +34,15 @@
   </head>
   <body >
     <div class="wrapper">
-      <div itemscope itemtype="http://schema.org/Blog">
-        <meta itemprop="name" content="Peter Debelak's Internet Weblog">
-        <meta itemprop="description" content="Posts about Ruby, Rails, and other technical topics from Peter Debelak">
-      </div>
-      <header class="main-header">
-        <div class="main">
-          <h1><a href="/">Peter Debelak</a></h1>
-          <nav class="header-nav">
-            <ul>
-              <li class="{% if page.active == "blog" %}active{% endif %}"><a id="blog" href="/">Blog</a></li>
-              <li class="{% if page.active == "about" %}active{% endif %}"><a id="about" href="/about/">About</a></li>
-              <li class="{% if page.active == "resume" %}active{% endif %}"><a id="resume" href="/resume/">Resume</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      {% include blog_meta.html %}
+      {% include header.html %}
 
       <main class="main">
         {{ content }}
       </main>
       <div class="push"></div>
     </div>
-    <footer class="main-footer">
-      <div class="main">
-        <p class="pull-right">
-          <a href="https://github.com/pdebelak">Peter on Github</a>
-          |
-          <a href="mailto:peter@peterdebelak.com">Contact Peter</a>
-        </p>
-      </div>
-    </footer>
+    {% include footer.html %}
     <link rel="stylesheet" href="/css/main.css">
     <script type="text/javascript">
       var disqus_shortname = 'peterdebelak';

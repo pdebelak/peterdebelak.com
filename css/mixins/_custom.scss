@@ -22,3 +22,20 @@
 %pill-hover {
   @include pill-hover();
 }
+
+%heading-shared {
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  margin-bottom: ($line-height-computed / 2);
+}
+
+%heading {
+  @extend %heading-shared;
+  margin-top: $line-height-computed;
+}
+
+%heading-small {
+  @extend %heading-shared;
+  margin-top: ($line-height-computed / 2);
+}
+

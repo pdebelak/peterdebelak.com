@@ -1,0 +1,12 @@
+<header class="main-header">
+  <div class="main">
+    <h1><a href="/">Peter Debelak</a></h1>
+    <nav class="header-nav">
+      <ul>
+        <li class="{% if page.active == "blog" %}active{% endif %}"><a id="blog" href="/">Blog</a></li>
+        <li class="{% if page.active == "about" %}active{% endif %}"><a id="about" href="/about/">About</a></li>
+        <li class="{% if page.active == "resume" %}active{% endif %}"><a id="resume" href="/resume/">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

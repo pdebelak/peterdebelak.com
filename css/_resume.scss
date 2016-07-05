@@ -7,10 +7,23 @@
   .section-title {
     @include col(17%, $tablet-size);
     h1 {
-      @extend .h4;
+      @extend %heading-small;
+      font-size: $font-size-h4;
+      font-weight: 700;
+      @media(min-width: $tablet-size) {
+        font-weight: $headings-font-weight;
+      }
     }
   }
   .section-body {
     @include col(83%, $tablet-size);
+    h2 {
+      @extend %heading-small;
+      font-size: $font-size-h4;
+    }
+    h3 {
+      @extend %heading-small;
+      font-size: $font-size-h5;
+    }
   }
 }
