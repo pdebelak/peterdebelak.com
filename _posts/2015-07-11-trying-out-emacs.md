@@ -1,6 +1,7 @@
 ---
 title: Trying Out Emacs
 description: Is emacs worth exploring for a vim user? Peter finds that there is a lot to like
+image: /images/editing-in-emacs.png
 ---
 
 When I started working at [Reverb](https://reverb.com) I had a medium amount of vim experience, mostly from programming on a chromebook. At Reverb, though, the expectation is that all programmers use vim (specifically mvim) using our CTO's excellent vim configuration (which you can see here: [https://github.com/skwp/dotfiles](https://github.com/skwp/dotfiles)) to foster easy pairing.
