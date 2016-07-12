@@ -13,46 +13,52 @@ First, let's see how they are used.
 
 Sass uses `mixin`s for including. Like this:
 
-    @mixin text() {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+@mixin text() {
+  font-size: 12px;
+  font-weight: 400;
+}
 
-    .normal {
-      @include text();
-    }
+.normal {
+  @include text();
+}
 
-    p {
-      @include text();
-    }
+p {
+  @include text();
+}
+{% endhighlight %}
 
 <p class="lead">Extend</p>
 
 Extend is sort of like inheritence:
 
-    .normal {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+.normal {
+  font-size: 12px;
+  font-weight: 400;
+}
 
-    p {
-      @extend .normal;
-    }
+p {
+  @extend .normal;
+}
+{% endhighlight %}
 
 You can also use placeholders (sort of like classes that don't actually get used) with extend. That looks like this:
 
-    %text {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+%text {
+  font-size: 12px;
+  font-weight: 400;
+}
 
-    .normal {
-      @extend %text;
-    }
+.normal {
+  @extend %text;
+}
 
-    p {
-      @extend %text;
-    }
+p {
+  @extend %text;
+}
+{% endhighlight %}
 
 Now, these look essentially the same, right? But for some reason you can pass arguments to a `@mixin` and you can't use `@extend` inside a media query. Why is that? What is the difference between these almost identical ideas?
 
@@ -60,54 +66,62 @@ The answer is that the difference doesn't really have anything to do with sass. 
 
 Include is like copy-pasting. This sass:
 
-    @mixin text() {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+@mixin text() {
+  font-size: 12px;
+  font-weight: 400;
+}
 
-    .normal {
-      @include text();
-    }
+.normal {
+  @include text();
+}
 
-    p {
-      @include text();
-    }
+p {
+  @include text();
+}
+{% endhighlight %}
 
 Turns into this css:
 
-    .normal {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+.normal {
+  font-size: 12px;
+  font-weight: 400;
+}
 
-    p {
-      font-size: 12px;
-      font-weight: 400;
-    }
+p {
+  font-size: 12px;
+  font-weight: 400;
+}
+{% endhighlight %}
 
 So if you use an argument to a mixin sass can easily use that argument to generate the output since it is only used for that one selector.
 
 Extend, on the other hand, works very differently. This sass:
 
-    %text {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+%text {
+  font-size: 12px;
+  font-weight: 400;
+}
 
-    .normal {
-      @extend %text;
-    }
+.normal {
+  @extend %text;
+}
 
-    p {
-      @extend %text;
-    }
+p {
+  @extend %text;
+}
+{% endhighlight %}
 
 Turns into this css:
 
-    .normal, p {
-      font-size: 12px;
-      font-weight: 400;
-    }
+{% highlight scss %}
+.normal, p {
+  font-size: 12px;
+  font-weight: 400;
+}
+{% endhighlight %}
 
 Since the css is only in one place, it can't take arguments (it always needs to be the same) and it can't appear in media queries. This makes the generated css much smaller, however.
 

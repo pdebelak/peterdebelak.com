@@ -19,14 +19,16 @@ Moving your cursor one line or character at a time will quickly get cumbersome i
 
 <h2 class="lead">What you know so far:</h2>
 
-    i # enter insert mode
-    esc # return to normal mode
-    h # move left
-    j # move down
-    k # move up
-    l # move right
-    / # search forward in file
-    ? # search backwards
+{% highlight bash %}
+i # enter insert mode
+esc # return to normal mode
+h # move left
+j # move down
+k # move up
+l # move right
+/ # search forward in file
+? # search backwards
+{% endhighlight %}
 
 Using these shortcuts in normal mode, you'll already find that you can spend a lot more time with your hands on the letters of the keyboard, right where they belong, and away from those cumbersome arrow keys. Practice these commands until they become natural. Try to search at every opportunity. Sometimes I find myself searching to find something just a few words away because it can often be the fastest way to get there.
 

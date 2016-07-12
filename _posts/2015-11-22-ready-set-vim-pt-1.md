@@ -25,8 +25,10 @@ So, this is the first thing you will do when using vim: When you are ready to en
 
 <h2 class="lead">What you know so far:</h2>
 
-    i # enter insert mode
-    esc # return to normal mode
+{% highlight bash %}
+i # enter insert mode
+esc # return to normal mode
+{% endhighlight %}
 
 I know what you are thinking, "That is stupid. I'm just typing more because of vim's weird modes. I'll just stay in insert mode all the time." Okay, I understand that it is stupid *right now*, but if you get in this habit everything afterwards will be much easier and you'll never be confused about what mode you are in.
 
