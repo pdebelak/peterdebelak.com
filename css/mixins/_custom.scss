@@ -12,17 +12,6 @@
   @include lead();
 }
 
-@mixin pill-hover() {
-  &:hover, &:focus {
-    text-decoration: none;
-    background-color: $gray-lighter;
-  }
-}
-
-%pill-hover {
-  @include pill-hover();
-}
-
 %heading-shared {
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
@@ -39,3 +28,11 @@
   margin-top: ($line-height-computed / 2);
 }
 
+@mixin constant-link($color) {
+  text-decoration: none;
+  color: $color;
+  &:hover, &:focus, &:visited {
+    text-decoration: none;
+    color: $color;
+  }
+}

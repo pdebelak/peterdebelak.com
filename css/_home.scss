@@ -1,6 +1,30 @@
-.explanation {
-  @include right-col(30%);
+.title {
+  background-color: rgba($brand-primary, 0.80);
+  @include col(30%);
+  overflow: auto;
+  color: $body-bg;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 20px;
+  @media(min-width: $tablet-size) {
+    position: fixed;
+    right: 0;
+    height: 100%;
+    margin-bottom: 0;
+    padding-top: 80px;
+    text-align: left;
+  }
+  .subtitle {
+    color: $gray-lightish;
+  }
   h1 {
+    @extend %heading;
+    font-size: $font-size-h1;
+  }
+  a {
+    @include constant-link($body-bg);
+  }
+  h2 {
     @extend %heading;
     font-size: $font-size-h2;
     @media(min-width: $tablet-size) {
@@ -9,8 +33,34 @@
   }
 }
 
-.home-content {
+.nav {
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  ul li {
+    display: inline-block;
+    &.active a, &.active a:hover {
+      cursor: default;
+      background: $body-bg;
+      color: $brand-primary;
+    }
+    a {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid $body-bg;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      &:hover {
+        background: $brand-primary;
+      }
+    }
+  }
+}
+
+.content {
   @include col(70%);
+  padding-top: 30px;
 }
 
 p.date-line {

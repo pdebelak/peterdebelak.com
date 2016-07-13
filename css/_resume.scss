@@ -5,18 +5,18 @@
 .resume-section {
   @extend %row;
   .section-title {
-    @include col(17%, $tablet-size);
+    @include col(17%, $small-computer-size);
     h1 {
       @extend %heading-small;
       font-size: $font-size-h4;
       font-weight: 700;
-      @media(min-width: $tablet-size) {
+      @media(min-width: $small-computer-size) {
         font-weight: $headings-font-weight;
       }
     }
   }
   .section-body {
-    @include col(83%, $tablet-size);
+    @include col(83%, $small-computer-size);
     h2 {
       @extend %heading-small;
       font-size: $font-size-h4;
