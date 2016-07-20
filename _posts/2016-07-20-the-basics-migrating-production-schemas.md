@@ -3,19 +3,19 @@ title: "The Basics: Migrating Production Schemas"
 description: When moving from toy apps with fake data to production apps with real data that can't be lost, it can be hard to know how to adjust your database schema. Peter explains a few simple steps to make it happen seamlessly.
 ---
 
-*The basics is a new series where I explain a basic programming concept or term for new computer programmers or those who need a refresher.*
+*The basics is a series where I explain a basic programming concept or term for new computer programmers or those who need a refresher.*
 
-When you start learning programming you are building toy apps or just apps for yourself and it is easy to get in the habit of dropping your entire database and starting from scratch every time you need to change the database schema. Frequently that is the easiest thing to do and since none of the data is real, it if fine to do so. Once you are working with real user's data, though, it's no longer an option to lose all of your data every time you change your mind about the proper structure for the database.
+When you start learning programming you are building toy apps or just apps for yourself and it is easy to get in the habit of dropping your entire database and starting from scratch every time you need to change the database schema. Once you are working with real user's data, though, it's no longer an option to lose all of your data every time you change your mind about the proper structure for the database.
 
-Your only options are to always get the database schema design perfect the first time (impossible!) or to have a strategy for rearranging a database table's columns without losing anything. Obviously the second option is the only real one. Even if you always make the right decisions about the database, new information or feature requests might make you want to change it.
+Your only options are to always get the database schema design perfect the first time (impossible!) or to have a strategy for rearranging a database table's columns without losing anything, ideally without downtime. Obviously the second option is the only real one. Even if you always make the right decisions about the database, new information or feature requests might make you want to change it.
 
-The steps needed to change the database schema without losing data or having any downtime are pretty much always the same:
+The steps needed to change the database schema without losing data or having downtime are pretty much always the same. Each of these code-change steps should be followed by a deploy.
 
 1. Create a new column and start writing to it.
 2. Backfill old data to have the right value in the new column.
 3. Start reading from the new column.
 
-Let's look at an example. Let's take a simple Rails blog app with posts and comments:
+Let's look at an example. Here's a simple Rails blog app with posts and comments:
 
 {% highlight ruby %}
 # app/models/post.rb
@@ -56,7 +56,7 @@ end
 # more stuff
 {% endhighlight %}
 
-Now a new requirement comes in to allow users to comment on other comments in addition to posts. This means that comments need a [polymorphic association](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations) to both comments and posts. The `post_id` field will no longer cut it because you'll need a `commentable_type` and `commentable_id` column to the comments table.
+Now a new requirement comes in to allow users to comment on other comments in addition to posts. This means that comments need a [polymorphic association](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations) to both comments and posts. The `post_id` field will no longer cut it because you'll need a `commentable_type` and `commentable_id` column on the comments table.
 
 Step 1 looks like this:
 
