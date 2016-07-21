@@ -9,17 +9,21 @@ a relatively new and underutilized feature in Ruby. Today it is named arguments.
 
 Starting in Ruby 2.0, you could give your arguments names like so:
 
-    def method(argument: "default")
-      argument.length
-    end
+{% highlight ruby %}
+def method(argument: "default")
+  argument.length
+end
+{% endhighlight %}
 
 This was nice, but since you were forced to provide a default value it wasn't
 always super useful. Starting in Ruby 2.1, though, the requirement for a default
 was dropped so now you can write:
 
-    def method(argument:)
-      argument.length
-    end
+{% highlight ruby %}
+def method(argument:)
+  argument.length
+end
+{% endhighlight %}
 
 Why is this so great? It provides documentation when a method is called. Have
 you ever run across a method call like `do_thing(user, false)` in

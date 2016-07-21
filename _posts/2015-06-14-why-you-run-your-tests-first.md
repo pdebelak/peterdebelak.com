@@ -32,14 +32,18 @@ The same idea applies to writing new features. If you run your tests first,
 you can verify that you are getting the error you expect to get. When you write
 a test like this:
 
-    specify { Thing.new.do_thing.should == "hello" }
+{% highlight ruby %}
+specify { Thing.new.do_thing.should == "hello" }
+{% endhighlight %}
 
 And your current code is:
 
-    class Thing
-      def do_thing
-      end
-    end
+{% highlight ruby %}
+class Thing
+  def do_thing
+  end
+end
+{% endhighlight %}
 
 You run the test to see `expected "doing a thing", got nil`. This means that
 the rest of your code is working as you expect, and your planned code will make
