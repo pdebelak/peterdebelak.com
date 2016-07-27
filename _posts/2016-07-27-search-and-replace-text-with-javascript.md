@@ -12,7 +12,7 @@ My first thought was to do something like this:
 {% highlight js %}
 function hatsToRats() {
   var html = document.innerHTML;
-  var newHtml = html.replace(/\bhats\b/, 'rats');
+  var newHtml = html.replace(/hats/, 'rats');
   document.innerHTML = newHtml;
 }
 {% endhighlight %}
@@ -27,7 +27,7 @@ function hatsToRats() {
   var walker = document.createTreeWalker(html, NodeFilter.SHOW_TEXT);
   var node;
   while (node = walker.nextNode()) {
-    node.nodeValue = node.nodeValue.replace(/\bhats\b/, 'rats')
+    node.nodeValue = node.nodeValue.replace(/hats/, 'rats')
   }
 }
 {% endhighlight %}
