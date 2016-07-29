@@ -1,12 +1,12 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     <h1 class="blog-title" itemprop="mainEntityOfPage"><a href="{{ include.post.url }}"><span itemprop="headline">{{ include.post.title }}</span></a><br><small><a href="{{ include.post.url }}#disqus_thread">comments</a></small></h1>
-    <p class="date-line">Last updated {{ include.post.date | date_to_long_string }}</p>
+    <p class="blog-date">Last updated {{ include.post.date | date_to_long_string }}</p>
   </header>
   <link href="{{ include.post.url }}" itemprop="url">
   <time itemprop="dateModified" datetime="{{ include.post.date }}"></time>
   <time itemprop="datePublished" datetime="{{ include.post.date }}"></time>
-  <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="hide">
+  <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject" class="hidden">
     <img src="{{ include.post.image }}" itemprop="url">
     <meta itemprop="width" content="80">
     <meta itemprop="height" content="80">
@@ -14,7 +14,7 @@
   <meta itemprop="author" itemtype="http://schema.org/Person" content="Peter Debelak">
   <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Peter Debelak">
-    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject" class="hide">
+    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject" class="hidden">
       <img src="/images/peters-face.jpeg" itemprop="url">
       <meta itemprop="width" content="80">
       <meta itemprop="height" content="80">

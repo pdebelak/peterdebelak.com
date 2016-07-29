@@ -1,29 +1,21 @@
-html {
-  @extend %base;
-  font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+.l-header {
+  background-color: rgba($brand-primary, 0.80);
+  @include col(30%);
+  overflow: auto;
+  color: $body-bg;
+  text-align: center;
+  padding: 20px;
+  @media(min-width: $tablet-size) {
+    position: fixed;
+    right: 0;
+    height: 100%;
+    margin-bottom: 0;
+    padding-top: 80px;
+    text-align: left;
+  }
 }
 
-body {
-  @extend %base;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $text-color;
-  background-color: $body-bg;
-}
-
-img {
-  vertical-align: middle;
-  max-width: 100%
-}
-
-%base {
-  height: 100%;
-  margin: 0;
-}
-
-.main-footer {
+.l-footer {
   margin-top: 30px;
   .center {
     text-align: center;
@@ -35,30 +27,19 @@ img {
   }
 }
 
-.main {
-  @extend %main;
+.l-main {
+  @include main();
 }
 
-.main-content {
-  @include col(75%, $small-computer-size);
+.l-content {
+  @include col(70%);
+  padding-top: 30px;
 }
 
-.content-wrap {
-  @extend %row;
+.row {
+  @include row();
 }
 
 .lead {
-  margin: 0 0 10px;
-  @extend %lead;
+  @include lead();
 }
-
-.verbose-nav {
-  ul {
-    padding: 0;
-    list-style: none;
-    li {
-      padding: 10px 0;
-    }
-  }
-}
-

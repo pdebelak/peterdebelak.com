@@ -3,7 +3,7 @@
 }
 
 .resume-section {
-  @extend %row;
+  @include row();
   .section-title {
     @include col(17%, $small-computer-size);
     h1 {

@@ -1,11 +1,12 @@
-// A lot of this css is taken from bootstrap getbootstrap.com
 @import "_variables";
-@import "_mixins";
-@import "_typography";
-@import "_general";
+@import "mixins/_grid";
+@import "mixins/_custom";
+@import "_normalize";
+@import "_base";
 @import "_layout";
-@import "_home";
-@import "_resume";
-@import "_blog";
-@import "_syntax";
-@import "_home";
+@import "modules/_header";
+@import "modules/_post";
+@import "modules/_resume";
+@import "modules/_syntax";
+@import "modules/_verbose_nav";
+@import "_states";

@@ -1,4 +1,5 @@
 @mixin lead() {
+  margin: 0 0 10px;
   font-size: floor($font-size-base * 1.15);
   margin-bottom: $line-height-computed;
   font-weight: 300;
@@ -6,10 +7,6 @@
   @media (min-width: $tablet-size) {
     font-size: $font-size-base * 1.5;
   }
-}
-
-%lead {
-  @include lead();
 }
 
 %heading-shared {
