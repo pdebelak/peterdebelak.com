@@ -1,6 +1,7 @@
 ---
 title: Tell Us Why We Want You
 description: With so many websites in the world, it's amazing how many don't sell you on why you should use them. Peter reminds us of why it's important and how to do it.
+image: /images/show-me-what-you-got.jpg
 ---
 
 According to [a recent study](http://fakestudies.com), there are more than 100 hojillion websites on the internet. Due to the sheer number of options out there most people's attitude when coming across a new site is:
