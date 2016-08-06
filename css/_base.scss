@@ -1,11 +1,16 @@
+@mixin base() {
+  height: 100%;
+  margin: 0;
+}
+
 html {
-  @extend %base;
+  @include base();
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
-  @extend %base;
+  @include base();
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -16,11 +21,6 @@ body {
 img {
   vertical-align: middle;
   max-width: 100%
-}
-
-%base {
-  height: 100%;
-  margin: 0;
 }
 
 a {
@@ -57,13 +57,16 @@ ul {
   margin-bottom: ($line-height-computed / 2);
 }
 
+@mixin code() {
+  background-color: $code-bg;
+  border-radius: 3px;
+  font-family: $code-font;
+}
+
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #333;
-  background-color: #f9f2f4;
-  border-radius: 4px;
-  font-family: $font-family-monospace;
+  @include code();
 }
 
 pre {
@@ -74,18 +77,14 @@ pre {
   line-height: $line-height-base;
   word-break: break-all;
   word-wrap: break-word;
-  color: $text-color;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: $font-family-monospace;
+  border: 1px solid $gray-lightish;
+  @include code();
 
   code {
     padding: 0;
     font-size: inherit;
     color: inherit;
     white-space: pre-wrap;
-    background-color: transparent;
     border-radius: 0;
   }
 }

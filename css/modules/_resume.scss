@@ -7,7 +7,7 @@
   .section-title {
     @include col(17%, $small-computer-size);
     h1 {
-      @extend %heading-small;
+      @include heading-small();
       font-size: $font-size-h4;
       font-weight: 700;
       @media(min-width: $small-computer-size) {
@@ -18,11 +18,11 @@
   .section-body {
     @include col(83%, $small-computer-size);
     h2 {
-      @extend %heading-small;
+      @include heading-small();
       font-size: $font-size-h4;
     }
     h3 {
-      @extend %heading-small;
+      @include heading-small();
       font-size: $font-size-h5;
     }
   }

@@ -23,7 +23,7 @@
 
 .blog-title {
   font-size: $font-size-h3;
-  @extend %heading;
+  @include heading();
   @media(min-width: $tablet-size) {
     font-size: $font-size-h2;
   }

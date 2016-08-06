@@ -9,19 +9,19 @@
   }
 }
 
-%heading-shared {
+@mixin heading-shared() {
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   margin-bottom: ($line-height-computed / 2);
 }
 
-%heading {
-  @extend %heading-shared;
+@mixin heading() {
+  @include heading-shared();
   margin-top: $line-height-computed;
 }
 
-%heading-small {
-  @extend %heading-shared;
+@mixin heading-small() {
+  @include heading-shared();
   margin-top: ($line-height-computed / 2);
 }
 

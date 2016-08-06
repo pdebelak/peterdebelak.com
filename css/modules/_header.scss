@@ -29,7 +29,7 @@
 }
 
 .header-title {
-  @extend %heading;
+  @include heading();
   font-size: $font-size-h1;
 
   a {
