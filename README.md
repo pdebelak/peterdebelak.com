@@ -1,4 +1,4 @@
-pdebelak.github.io
+PeterDebelak.com
 ==================
 
-My personal site hosted on github pages using jekyll.
+My personal site using jekyll.
