@@ -3,9 +3,9 @@ title: Pessimistic Locking in Rails by Example
 description: Locking is one of the most powerful tools in a developers chest to ensure data consistency, but it the documentation can be confusing. Peter guides you through how to use it properly with examples.
 ---
 
-[Database locking](https://en.wikipedia.org/wiki/Lock_(database)) is a powerful feature of databases that can help prevent two people modifying a resource in conflicting ways. Optimistic locking is when multiple users are allowed to read the same resource at the same time, but if more than one of them tries to modify that resource, the database prevents it. Pessimistic locking, which the locking we are going to talk about today, actually locks the record and prevents others from even reading it while it is locked.
+[Database locking](https://en.wikipedia.org/wiki/Lock_(database)) is a powerful feature of databases that can help prevent two people from modifying a resource in conflicting ways. Optimistic locking is when multiple users are allowed to read the same resource at the same time, but if more than one of them tries to modify that resource, the database prevents it. Pessimistic locking, which is the locking we are going to talk about today, actually prevents others from even reading it while it is locked.
 
-After reading over that paragraph, I am confused so I assume you are too. I think it is much easier to deal with examples. Let's take a look at some common use cases for pessimistic locking and how you can use it.
+After reading over that paragraph, I am confused so I assume you are too. I think it is much easier to learn with examples. Let's take a look at some common use cases for pessimistic locking and how you can use it.
 
 First, imagine you have a counter on a record that you need to increment. You might initially write code like this:
 
@@ -15,7 +15,7 @@ record.counter += 1
 record.save!
 {% endhighlight %}
 
-This seems fine, but imagine if two users try to do this at the same time. They should each increase the value of `counter` by `1` for a total increase of `2`, but since they both read the value and increment it at the same time, they will only collectively at `1` to the `counter` leading to inaccurate data. This is a classic [race condition](https://en.wikipedia.org/wiki/Race_condition) situation. Instead, you should ensure that only one user updates the record at a time with locking like so:
+This seems fine, but imagine if two users try to do this at the same time. They should each increase the value of `counter` by `1` for a total increase of `2`, but since they both read the value and increment it at the same time, they will only collectively add `1` to the `counter` leading to inaccurate data. This is a classic [race condition](https://en.wikipedia.org/wiki/Race_condition). Instead, you should ensure that only one user updates the record at a time with locking like so:
 
 {% highlight ruby %}
 record = Record.find(1)
@@ -54,7 +54,7 @@ ActiveRecord::Base.transaction do
 end
 {% endhighlight %}
 
-This works very similarly to the `with_lock` method with two exceptions. First, it just acquires the lock at the time of calling and then releases it whenever the surrounding transaction completes rather than managing its own transaction internally. Second, it does absolutely nothing if not called inside of a transaction. To repeat, *don't use `lock` outside of a transaction!* Besides that, though, it will ensure the same type of data integrity that the `with_lock` method does.
+This works very similarly to the `with_lock` method with two exceptions. First, it just acquires the lock at the time of calling and then releases it whenever the surrounding transaction completes rather than managing its own transaction internally. Second, it does absolutely nothing if not called inside of a transaction. To repeat, *don't use `lock!` outside of a transaction!* Besides that, though, it will ensure the same type of data integrity that the `with_lock` method does.
 
 Finally, maybe you have a table of discount codes that you give to each person who signs up for a newsletter. Each code starts out as `available` but when it is given to a user it becomes `assigned`. You might have code like this:
 
@@ -89,6 +89,6 @@ def attach_discount_code(user)
 end
 {% endhighlight %}
 
-This code is more complicated than our previous examples so it needs some explanation. Unlike the previous examples, in this case if we get a discount code that is locked by another user and then later released to us (in this case once we acquire the lock it is no longer `available`) we need to get a new record. For this reason, I use recursion. It works like this. First, get the next available discount code. Second, acquire a lock on that discount code. Once the lock is acquired, check the state. If the discount code is still available, proceed as normal and assign it to that user. If it isn't, then another person acquired a lock on this code first and another one should be acquired (hence the recursive method call).
+This code is more complicated than our previous examples so it needs some explanation. Unlike the previous examples, in this case if we get a discount code that is locked by another user and then later released to us (because in this case once we acquire the lock it is no longer `available` even though we asked for the `next_available_code`) we need to get a new record. For this reason, we use recursion. It works like this: First, get the next available discount code. Second, acquire a lock on that discount code. Once the lock is acquired, check the state. If the discount code is still available, proceed as normal and assign it to that user. If it isn't, then another person acquired a lock on this code first and another code should be acquired (hence the recursive method call).
 
 I hope this helps you identify places where locking would help in your applications and help you understand how to use it.
