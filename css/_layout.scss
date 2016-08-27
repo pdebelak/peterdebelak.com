@@ -1,16 +1,23 @@
 .l-header {
   background-color: rgba($brand-primary, 0.80);
-  @include col(30%);
+  box-sizing: border-box;
   overflow: auto;
   color: $body-bg;
   text-align: center;
   padding: 20px;
   @media(min-width: $tablet-size) {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    align-items: center;
+    width: 30%;
     position: fixed;
     right: 0;
     height: 100%;
-    margin-bottom: 0;
-    padding-top: 80px;
     text-align: left;
   }
 }
