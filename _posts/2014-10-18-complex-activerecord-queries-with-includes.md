@@ -1,6 +1,10 @@
 ---
 title: Complex ActiveRecord Queries with Includes
 description: A guide to a very complicated ActiveRecord query from a Rails app
+tags:
+  - Ruby
+  - Rails
+  - Databases
 ---
 <p>ActiveRecord's way of separating Ruby developers from writing SQL is fantastic, but sometimes its behavior can be a little surprising. I ran into some ActiveRecord-related trouble recently and wanted to share the solution.</p>
 

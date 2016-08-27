@@ -1,6 +1,11 @@
 ---
 title: "The Basics: N+1 Queries"
 description: So much of programming is learning the jargon programmers use. Learn what an N+1 query is, how to identify them in your code, and how to avoid generating them.
+tags:
+  - The Basics
+  - Ruby
+  - Rails
+  - Databases
 ---
 
 *The basics is a new series where I explain a basic programming concept or term for new computer programmers or those who need a refresher.*

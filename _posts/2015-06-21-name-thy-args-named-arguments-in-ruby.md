@@ -1,6 +1,8 @@
 ---
 title: Name Thy Args - Named Arguments in Ruby
 description: There are many benefits of using named arguments in Ruby
+tags:
+  - Ruby
 ---
 
 Just like [last time](/blog/tappety-tap-tap-tap-object-tap-in-ruby/),

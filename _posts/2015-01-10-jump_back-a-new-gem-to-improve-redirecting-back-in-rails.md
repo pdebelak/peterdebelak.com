@@ -1,6 +1,10 @@
 ---
 title: jump_back - a new gem to improve redirecting back in Rails
 description: An introduction to a new gem that improves redirecting back in Rails
+tags:
+  - Ruby
+  - Rails
+  - Meta
 ---
 
 <p>Have you ever encounter encountered errors when running <code>redirect_to :back</code> in Rails and had to write a work around? What about saving a user's location on your site before redirecting them to your log in form so you can return them to what they were doing?</p>

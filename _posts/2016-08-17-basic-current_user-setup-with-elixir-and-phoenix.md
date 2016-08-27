@@ -1,6 +1,9 @@
 ---
 title: Basic Current User Setup with Elixir and Phoenix
 description: Like many rails devs, Peter has been exploring elixir and the phoenix framework. Here, he explains how to set the current user in a way that is easier to test.
+tags:
+  - Elixir
+  - Phoenix
 ---
 
 Like many rails developers, I've been dabbling with [elixir](http://elixir-lang.org/) and the [phoenix framework](http://www.phoenixframework.org/). While phoenix is clearly a lot like rails, it's always an adjustment to learn a new framework and it is certainly an adjustment for me to get used to the [functional programming](https://en.wikipedia.org/wiki/Functional_programming) paradigm coming from ruby.

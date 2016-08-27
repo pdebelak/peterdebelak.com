@@ -1,6 +1,9 @@
 ---
 title: Fake Collaborators for Tests
 description: Use dependency injection to only test the things you care about
+tags:
+  - Ruby
+  - Testing
 ---
 
 When I was first learning about testing I thought changing your code to make it easier to test was stupid. Since you are only supposed to test the public interface of a class, it seemed like cheating to fake out anything internal to a class. Over time, though, I realized that testing in this way lead to a bunch of unnecessary setup (usually creating a bunch of objects in the database) that I didn't need. Take this typical (if extremely simple) use case class:

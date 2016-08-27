@@ -1,6 +1,9 @@
 ---
 title: Ready, Set, Vim! Part 1 - Modal Editing
 description: Getting started with vim can be daunting. Peter guides you through small steps that won't overwhelm you. We start with modal editing.
+tags:
+  - Ready, Set, Vim!
+  - Editors
 ---
 
 Programmers who don't use either [vim](http://www.vim.org/) or [emacs](https://www.gnu.org/software/emacs/) secretly wonder if they are missing out one some sort of text editor nirvana. Well, they aren't. But I *do* think vim and emacs are better than the other editors I've tried. Not to mention all the cred you get for using an old school text editor! Since no one wants to use [ed](https://en.wikipedia.org/wiki/Ed_(text_editor)) in their daily life you are left with only vim and emacs as your old school options.

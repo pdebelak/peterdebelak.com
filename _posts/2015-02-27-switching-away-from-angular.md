@@ -1,6 +1,11 @@
 ---
 title: Switching Away from Angular
 description: Why I decided to no longer use AngularJS in Rails apps
+tags:
+  - Javascript
+  - Rails
+  - Angular
+  - Meta
 ---
 
 As I've spent more time working with Rails, I've realized that, even without

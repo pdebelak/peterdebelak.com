@@ -1,6 +1,8 @@
 ---
 title: Private Attr Readers in Ruby - The Best Thing Ever
 description: Keep your instance variables hidden, but changeable, with private attr_readers
+tags:
+  - Ruby
 ---
 
 Private `attr_reader`s are great and you should use them. When I start writing a class my skeleton usually looks like this:

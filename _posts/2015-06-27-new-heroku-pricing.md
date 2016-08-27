@@ -1,6 +1,9 @@
 ---
 title: New Heroku Pricing
 description: A brief discussion of Heroku's 2015 price changes and how they affect small sites
+tags:
+  - Business
+  - Meta
 ---
 
 [Heroku's new pricing](https://blog.heroku.com/archives/2015/5/7/new-dyno-types-public-beta)

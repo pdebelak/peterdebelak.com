@@ -2,6 +2,8 @@
 title: "Nouns and Verbs: How Naming Your Classes Determines Effects Other's Behavior"
 description: What you name a class makes a big difference in how people will add methods to it in the future.
 image: /images/name-tags.png
+tags:
+  - Refactoring
 ---
 
 Recently I was reading [a blog post](http://arlobelshee.com/naming-is-a-process-part-4-honest-to-honest-and-complete/) by Arlo Belshee about naming that gave a good insight into how naming effects what methods other programmers will add to a class:

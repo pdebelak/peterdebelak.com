@@ -1,6 +1,9 @@
 ---
 title: Intermediate Recursion - Fibonacci Sequence with Memoization
 description: An intermediate guide to recursion in programming, using memoization
+tags:
+  - Javascript
+  - The Basics
 ---
 
 <p>After <a href="/blog/recursion-basics-adding-numbers-in-an-array-with-javascript">my last post</a> where I described some recursion basics with JavaScript, I thought it would be fun to get into a slightly more advanced topic: <a href="http://en.wikipedia.org/wiki/Memoization">Memoization</a>.</p>

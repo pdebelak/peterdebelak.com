@@ -1,6 +1,8 @@
 ---
 title: Why You Run Your Tests First
 description: Why you should always run your tests first and see them fail during test-driven development
+tags:
+  - Testing
 ---
 
 When first learning test-driven-development, there are a lot of things about it
@@ -33,7 +35,7 @@ you can verify that you are getting the error you expect to get. When you write
 a test like this:
 
 {% highlight ruby %}
-specify { Thing.new.do_thing.should == "hello" }
+specify { Thing.new.do_thing.should == "doing a thing" }
 {% endhighlight %}
 
 And your current code is:

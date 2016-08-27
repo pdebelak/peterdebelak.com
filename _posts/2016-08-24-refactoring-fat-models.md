@@ -1,6 +1,10 @@
 ---
 title: Refactoring Fat Models
 description: Fat models, skinny controllers is out of fashion in the rails world in favor of many smaller use case classes, but fat models don't happen all at once. Peter shows how to trim the fat out of your models step by step.
+tags:
+  - Refactoring
+  - Ruby
+  - Rails
 ---
 
 While you still hear "fat models, skinny controllers" from [time to time](https://www.sitepoint.com/10-ruby-on-rails-best-practices/), people have generally caught on that [not all code needs to be in a model or controller](http://blog.joncairns.com/2013/04/fat-model-skinny-controller-is-a-load-of-rubbish/). Fat models don't happen all at once, though. I find that you add a method here and a method there until you realize that one of your models is well over 200 lines and has too many methods and too little cohesion. Here's how I approach this problem.

@@ -1,0 +1,20 @@
+---
+layout: default
+active: blog
+---
+
+<h1 class="blog-tag-heading">{{page.title}}</h1>
+
+<hr>
+
+{% for post in site.posts %}
+  {% for tag in post.tags %}
+    {% if tag == page.tag %}
+      <article>
+        <h2 class="blog-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="blog-date">Last updated {{ post.date | date_to_long_string }}</p>
+        <p>{{post.description}}</p>
+      </article>
+    {% endif %}
+  {% endfor %}
+{% endfor %}

@@ -1,6 +1,9 @@
 ---
 title: Dumping the CSS Framework
 description: While a css framework like Bootstrap has a lot of benefits for getting started, in the long run you are better off just getting the css you actually use.
+tags:
+  - CSS
+  - Meta
 ---
 
 At my old job the first step of most projects was to add [bootstrap](http://getbootstrap.com) css and start styling some html based on a photoshop design. The photoshop images would even have a grid across them divided into 12 columns, just like bootstrap. While this was a great way to make mobile-friendly websites quickly (which our clients wanted) it had a few downsides.

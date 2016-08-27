@@ -1,6 +1,8 @@
 ---
 title: How to Search and Change Text with Javascript
 description: It's easy to search and change a string in javascript, but it can be confusing to change text on a whole html page without affecting any bound javascript or non-text html.
+tags:
+  - Javascript
 ---
 
 Replacing text in javascript is easy, just use [replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) (i.e. `'wat'.replace('a', 'ha'); //=> 'what'`). Sometimes, though, you want to do a search and replace on text in a whole html document that includes html tags and things that aren't just text. I had to do that recently and found it wasn't as obvious as I first thought.

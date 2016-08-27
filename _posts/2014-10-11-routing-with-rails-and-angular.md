@@ -1,6 +1,11 @@
 ---
 title: Routing with Rails and Angular
 description: A brief guide to routing with Rails and AngularJS
+tags:
+  - Ruby
+  - Rails
+  - Angular
+  - Javascript
 ---
 
 <p>There are a lot of great blog posts about setting up an app with <a href="http://rubyonrails.org/">Rails</a> as the back-end and <a href="https://angularjs.org/">AngularJS</a> as the front-end. You can find some <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">here</a>, <a href="http://angular-rails.com/bootstrap.html">here</a>, or <a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">here</a>. When it comes to routing, though, the best approach is unclear.

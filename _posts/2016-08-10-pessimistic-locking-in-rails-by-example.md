@@ -1,6 +1,10 @@
 ---
 title: Pessimistic Locking in Rails by Example
 description: Locking is one of the most powerful tools in a developers chest to ensure data consistency, but it the documentation can be confusing. Peter guides you through how to use it properly with examples.
+tags:
+  - Ruby
+  - Rails
+  - Databases
 ---
 
 [Database locking](https://en.wikipedia.org/wiki/Lock_(database)) is a powerful feature of databases that can help prevent two people from modifying a resource in conflicting ways. Optimistic locking is when multiple users are allowed to read the same resource at the same time, but if more than one of them tries to modify that resource, the database prevents it. Pessimistic locking, which is the locking we are going to talk about today, actually prevents others from even reading it while it is locked.

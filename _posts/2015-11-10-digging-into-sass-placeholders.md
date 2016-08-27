@@ -1,6 +1,9 @@
 ---
 title: Digging Into Sass Placeholders
 description: Example use of Sass placeholders are usually extremely simple. See a little bit more of why you might use them over traditional Sass extensions.
+tags:
+  - CSS
+  - Sass
 ---
 
 Most examples of how to use placeholders in Sass are very simplistic and don't really show why you might want to use them beyond some programmer-y sense of obligatory correctness. You usually see something like this:

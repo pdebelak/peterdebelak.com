@@ -1,6 +1,8 @@
 ---
 title: Tappety Tap Tap Tap Tap - Object#tap in Ruby
 description: An explanation of the Object#tap method in Ruby and why you should use it
+tags:
+  - Ruby
 ---
 
 There are a number of features that were added to Ruby in versions 1.9 or later

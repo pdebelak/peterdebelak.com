@@ -1,6 +1,8 @@
 ---
 title: Getting Deep into Ruby's Include and Extend
 description: There are a lot of shortcuts to understanding include and extend in ruby, but it can help to really understand how it all works. Peter explains.
+tags:
+  - Ruby
 ---
 
 When learning ruby people usually explain `include` and `extend` as follows. Use include if you want to add instance methods:

@@ -1,6 +1,9 @@
 ---
 title: Sass's Leaky Abstraction
 description: While sass makes maintaining css much easier, it still requires a knowledge of how it is compiled to use it effectively
+tags:
+  - CSS
+  - Sass
 ---
 
 Sass is an excellent tool for keeping css more concise and readable. It creates an abstraction on top of css allowing you to write other code that is then compiled to css.

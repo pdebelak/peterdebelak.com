@@ -7,13 +7,8 @@
   padding: 20px;
   @media(min-width: $tablet-size) {
     margin: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    align-items: center;
+    @include flexbox();
+    @include flex-align-items(center);
     width: 30%;
     position: fixed;
     right: 0;

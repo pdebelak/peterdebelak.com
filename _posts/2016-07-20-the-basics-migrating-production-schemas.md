@@ -1,6 +1,11 @@
 ---
 title: "The Basics: Migrating Production Schemas"
 description: When moving from toy apps with fake data to production apps with real data that can't be lost, it can be hard to know how to adjust your database schema. Peter explains a few simple steps to make it happen seamlessly.
+tags:
+  - Ruby
+  - Rails
+  - Databases
+  - The Basics
 ---
 
 *The basics is a series where I explain a basic programming concept or term for new computer programmers or those who need a refresher.*

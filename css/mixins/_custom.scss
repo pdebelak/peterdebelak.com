@@ -33,3 +33,27 @@
     color: $color;
   }
 }
+
+@mixin box-link($color, $hover-background) {
+  @include constant-link($color);
+  padding: 5px 10px;
+  border: 1px solid $color;
+  margin: 2px;
+  &:hover {
+    background: $hover-background;
+  }
+}
+
+@mixin box-list($link-color, $link-hover-background) {
+  @include flexbox();
+  @include flex-wrap(wrap);
+  list-style: none;
+  padding: 0;
+  li {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+  a {
+    @include box-link($link-color, $link-hover-background);
+  }
+}

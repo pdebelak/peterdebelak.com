@@ -21,6 +21,14 @@
   }
 }
 
+.blog-tag-heading {
+  font-size: $font-size-h2;
+  @include heading();
+  @media(min-width: $tablet-size) {
+    font-size: $font-size-h1;
+  }
+}
+
 .blog-title {
   font-size: $font-size-h3;
   @include heading();
@@ -42,4 +50,9 @@
   padding: 16px 0;
   display: block;
   margin: 0 auto;
+}
+
+.blog-tags {
+  @include box-list($brand-primary, $gray-lighter);
+  margin-top: 20px;
 }

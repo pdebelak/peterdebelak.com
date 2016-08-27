@@ -1,6 +1,9 @@
 ---
 title: Managing Configuration on Multiple Machines
 description: Some tips on keeping configuration the same across multiple computers.
+tags:
+  - Shell
+  - Editors
 ---
 
 Well, my experiment with emacs ended when I realized that getting the shell to work properly wasn't going to happen unless I was willing to put some serious work in. It just didn't seem worth it. So, I'm back to vim.

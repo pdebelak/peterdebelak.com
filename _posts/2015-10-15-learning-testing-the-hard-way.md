@@ -1,6 +1,8 @@
 ---
 title: Learning Testing the Hard Way
 description: With all the testing dogma out there, hear how Peter learned to follow TDD the hard way
+tags:
+  - Testing
 ---
 
 Sometimes its easy to feel like you don't have time to do test-driven development. You know what code to write, so it seems like an unnecessary distraction to have to stop and write a test before writing the code you've planned.

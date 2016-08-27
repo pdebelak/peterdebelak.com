@@ -23,4 +23,10 @@
   <div class="blog-content" itemprop="articleBody">
     {{ include.content }}
   </div>
+  <ul class="blog-tags">
+    <li>Tags:</li>
+    {% for tag in include.post.tags %}
+      <li><a href="/tag/{{tag | slugify}}/">{{tag}}</a></li>
+    {% endfor %}
+  </ul>
 </article>

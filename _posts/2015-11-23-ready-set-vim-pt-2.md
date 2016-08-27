@@ -1,6 +1,9 @@
 ---
 title: Ready, Set, Vim! Part 2 - Movement
 description: Getting started with vim can be daunting. Peter guides you through small steps that won't overwhelm you. This edition covers basic movement.
+tags:
+  - Ready, Set, Vim!
+  - Editors
 ---
 
 [Now that you know how to move between normal and insert modes](/blog/ready-set-vim-pt-1/) it's time to actually *do* something in normal mode. We'll start with the basic commands used to move around a file.

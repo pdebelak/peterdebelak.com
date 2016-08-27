@@ -1,26 +1,13 @@
-.header-nav {
-  ul {
-    padding: 0;
-    list-style: none;
+.header-nav ul {
+  @include box-list($body-bg, $brand-primary);
+  @include flex-horizontal-center();
+  @media(min-width: $tablet-size) {
+    @include flex-horizontal-left();
   }
-  li {
-    display: inline-block;
-    &.is-active a, &.is-active a:hover {
-      cursor: default;
-      background: $body-bg;
-      color: $brand-primary;
-    }
-  }
-  a {
-    @include constant-link($body-bg);
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid $body-bg;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    &:hover {
-      background: $brand-primary;
-    }
+  .is-active a, .is-active a:hover {
+    cursor: default;
+    background: $body-bg;
+    color: $brand-primary;
   }
 }
 

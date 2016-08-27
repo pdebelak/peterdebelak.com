@@ -1,6 +1,9 @@
 ---
 title: Tmux Scripting
 description: It can sometimes be fun and useful to write tmux scripts that get everything you need running at once. Peter gives you some tips on how to write scripts for tmux.
+tags:
+  - Shell
+  - Tmux
 ---
 
 If you use [tmux](https://tmux.github.io/) in your terminal you probably have a default set-up you use. For example, I always have the same windows open with the same names split up in the same way at [work](https://reverb.com), so I decided I might as well make a script to avoid all that manual work each time.
