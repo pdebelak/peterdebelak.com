@@ -4,9 +4,15 @@
     <p class="header-subtitle">Thoughts about the internet, on the internet</p>
     <nav class="header-nav">
       <ul>
-        <li class="{% if page.active == "blog" %}is-active{% endif %}"><a href="/">Blog</a></li>
-        <li class="{% if page.active == "about" %}is-active{% endif %}"><a href="/about/">About</a></li>
-        <li class="{% if page.active == "resume" %}is-active{% endif %}"><a href="/resume/">Resume</a></li>
+        <li class="{% if page.active == "blog" %}is-active {% endif %}dropdown">
+          <a href="/">Blog</a>
+        </li>
+        <li class="{% if page.active == "about" %}is-active{% endif %}">
+          <a href="/about/">About</a>
+        </li>
+        <li class="{% if page.active == "resume" %}is-active{% endif %}">
+          <a href="/resume/">Resume</a>
+        </li>
       </ul>
     </nav>
   </header>

@@ -7,9 +7,17 @@ module Jekyll
       @dir = dir
       @name = "index.html"
       process(@name)
-      read_yaml(File.join(base, "_layouts"), "tags.html")
-      data['tag'] = tag
-      data['title'] = "Posts Tagged &ldquo;#{tag}&rdquo;"
+      read_yaml(File.join(base, "_layouts"), "#{site.config["tags"]["layout"]}.html")
+      data["tag"] = tag
+      data["title"] = regex_in_tag(site.config["tags"]["title"], tag)
+      data["description"] = regex_in_tag(site.config["tags"]["description"], tag)
+      data["display_title"] = regex_in_tag(site.config["tags"]["display_title"], tag)
+    end
+
+    private
+
+    def regex_in_tag(string, tag)
+      (string || "").gsub(/{{tag}}/, tag)
     end
   end
 
@@ -17,9 +25,9 @@ module Jekyll
     safe true
 
     def generate(site)
-      if site.layouts.key? "tags"
+      if site.layouts.key? site.config["tags"]["layout"]
         site.tags.keys.each do |tag|
-          write_tag_index(site, File.join("tag", Utils.slugify(tag)), tag)
+          write_tag_index(site, File.join(site.config["tags"]["layout"], Utils.slugify(tag)), tag)
         end
       end
     end
