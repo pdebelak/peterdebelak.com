@@ -1,12 +1,12 @@
 .l-header {
   background-color: rgba($brand-primary, 0.80);
-  box-sizing: border-box;
   overflow: auto;
   color: $body-bg;
   text-align: center;
   padding: 20px;
   @media(min-width: $tablet-size) {
     margin: 0;
+    box-sizing: border-box;
     @include flexbox();
     @include flex-align-items(center);
     width: 30%;
