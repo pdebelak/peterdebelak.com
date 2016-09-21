@@ -6,8 +6,8 @@ tags:
   - Phoenix
 ---
 
-I talked earlier about [creating and using a `current_user` in Phoenix]
-(/blog/basic-current_user-setup-with-elixir-and-phoenix/), but I didn't explain
+I talked earlier about [creating and using a `current_user` in Phoenix](/blog/basic-current_user-setup-with-elixir-and-phoenix/),
+but I didn't explain
 how to require a `current_user` for certain controller actions. In Rails I would
 use a `before_filter` (or I guess now `before_action`). I wasn't sure how to do
 this in Phoenix, though.
@@ -38,7 +38,7 @@ just like you would do with a `before_action` in Rails.
 
 <h2 class="lead">Put code in web.ex to share it with all controllers</h2>
 
-In Rails you can add methods to `ApplicationController` and, since all you other
+In Rails you can add methods to `ApplicationController` and, since all your other
 controllers inherit from it, they will also have the same methods. As such, you
 define general methods like `require_user` there so you can use them everywhere.
 
@@ -48,7 +48,7 @@ modules. For example, the code inside the `controller` function gets put into
 any module where you write `use App.Web, :controller`. As such, you can add code
 to that function and all your controllers will "inherit" it.
 
-<h2 class="lead">What should the `require_user` function look like?</h2>
+<h2 class="lead">What should the <code>require_user</code> function look like?</h2>
 
 Currently, I have a module like this:
 
@@ -69,10 +69,10 @@ end
 
 The general way it works is: if there is a current user, it just returns the
 `conn` without changing anything. This means the controller action will happen
-as normal. If there isn't a user signed in, I add a error flash message,
+as normal. If there isn't a user signed in, I add an error message to the flash,
 redirect to the home page, and then `halt` the connection so no further code is
 run. Depending on your app, you may just want to return a `403` status code and
-no redirect or do something totally different.
+not redirect or do something totally different.
 
 Then, I add `import App.RequireUser` to the `quote do` block inside the
 `controller` function in `App.Web` so all the controllers have access to it. I
