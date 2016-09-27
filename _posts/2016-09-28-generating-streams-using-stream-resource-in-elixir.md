@@ -64,7 +64,7 @@ end
 
 The `start_fun` just sets up an empty list as the accumulator and the
 `after_fun` does nothing (since we have nothing to clean up). The `next_fun` is
-the `next_prime` function in the `Primes` module here.
+extracted as `next_prime` to take better advantage of pattern matching.
 
 First off, if we have nothing in the accumulator, it just returns `{[2], [2]}`
 which gives `2` as the first element and sets `[2]` as the accumulator. We don't
@@ -113,12 +113,8 @@ calculate the next one. I think it might be better to think of the "accumulator"
 as the context of previously generated results, regardless of whether it
 accumulates or not.
 
-Generating fibonacci numbers or primes is all well and good, but how can we
-actually use `Stream.resource` to do something real? One thing to note, is that
-instead of returning `{[next], acc}` from `next_fun` you can return `{:halt,
-acc}` to end the stream. This can be used well to perform some asynchronous
-actions and send them into a stream and finish once all asynchronous work has
-finished.
+Generating an infinite number of fibonacci numbers or primes is all well and good, but how can we
+actually use `Stream.resource` to do something real?
 
 Take a look at an asynchronous map module I use in a project of mine:
 
@@ -155,10 +151,19 @@ defmodule AsyncMap do
 end
 {% endhighlight %}
 
+This module exposes an `async_map` function that is meant to work like
+`Enum.map` but to run the function passed to map asynchronously in parallel. It
+then sends each item to the stream as its command finishes so the whole list is
+processed in the amount of time it takes for the slowest one to finish. I use it
+to make many http requests at once.
+
+One thing to note is that instead of returning `{[next], acc}` from `next_fun`
+returning `{:halt, acc}` indicates the end of the stream.
+
 The basic logic is to use `spawn_link` to start a long running process for each
 item in the list that will `send` the result back to this process. Then, it
 starts a stream that waits to `receive` a message from those long running
-processed. Once it has received as many messages as there were items in the list
+processes. Once it has received as many messages as there were items in the list
 it ends the stream. Here the "accumulator" is just a count of the number of
 messages that have been received so far.
 
