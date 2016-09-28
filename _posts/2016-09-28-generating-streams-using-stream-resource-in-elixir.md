@@ -160,7 +160,7 @@ to make many http requests at once.
 One thing to note is that instead of returning `{[next], acc}` from `next_fun`
 returning `{:halt, acc}` indicates the end of the stream.
 
-The basic logic is to use `spawn_link` to start a long running process for each
+The basic logic is to use `Task.start_link` to start a long running process for each
 item in the list that will `send` the result back to this process. Then, it
 starts a stream that waits to `receive` a message from those long running
 processes. Once it has received as many messages as there were items in the list
