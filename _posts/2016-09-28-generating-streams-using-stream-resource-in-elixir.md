@@ -122,14 +122,14 @@ Take a look at an asynchronous map module I use in a project of mine:
 defmodule AsyncMap do
   def async_map(list, long_running_function) do
     list |>
-    Enum.map(fn (item) -> async_single(item, long_running_function) end) |>
+    Enum.map(&async_single(&1, long_running_function)) |>
     length() |>
     stream_responses()
   end
 
   defp async_single(item, long_running_function) do
     pid = self()
-    spawn_link(fn -> send(pid, long_running_function.(item)) end)
+    Task.start_link(fn -> send(pid, long_running_function.(item)) end)
     item
   end
 
