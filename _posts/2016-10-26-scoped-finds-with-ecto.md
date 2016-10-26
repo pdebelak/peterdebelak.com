@@ -1,5 +1,5 @@
 ---
-title: Scoped Finds with Ecto
+title: Scoped Finds with Ecto in Phoenix
 description: Peter continues to find out how to apply basic Rails idioms in the world of Elixir and Phoenix. Today he shows how to perform scoped database finds.
 tags:
   - Elixir
