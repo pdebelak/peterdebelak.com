@@ -15,6 +15,12 @@
   flex-wrap: $value;
 }
 
+@mixin flex-grow($value) {
+  -webkit-box-flex: $value;
+  -ms-flex-positive: $value;
+  flex-grow: $value;
+}
+
 @mixin flex-horizontal-center() {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -25,4 +31,10 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+}
+
+@mixin flex-horizontal-right() {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }

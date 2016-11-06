@@ -1,13 +1,27 @@
-.header-nav ul {
-  @include box-list($body-bg, $brand-primary);
+.header-wrapper {
+  @include main();
+  text-align: center;
+  @media(min-width: $tablet-size) {
+    text-align: left;
+    @include flexbox();
+    @include flex-align-items(center);
+  }
+}
+
+.header-nav {
+  @include flexbox();
+  @include flex-grow(1);
   @include flex-horizontal-center();
   @media(min-width: $tablet-size) {
-    @include flex-horizontal-left();
+    @include flex-horizontal-right();
   }
-  .is-active a, .is-active a:hover {
-    cursor: default;
-    background: $body-bg;
-    color: $brand-primary;
+  ul {
+    @include box-list($body-bg, $brand-primary);
+    .is-active a, .is-active a:hover {
+      cursor: default;
+      background: $body-bg;
+      color: $brand-primary;
+    }
   }
 }
 
