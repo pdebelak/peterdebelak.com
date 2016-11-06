@@ -11,9 +11,10 @@
     @include flex-align-items(center);
     width: 30%;
     position: fixed;
-    right: 0;
+    left: 0;
     height: 100%;
     text-align: left;
+    padding-left: 35px;
   }
 }
 
@@ -35,6 +36,9 @@
 
 .l-content {
   @include col(70%);
+  @media(min-width: $tablet-size) {
+    float: right;
+  }
   padding-top: 30px;
 }
 
