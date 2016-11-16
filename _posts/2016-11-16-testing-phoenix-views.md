@@ -7,11 +7,11 @@ tags:
 ---
 
 One of the things that immediately appealed to me about Phoenix coming from
-Rails was the way it handled views instead of Rails' helpers. Once I started
-creating functions in my views that returned html, however, I was instantly
+Rails its views. Once I started
+creating functions in my views that returned HTML, however, I was instantly
 confused about how to test them.
 
-I was making a function in my LayoutView that rendered a link for a site's
+I was making a function in my `LayoutView` that rendered a link for a site's
 navigation. It included some css framework boilerplate stuff and would also add
 the `is-active` class if the current path matched the link's path. I wanted to
 write a test like this:
