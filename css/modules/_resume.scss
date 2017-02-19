@@ -27,3 +27,11 @@
     }
   }
 }
+
+.skill-list-container {
+  @include row();
+}
+
+.skill-list {
+  @include col(50%, $tablet-size);
+}
