@@ -7,7 +7,9 @@ description: Everything you always wanted to know about Peter Debelak
 
 <h1 class="lead">About Peter</h1>
 
-Peter is a web developer who mostly concentrates on Ruby on Rails.
+Peter is a software developer with an interest in web development and machine
+learning. He aspires to learn how to make a Terminator or make the world a
+better place, whichever seems easier.
 
 His other interests include:
 
