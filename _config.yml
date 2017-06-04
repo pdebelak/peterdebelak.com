@@ -11,11 +11,14 @@ defaults:
       categories: "blog"
       layout: post
       active: blog
+  -
+    scope:
+      path: ""
+    values:
       image: /images/peters-face.jpeg
 permalink: /:categories/:title/
 paginate: 10
 paginate_path: /blog/page:num/
-url: "http://www.peterdebelak.com"
 tags:
   title: "{{tag}}"
   description: "Posts tagged '{{tag}}' from Peter's blog"
@@ -27,3 +30,4 @@ sass:
 gems:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
