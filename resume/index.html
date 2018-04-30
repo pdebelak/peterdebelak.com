@@ -5,7 +5,7 @@ active: resume
 description: Peter Debelak's skills, qualifications, and education
 ---
 
-<h1 class="lead resume-title">A software developer who loves expanding his skills.</h1>
+<h1 class="lead resume-title">Software developer and data engineer</h1>
 <section class="resume-section">
   <header class="section-title">
     <h1>Skills</h1>
@@ -13,36 +13,21 @@ description: Peter Debelak's skills, qualifications, and education
   <div class="section-body">
     <div class="skill-list-container">
       <div class="skill-list">
-        <p>Back-end:</p>
+        <p>Data Engineering:</p>
+        <ul>
+          <li>Scala</li>
+          <li>Sqoop</li>
+          <li>Spark/Spark Streaming</li>
+          <li>Hadoop</li>
+        </ul>
+      </div>
+      <div class="skill-list">
+        <p>Web Development</p>
         <ul>
           <li>Python</li>
           <li>Ruby/Rails</li>
           <li>Golang</li>
-        </ul>
-      </div>
-      <div class="skill-list">
-        <p>Front-end:</p>
-        <ul>
-          <li>ES6</li>
-          <li>React</li>
-          <li>Angular</li>
-        </ul>
-      </div>
-    </div>
-    <div class="skill-list-container">
-      <div class="skill-list">
-        <p>Testing:</p>
-        <ul>
-          <li>Python unittest</li>
-          <li>Rspec</li>
-          <li>Jasmine</li>
-        </ul>
-      </div>
-      <div class="skill-list">
-        <p>Other:</p>
-        <ul>
-          <li>Elasticsearch</li>
-          <li>Git</li>
+          <li>Javascript - React, ES6</li>
         </ul>
       </div>
     </div>
@@ -56,9 +41,15 @@ description: Peter Debelak's skills, qualifications, and education
     <h2>Software Engineer</h2>
     <h3>2015 - Present</h3>
     <p><a href="https://reverb.com/">Reverb.com</a> - Chicago, IL</p>
+    <h3>Data Engineering Team - 2017 - Present</h3>
     <ul>
-      <li>Back-end work in Python using Flask</li>
-      <li>Some machine learning work using scikit-learn</li>
+      <li>Revamp ETL pipeline using Scala code to run Sqoop to transfer and transform data from main database to tables in Redshift</li>
+      <li>Perform ETL on event logs stored in JSON or parquet to be transformed and uploaded to S3 to be queried via Redshift Spectrum</li>
+      <li>Data pipeline to serve personalized recommendations</li>
+      <li>Back-end work in Python to serve machine learning models and other data via HTTP or GRPC</li>
+    </ul>
+    <h3>Core Team - 2015 - 2017</h3>
+    <ul>
       <li>Full-stack development with Ruby on Rails</li>
       <li>Practicing TDD using RSpec and Jasmine</li>
       <li>Full text search using Elasticsearch</li>
