@@ -27,7 +27,7 @@ tags:
 sass:
   sass_dir: css
   style: :compressed
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
