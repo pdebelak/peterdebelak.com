@@ -46,4 +46,4 @@ def show
   ng_respond(@post)
 end
 {% endhighlight %}
-<p>I hope this helps you with routing in your Rails/Angular apps. Leave any tips you might have in the comments.
+<p>I hope this helps you with routing in your Rails/Angular apps.</p>

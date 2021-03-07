@@ -45,4 +45,4 @@ function fibonacci(positiveInteger, foundFibonaccis) {
 {% endhighlight %}
 <p>Now we are storing each calculated number in an object and passing it into future recursive calls. If nothing is passed in, I set the object to <code>{ 0: 0, 1: 1 }</code> much like I supplied the answers for <code>0</code> and <code>1</code> in the first function.</p>
 <p>Does that improve the performance? Oh yeah! On my Chromebook I now get the answer for <code>fibonacci(1000)</code> almost instantly. In fact, I get the answer up to <code>fibonacci(1476)</code> right away and the only reason I can't calculate higher fibonacci numbers is that JavaScript can't handle it and starts returning <code>Infinity</code>.</p>
-<p>I hope you found this mini introduction to memoization helpful. If you've found other areas where memoization would be helpful sound off in the comments!</p>
+<p>I hope you found this mini introduction to memoization helpful. If you've found other areas where memoization would be helpful let me know!</p>

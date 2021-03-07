@@ -66,4 +66,4 @@ conn
 |> get(some_path(conn, :get))
 {% endhighlight %}
 
-I hope this helps you write phoenix apps with less onerous test setup! If you have better solutions please let me know in the comments.
+I hope this helps you write phoenix apps with less onerous test setup! If you have better solutions please let me know.

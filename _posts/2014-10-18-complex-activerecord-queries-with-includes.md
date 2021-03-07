@@ -30,4 +30,4 @@ DateRange.includes(:taken_dates)
           start_date: some_date, end_date: some_other_date)
 {% endhighlight %}
 <p>That is one ugly query, but the key is specifying <code>taken_date.is IS NULL OR</code> some condition. This returns everything without an association while still allowing you to do a query based on the association if it exists!</p>
-<p>I don't doubt that there is a better way to tackle this problem (feel free to let me know in the comments!), but I think it is good to know some tricks for those corner cases where ActiveRecord doesn't make your life easy.</p>
+<p>I don't doubt that there is a better way to tackle this problem (feel free to let me know!), but I think it is good to know some tricks for those corner cases where ActiveRecord doesn't make your life easy.</p>
