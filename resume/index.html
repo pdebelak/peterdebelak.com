@@ -16,13 +16,12 @@ description: Peter Debelak's skills, qualifications, and education
         <p>Data Engineering:</p>
         <ul>
           <li>Python</li>
-          <li>DBT</li>
+          <li>SQL</li>
           <li>Airflow</li>
+          <li>DBT</li>
           <li>Scala</li>
           <li>Sqoop</li>
           <li>Spark/Spark Streaming</li>
-          <li>Hadoop</li>
-          <li>Luigi</li>
         </ul>
       </div>
       <div class="skill-list">
@@ -47,28 +46,40 @@ description: Peter Debelak's skills, qualifications, and education
     <p><a href="https://www.activecampaign.com/">ActiveCampaign</a> - Chicago, IL</p>
     <ul>
       <li>
-        Transfer data from a variety of database, api, and other
-        sources into data warehouse
+        Led redesign of Airflow ETL code to make code re-use easier -
+        leading to faster incorporation of new data sources - and to
+        move from a manual deploy process to an automated one on
+        kubernetes
       </li>
       <li>
-        Run airflow cluster to manage data transfer and transformation
+        Moved bulk data load from hundreds of thousands of MySQL
+        databases to a streaming process so business processes
+        previously using data hours to days out of date to data
+        updated every 5 minutes
+      </li>
+      <li>
+        Introduced tests to vital legacy code, enabling confident
+        changes
       </li>
     </ul>
     <h2>Senior Data Engineer</h2>
     <h3>2019 - 2020</h3>
     <p><a href="https://builtin.com/">Built In</a> - Chicago, IL</p>
     <ul>
-      <li>Build and maintain data pipeline to warehouse</li>
       <li>
-        ETL transformations on data in warehouse to support business
-        intelligence or machine learning applications
+        Introduced dbt to ETL system to transform streamed website
+        page views and clicks into actionable and attributable
+        information.
       </li>
       <li>
-        Run airflow tasks to train machine learning models, transform data, and
-        perform data maintenance tasks
+        Wrote dockerized scripts to run and serve machine learning
+        models, optimizing for constant memory use regardless of data
+        size.
       </li>
-      <li>Build and maintain infrastructure necessary for data tasks</li>
-      <li>Instrument javascript, golang, and php code for data collection</li>
+      <li>
+        Instrumented javascript, golang, and php code for data
+        collection
+      </li>
     </ul>
     <h2>Data Engineer</h2>
     <h3>2019</h3>
@@ -78,20 +89,12 @@ description: Peter Debelak's skills, qualifications, and education
     </p>
     <ul>
       <li>
-        Design code to handle large datasets in Python, ideally without holding
-        all data in memory
+        Designed code to handle large datasets in Python, ideally
+        without holding all data in memory
       </li>
       <li>
-        Build web services to serve results of model runs or perform
+        Built web services to serve results of model runs or perform
         optimizations on data
-      </li>
-      <li>
-        Build and maintain Docker images to run Python, Julia, and Javascript
-        code
-      </li>
-      <li>
-        Ensure data scientist code is production-ready and run it in a
-        production environment
       </li>
     </ul>
     <h2>Software Engineer</h2>
@@ -100,27 +103,30 @@ description: Peter Debelak's skills, qualifications, and education
     <h3>Data Engineering Team - 2017 - 2019</h3>
     <ul>
       <li>
-        Revamp ETL pipeline using Scala code to run Sqoop to transfer and
-        transform data from main database to tables in Redshift
+        Revamped ETL pipeline using Scala code to run Sqoop to
+        transfer and transform data from main database to tables in
+        Redshift
       </li>
       <li>
-        Perform ETL on event logs stored in JSON or parquet to be transformed
-        and uploaded to S3 to be queried via Redshift Spectrum
+        Performed ETL on event logs stored in JSON or parquet to be
+        transformed and uploaded to S3 to be queried via Redshift
+        Spectrum
       </li>
-      <li>Data pipeline to serve personalized recommendations</li>
       <li>
-        Build web services using Flask or Sinatra to serve machine learning
+        Built data pipeline to serve personalized recommendations
+      </li>
+      <li>
+        Built web services using Flask or Sinatra to serve machine learning
         models and other data via HTTP or GRPC
       </li>
       <li>
-        Build React components to serve results of machine learning models to
+        Built React components to serve results of machine learning models to
         users
       </li>
     </ul>
     <h3>Core Team - 2015 - 2017</h3>
     <ul>
       <li>Full-stack development with Ruby on Rails and React</li>
-      <li>Practicing TDD</li>
       <li>Full text search using Elasticsearch</li>
     </ul>
     <h2>Junior Developer</h2>
