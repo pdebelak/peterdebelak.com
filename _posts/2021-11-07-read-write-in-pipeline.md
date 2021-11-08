@@ -78,7 +78,7 @@ This works great now:
 {% highlight shell %}
 $ echo '1 2 3
 4 5 6
-7 8 9' | sh Projects/select.sh
+7 8 9' | sh select.sh
 1 2 3
 4 5 6
 7 8 9
@@ -92,7 +92,7 @@ into another command:
 {% highlight shell %}
 $ echo '1 2 3
 4 5 6
-7 8 9' | sh Projects/select.sh | wc
+7 8 9' | sh select.sh | wc
 
 {% endhighlight %}
 
@@ -128,7 +128,7 @@ Now when you run it, it behaves as expected:
 {% highlight shell %}
 $ echo '1 2 3
 4 5 6
-7 8 9' | sh Projects/select.sh | wc
+7 8 9' | sh select.sh | wc
 1 2 3
 4 5 6
 7 8 9
