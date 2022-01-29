@@ -7,9 +7,8 @@ description: Everything you always wanted to know about Peter Debelak
 
 <h1 class="lead">About Peter</h1>
 
-Peter is a software developer with an interest in web development, machine
-learning and data engineering. He aspires to learn how to make a Terminator
-or make the world a better place, whichever seems easier.
+Peter is a software developer with an interest in web development,
+machine learning and data engineering. He uses he/him pronouns.
 
 His other interests include:
 
@@ -17,5 +16,6 @@ His other interests include:
 * Bicycles
 * Music
 * Games
+* Cooking
 
-He lives with his wife and two children in Chicago.
+He lives with his wife and two children in Evanston, IL.
