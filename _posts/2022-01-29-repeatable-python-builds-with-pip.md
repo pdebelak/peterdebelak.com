@@ -11,10 +11,10 @@ While there are several tools like
 [poetry](https://python-poetry.org/) for managing python dependencies
 and doing repeatable builds (meaning being able to reliably install
 all the same dependencies on a different computer at install time),
-installing a dependencies to manage your dependencies always rubs me
-the wrong way (like, how do you manage _that_ dependency?). So, I want
-to give a brief rundown of how I manage dependencies with `pip` alone
-to do repeatable builds.
+installing a dependency to manage your dependencies always rubs me the
+wrong way (like, how do you manage _that_ dependency?). So, I want to
+give a brief rundown of how I manage dependencies with `pip` alone to
+do repeatable builds.
 
 The simplest and most common way to do this is to just pin all
 dependencies from your virtualenv in your `requirements.txt` file:
