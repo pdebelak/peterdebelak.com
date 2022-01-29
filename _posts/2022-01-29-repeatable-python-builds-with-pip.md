@@ -2,7 +2,8 @@
 title: Repeatable Python Builds with Pip
 description: A brief rundown of how to do repeatable python builds with only pip.
 tags:
-  - python
+  - Python
+  - Pip
 ---
 
 While there are several tools like

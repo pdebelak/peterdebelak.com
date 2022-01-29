@@ -2,7 +2,7 @@
 title: Reading and Writing from the Terminal in a Shell Pipeline
 description: When piping stdin and stdout in a shell script, it can be confusing to still read and write from the terminal.
 tags:
-  - shell
+  - Shell
 ---
 
 When writing a shell script that might be used in a pipeline, it can
