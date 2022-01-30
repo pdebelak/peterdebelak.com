@@ -2,12 +2,26 @@
   <ul class="blog-pager">
     {% if include.older_page %}
       <li class="previous">
-        <a href="{{ include.older_page_path }}">&larr; Older</a>
+        <a href="{{ include.older_page_path }}">
+          &larr;
+          {% if include.older_page.title %}
+            {{ include.older_page.title }}
+          {% else %}
+            Older Posts
+          {% endif %}
+        </a>
       </li>
     {% endif %}
     {% if include.newer_page %}
       <li class="next">
-        <a href="{{ include.newer_page_path }}">Newer &rarr;</a>
+        <a href="{{ include.newer_page_path }}">
+          {% if include.newer_page.title %}
+            {{ include.newer_page.title }}
+          {% else %}
+            Newer Posts
+          {% endif %}
+          &rarr;
+        </a>
       </li>
     {% endif %}
   </ul>

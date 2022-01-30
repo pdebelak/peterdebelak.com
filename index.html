@@ -6,8 +6,11 @@ description: News, hints, and tips about Peter Debelak - a computer programmer l
 ---
 
 {% for post in paginator.posts %}
-  {% include post.html post=post content=post.content %}
-  <hr>
+  <article>
+    <h2 class="blog-list-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <p class="blog-date">Last updated {{ post.date | date_to_long_string }}</p>
+    <p>{{post.description}}</p>
+  </article>
 {% endfor %}
 
 {% include pagination.html older_page=paginator.next_page older_page_path=paginator.next_page_path newer_page=paginator.previous_page newer_page_path=paginator.previous_page_path %}

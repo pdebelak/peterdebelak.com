@@ -5,7 +5,7 @@ active: about
 description: Everything you always wanted to know about Peter Debelak
 ---
 
-<h1 class="lead">About Peter</h1>
+<h1 class="lead page-title">About Peter</h1>
 
 Peter is a software developer with an interest in web development,
 machine learning and data engineering. He uses he/him pronouns.

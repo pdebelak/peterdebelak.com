@@ -4,14 +4,13 @@
 }
 
 .blog-pager {
-  padding: 0 0 10px 0;
-  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -5px;
+  padding: 0;
   list-style: none;
-  overflow: auto;
   li {
-    a {
-      padding: 10px 15px;
-    }
+    padding: 5px;
   }
   .next {
     float: right;
@@ -21,11 +20,11 @@
   }
 }
 
-.blog-tag-heading {
-  font-size: $font-size-h2;
+.blog-list-heading {
+  font-size: $font-size-h3;
   @include heading();
   @media(min-width: $tablet-size) {
-    font-size: $font-size-h1;
+    font-size: $font-size-h2;
   }
 }
 
@@ -38,11 +37,13 @@
   small {
     font-size: $font-size-base;
   }
-  a {
-    color: $headings-color;
-    &:hover {
-      color: $headings-color;
-    }
+}
+
+.blog-list-title {
+  font-size: $font-size-h4;
+  @include heading();
+  @media(min-width: $tablet-size) {
+    font-size: $font-size-h3;
   }
 }
 

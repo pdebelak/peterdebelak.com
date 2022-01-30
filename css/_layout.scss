@@ -22,7 +22,6 @@
 .l-content {
   @include col(85%, $small-computer-size);
   @include col(70%, $large-computer-size);
-  padding-top: 30px;
 }
 
 .row {
@@ -31,4 +30,8 @@
 
 .lead {
   @include lead();
+}
+
+.page-title {
+  margin-top: $line-height-computed;
 }
