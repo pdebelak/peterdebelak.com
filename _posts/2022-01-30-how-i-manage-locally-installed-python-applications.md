@@ -43,8 +43,8 @@ python3 -m venv "$venv_dir"
 
 Then, I install the packages (I actually track their versions using
 the techniques outlined in [the post about repeatable builds with
-pip](/repeatable-python-builds-with-pip/), but here I'm just showing
-installing whatever the latest versions are):
+pip](/blog/repeatable-python-builds-with-pip/), but here I'm just
+showing installing whatever the latest versions are):
 
 {% highlight shell %}
 "$venv_dir/bin/pip" black flake8 isort mypy 'python-lsp-server[all]' sqlfluff
