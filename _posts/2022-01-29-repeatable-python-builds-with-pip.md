@@ -120,9 +120,9 @@ full install with the `constraints.txt` at the end will confirm that
 
 The one thing this approach doesn't give you is the full safety of
 dependency hashing (although you can do that with the [`pip hash`
-command](pip install -r requirements.txt -c constraints.txt), I don't
-because it's too much of a hassle), but I think this gives you most of
-the benefits of using `pipenv` or `poetry` with a lot less friction.
+command](https://pip.pypa.io/en/stable/cli/pip_hash/), I don't because
+it's too much of a hassle), but I think this gives you most of the
+benefits of using `pipenv` or `poetry` with a lot less friction.
 
 If you're currently not doing repeatable builds or pinning everything
 in your `requirements.txt` file, I hope this will make your life
