@@ -8,13 +8,14 @@ My personal site using jekyll.
 First, make sure you have the right version of bundler installed:
 
 ```shell
-gem install bundler:2.1.4 --user-install
+gem install bundler:2.3.7 --user-install
 ```
 
 Install dependencies:
 
 ```
-bundle install --path vendor/bundle
+bundle config set path 'vendor/bundle'
+bundle install
 ```
 
 Run locally:
